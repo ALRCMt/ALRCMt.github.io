@@ -15,7 +15,7 @@
 
 
 
-鉴证大舞台有种你就来（ 
+鉴证大舞台有种你就来（   
 <img src="/images/mhyyyy.png" alt="沉痛悼念米指导" height="200px">
 
 QQ、B站、知乎、TG、X通通不辩经（哎哲逼怎么这么坏）  
@@ -51,4 +51,5 @@ Ctrl+C太好用了你知道吗 （哎\u{200b}怎么这么坏）
 | --- |
 | <a href="https://www.bilibili.com/video/BV1mKeRziEmG"><img width="500" src="https://i2.hdslb.com/bfs/archive/227713a338d2db6ea61ab0691470a69df5280a71.jpg" alt="中学时，那个无药可救的同学"></a> |
  
+
 
