@@ -6,7 +6,7 @@
 <b>你好，这里是ALRCMt的个人网站！: )</b>
 
 
-一个铸币高中生而已，现实抽象程度已经超越人类了（  
+一个铸币高中生而已
 图吧初级垃圾佬，海鲜平台学生党，县城撕裂者（雾  
 
 
@@ -15,11 +15,11 @@
 
 
 
-鉴证大舞台有种你就来，没种我也来，我不过只是看门人  
+鉴证大舞台有种你就来（ 
 <img src="/images/mhyyyy.png" alt="沉痛悼念米指导" height="200px">
 
-沉默看书，QQ、B站、知乎、TG、X通通不辩经（哎哲逼怎么这么坏）  
-理科生理论水平低低低低（我看文科生也没好到哪里去）  
+QQ、B站、知乎、TG、X通通不辩经（哎哲逼怎么这么坏）  
+理科生理论水平低低低低（ 
 
 装机入门水平，玩玩NAS、软路由，平时折腾折腾Liunx、PVE  
 <img src="/images/psc.jpg" alt="喜报" width="300px">  
@@ -51,3 +51,4 @@ Ctrl+C太好用了你知道吗 （哎\u{200b}怎么这么坏）
 | --- |
 | <a href="https://www.bilibili.com/video/BV1mKeRziEmG"><img width="500" src="https://i2.hdslb.com/bfs/archive/227713a338d2db6ea61ab0691470a69df5280a71.jpg" alt="中学时，那个无药可救的同学"></a> |
  
+
