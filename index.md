@@ -40,8 +40,7 @@ Ctrl+C太好用了你知道吗 （哎\u{200b}怎么这么坏）
 > <i>我不是男娘 不OD 不改花刀</i></b>
 
 <hr />
-<i>装机线是不理的</i>  
-<img src="./images/server_open.jpg" width="280px">
+<i></i>  
 
 <i>代码是懒得写的（截止2025.9）</i>  
 <img src="./images/stats.png" alt="stats" width="300px">
@@ -53,7 +52,7 @@ Ctrl+C太好用了你知道吗 （哎\u{200b}怎么这么坏）
 
 ### 成就
 
-- H.M.R.资料库的建立（旧）
+- H.M.R.资料库的建立（已停止）
 - MtAIO个人服务器的搭建
 
 前者没有什么技术含量（实则不然），断断续续整理了两千多件社会科学资料，目前该项目正处于重开发状态  
@@ -62,10 +61,10 @@ Ctrl+C太好用了你知道吗 （哎\u{200b}怎么这么坏）
 - HMR(显然服务没有开)
 <img src="./images/hmr_data.png" width="650px">
 
-- 服务器外观（手办是蕾娜，随便买的便宜货）  
+- AIO服务器外观（手办是蕾娜，随便买的便宜货）  
 <img src="./images/server_over.png" width="400px">
 
-- 服务器web  
+- PVE界面  
 <img src="./images/MtENP_web.png" width="600px">
 <hr />
 

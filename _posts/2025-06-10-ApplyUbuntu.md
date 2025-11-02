@@ -1,223 +1,14 @@
 ---
-title: 应用配置
+title: Ubuntu系统配置
 author: ALRCMt
 date: 2025-06-10
 category: Jekyll
 layout: post
 ---
 
-> 小提示：  
-> 在 Linux 系统中 Ctrl + Shift + C 复制； Ctrl + Shift + V: 粘贴  
-> 在 vi/vim 编辑器中，`:wq`是保存并退出，`:q!`是不保存退出  
-> 在 nano 编辑器中 Ctrl + W 快捷键是查找文本，但是与 web 界面关闭页面冲突，所以可以用 Ctrl + Q 代替，Ctrl + X 是退出，会询问是否保存
-> sudo 不能提升 cd 的权限
+**其实大部分操作主要通过Docker完成**
 
 <hr />
-
-## PVE 配置
-
-### 1.设置 PVE 的 APT 源
-
-**8.x 版本设置**
-PVE 的默认软件源是他的企业服务地址，我们个人使用需要将其换成国内的软件源
-编辑`/etc/apt/sources.list`，替换如下
-
-```shell
-deb https://mirrors.ustc.edu.cn/debian bookworm main contrib
-deb https://mirrors.ustc.edu.cn/debian bookworm-updates main contrib
-deb https://mirrors.ustc.edu.cn/debian-security bookworm-security main contrib
-```
-
-将 PVE 的企业源 `/etc/apt/sources.list.d/pve-enterprise.sources` 注释掉  
-将 PVE 的 Ceph 源`/etc/apt/sources.list.d/ceph.list`，替换如下
-
-```shell
-deb https://mirrors.tuna.tsinghua.edu.cn/proxmox/debian/ceph-quincy bookworm no-subscription
-```
-
-在`/etc/apt/sources.list.d/`下创建 pve-no-sub.list 文件，填上以下内容
-
-```shell
-deb https://mirrors.tuna.tsinghua.edu.cn/proxmox/debian bookworm pve-no-subscription
-```
-
-**9.x 版本设置**
-在`/etc/apt/sources.list.d/debian.sources `中注释掉原有配置，添加以下
-
-```shell
-Types: deb
-URIs: https://mirrors.tuna.tsinghua.edu.cn/debian
-Suites: trixie trixie-updates trixie-backports
-Components: main contrib non-free non-free-firmware
-Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
-
-Types: deb-src
-URIs: https://mirrors.tuna.tsinghua.edu.cn/debian
-Suites: trixie trixie-updates trixie-backports
-Components: main contrib non-free non-free-firmware
-Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
-```
-
-> 因为 9.x 版本 BUG 太多了，这下面的源换不换随便，我也不清楚
-
-> 将 PVE 的企业源 `/etc/apt/sources.list.d/pve-enterprise.sources` 注释掉  
-> 将 PVE 的 Ceph 源 `/etc/apt/sources.list.d/ceph.sources` 也替换成清华源
-
-```shell
-Types: deb
-URIs: https://mirrors.tuna.tsinghua.edu.cn/proxmox/debian/ceph-squid
-Suites: trixie
-Components: main
-Signed-By: /usr/share/keyrings/proxmox-archive-keyring.gpg
-```
-
-> 在 `/etc/apt/sources.list.d` 目录下创建 pve-no-subscription.sources 文件，填上以下内容
-
-```shell
-Types: deb
-URIs: https://mirrors.tuna.tsinghua.edu.cn/proxmox/debian/pve
-Suites: trixie
-Components: pve-no-subscription
-Signed-By: /usr/share/keyrings/proxmox-archive-keyring.gpg
-```
-
-> 如果修改 apt 源后报错，[解决方法](/jekyll/2025-06-11-LoveFormMe.html#06pve-%E6%9B%B4%E6%8D%A2-apt-%E6%BA%90%E5%90%8E%E6%8A%A5%E9%94%99)
-
-### 2.网络唤醒 WOL
-
-需要在 BIOS 中开启 WOL 功能，各主板设置方法不同，自己上网查去  
-默认情况下，PVE 的网络唤醒是禁用的，需要手动打开才可以网络唤醒
-
-安装 ethtool 工具
-
-```shell
-apt install ethtool
-```
-
-查看网卡信息
-
-```shell
-
-ethtool [网卡名称] # 观察输出结果Supports Wake-on 与 Wake-on
-
-# supports wake-on 判断该网卡是否支持 WOL 唤醒，若值为 pumbg 则表示支持 WOL
-# Wake-on 值为 d 则表示 WOL 禁用状态，g 则为开启，PVE 默认为 d
-```
-
-开启 WOL 网络唤醒
-
-```shell
-ethtool -s eth0 wol g
-```
-
-由于每次开机时，Wake-on 的值都会重置为 d，因此需要在开机时自动运行开启 WOL 的命令
-
-编辑 /etc/rc.local 文件
-
-```shell
-#!/bin/bash
-ethtool -s eth0 wol g
-​
-exit 0
-```
-
-赋予运行权限
-
-```shell
-chmod +x /etc/rc.local
-```
-
-目前我用的是蒲公英自带的**向日葵远程开机**
-
-> 冷知识：蒲公英重启后，服务器第一次无开机法远程唤醒
- 
-### 3.自动开关机
-自动开机：在主板BIOS设置唤醒事件管理，选择时间，我选择每天9点
-
-自动关机： 
-编辑 root 用户的 crontab
-``` shell
-crontab -e
-```
-添加自动关机任务
-``` shell
-# 每天凌晨2:30执行关机
-30 2 * * * /sbin/shutdown -h +5 "系统将在5分钟后关机进行日常维护，请保存您的工作"
-```
-<hr />
-
-## 旁路由 R300A 配置
-
-### 1.开启路由器的 WAN 口转发
-
-打开贝锐蒲公英后台：[https://www.pgybox.com/zh/intelligentNetwork/forwardingSettings](https://www.pgybox.com/zh/intelligentNetwork/forwardingSettings)  
-找到转发设置，打开 WAN 口入站路由转发
-
-### 2.配置异地组网
-
-打开蒲公英管理平台：[https://console.sdwan.oray.com/zh/main](https://console.sdwan.oray.com/zh/main)
-创建网络，添加硬件成员 R300A  
-添加网络成员，然后在需要连接的设备上下载贝锐蒲公英客户端，登录添加的网络成员账号，即可开启组网
-
-<img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-09%20150111.png" alt="" width="700px"/>
-
-贝锐蒲公英客户端下载：[https://pgy.oray.com/download#visitor](https://pgy.oray.com/download#visitor)
-
-<hr />
-
-## TrueNAS 配置
-
-### 1.实现硬盘直通
-
-教程地址：[pve 硬盘直通](https://github.com/firemakergk/aquar-build-helper/blob/master/details/pve%E7%A1%AC%E7%9B%98%E7%9B%B4%E9%80%9A.md)
-
-> 取消硬盘直通的方法  
-> pve 的 web 界面选择虚拟机的“硬件”，选择指定硬盘，点击“分离”
-
-### 2.配置存储池及用户设置
-
-教程：  
-[【司波图】TrueNAS SCALE 教程，第一章——简单用起来](https://www.bilibili.com/video/BV1cK411z7dx/?spm_id_from=333.1007.top_right_bar_window_custom_collection.content.click&vd_source=2a55d6df129012c2f31dfcad634bc9de)
-
-### 3.SMB 共享配置
-
-在 TrueNAS 的 Web 页面上进入共享页面  
-打开 Windows（SMB）共享服务  
-_确认在用户配置创建的用户勾选了 SMB 用户选项_
-添加 SMB 共享，选择共享目录
-
-<img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-10%20133538.png" alt="" width="700px"/>
-
-在同一个局域网中，在文件管理器显示各个硬盘页面的空白处右键，选择“添加一个网络位置”
-
-<img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-10%20133618.png" alt="" width="700px"/>
-
-一番下一步后会让你输入地址，填写 truenas 的服务地址然后又是一番下一步，最后会询问你用户名和密码  
-这时候就填写你在 TrueNas 上新创建的用户的名称和密码即可
-
-<img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-10%20134332.png" alt="" width="400px"/>
-
-<img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-10%20134349.png" alt="" width="300px"/>
-
-- 小提示：地址从你的存储池开始计算，如我这里就是/Mt 而不是 /mnt/MtData/Mt
-
-最终结果：
-
-<img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-10%20134441.png" alt="" width="300px"/>
-
-### 4.NFS 共享配置
-
-> _注意！！！_  
-> _这里请配合 Ubuntu 挂载使用_
-
-同上，打开 UNIX（NFS）共享服务  
-添加 NFS 共享，选择共享目录  
-如果想方便一点，选择配置服务，勾选允许非 root 挂载  
-之后操作在 Ubuntu 系统完成
-
-<hr />
-
-## Ubuntu 配置
 
 ### 1.安装 Docker ~~_最折磨人的一集_~~(其实还好)
 
@@ -238,6 +29,8 @@ docker version # 验证安装
 ```
 
 现在 Docker 已经安装完毕，但是拉取镜像的网络环境依旧~~十分~~很他妈糟糕，所以先不拉取 hello-world 测试，等会教学配置加速地址
+
+<hr />
 
 ### 2.安装 Docker 可视化工具 DPanel
 
@@ -260,6 +53,8 @@ docker run -d --name dpanel --restart=always \
 
 DPanel 管理地址：Ubuntu 网络地址加端口 8807
 快速使用教程：[一款更适合国人的 Docker 可视化管理工具](https://www.bilibili.com/video/BV1gDc9eaEBv/?spm_id_from=333.337.search-card.all.click&vd_source=2a55d6df129012c2f31dfcad634bc9de)
+
+<hr />
 
 ### 3.Docker 镜像仓库加速
 
@@ -286,6 +81,8 @@ DPanel 管理地址：Ubuntu 网络地址加端口 8807
 <img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-10%20151557.png" alt="" width="700px"/>
 
 如果你要加速别的仓库，请**添加仓库**，然后配置加速，[可添加仓库](https://dpanel.cc/manual/image-registry)
+
+<hr />
 
 ### 4.数据卷的创建、挂载、查看、删除
 
@@ -316,6 +113,8 @@ docker run -it -v [数据卷名字]:[容器目录] [镜像名称]
 然后创建储存卷，名称随便，其它默认，然后确定
 
 <img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-10%20145806.png" alt="" width="300px"/>
+
+<hr />
 
 ### 5.将 TrueNAS 存储池挂载到指定目录
 
@@ -353,6 +152,7 @@ umount -f [mount_point]
 
 mount | grep nfs # 最后，检查挂载是否成功取消
 ```
+<hr />
 
 ### 6.Docker 部署 Resilio Sync
 
@@ -374,6 +174,8 @@ mount | grep nfs # 最后，检查挂载是否成功取消
 
 Resilio Sync 管理地址：Ubuntu 网络地址加端口 8888  
 使用教程（更多还是自己摸索吧）：[https://zhuanlan.zhihu.com/p/745919095](https://zhuanlan.zhihu.com/p/745919095)
+
+<hr />
 
 ### 7.Docker 部署 immich
 通过 Dpanel 图形化操作，使用Docker Compose部署 
@@ -427,6 +229,8 @@ services:
 <img src="https://raw.githubusercontent.com/ALRCMt/MtAIO-Build/cb99109050678a8dc9f7933bb70bc5681e4f1084/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-16%20161707.png" alt="" width="200px"/>
 > 小贴士：上半夜Docker Hub的网络很差
 
+<hr />
+
 ### 8.Docker 部署 V2rayA
 
 **请确保你有可用稳定的代理地址**
@@ -462,7 +266,9 @@ services:
 然后回到首页，选择一个节点点击连接后，在点击左上角的启动按钮启动即可  
 <img src="https://raw.githubusercontent.com/ALRCMt/MtAIO-Build/cb99109050678a8dc9f7933bb70bc5681e4f1084/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-17%20231749.png" alt="" width="750px"/>
 
-### 9.配置代理
+<hr />
+
+### 9.配置Socks5代理
 
 安装proxychains工具  
 ``` shell
@@ -488,6 +294,8 @@ proxychains curl https://www.google.com
 出现以下内容就算成功  
 <img src="https://raw.githubusercontent.com/ALRCMt/MtAIO-Build/cb99109050678a8dc9f7933bb70bc5681e4f1084/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-17%20234722.png" alt="" width="550px"/>
 <br />
+
+<hr />
 
 ### 10.Docker部署qBittorrent WebUI
 通过Docker Compose部署
@@ -526,6 +334,8 @@ services:
 
 怎么用自己搜去
 
+<hr />
+
 ### 11.Docker部署OpenList 
 OpenList是Alist的社区版本，这里选择OpenList
 
@@ -533,6 +343,8 @@ OpenList是Alist的社区版本，这里选择OpenList
 然后 http://ip:5244 ，登录  
 官方文档：[https://openlistteam.github.io/docs/zh/](https://openlistteam.github.io/docs/zh)
 使用教程网上一大把
+
+<hr />
 
 ### 12.Docker部署Aria2 webUI
 发现有些功能qB还是没有Aria2方便，选择了Aria2的WebUI版本  

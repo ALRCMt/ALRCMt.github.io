@@ -1,14 +1,26 @@
 ---
-title: 阅读学习
+title: 草稿
 author: ALRCMt
 date: 2025-10-01
 category: Jekyll
 layout: post
 ---
-因为我太太太懒了，买了书不看，所以搞一个记录，压力一下自己，另外有好的书可以推荐给我  
+
+<h2>这里是草稿本</h2>
+
+
+纸质书记录，另外有好的书可以推荐给我  
 **_电子书没有记录，主要是不好记录_**
 
-**23年至今已阅纸质书：**
+<table width="200">
+<tr>
+<th colspan=2>疯狂星期四，v我50</th>
+</tr>
+<tr>
+<th><a href="./images/wxlll.jpg" target="_blank"><img width="50" height="50" src="./images/wechatpay.png"></a></th>
+<th>我，Mt 打钱 懂？</th>
+</tr>
+</table>
 
 - 政治: 
 > 共产党宣言 马克思 恩格斯  
