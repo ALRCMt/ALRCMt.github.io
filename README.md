@@ -6,7 +6,7 @@
 <b>你好，这里是ALRCMt的个人网站！: )</b>
 
 >  因为我的铸币操作，导致Git文件错误覆盖  
-> 所以本仓库`2ecd03caf3badd4d06593981c83783013da9b79a`号之前的提交为仓库PersonWeb-Ago
+> 所以本仓库`2ecd03c`号之前的提交为仓库PersonWeb-Ago
 的提交记录，如果你想看本仓库之前的提交记录，请看https://github.com/ALRCMt/ALRCMt.github.io/commits/dde1be4f513c2b7ba78d583087a61c4720a2a7f1/
 
 一个铸币高中生而已
@@ -54,6 +54,7 @@ Ctrl+C太好用了你知道吗 （哎\u{200b}怎么这么坏）
 | --- |
 | <a href="https://www.bilibili.com/video/BV1mKeRziEmG"><img width="500" src="https://i2.hdslb.com/bfs/archive/227713a338d2db6ea61ab0691470a69df5280a71.jpg" alt="中学时，那个无药可救的同学"></a> |
  
+
 
 
 
