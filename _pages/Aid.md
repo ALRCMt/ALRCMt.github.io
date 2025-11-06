@@ -234,7 +234,7 @@ layout: post
 <th>孔庆东</th>
 </tr>
 <tr>
-<th colspan=2 class="name">再造天堂 鲁迅小说散论毛主席论教育革命</th>
+<th colspan=2 class="name">再造天堂 鲁迅小说散论</th>
 <th>孔庆东</th>
 </tr>
 <tr>
