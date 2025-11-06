@@ -1,7 +1,7 @@
 ---
 title: Ubuntu系统配置
 author: ALRCMt
-date: 2025-06-10
+date: 2025-06-13
 category: Jekyll
 layout: post
 ---

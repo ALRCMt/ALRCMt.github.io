@@ -1,7 +1,7 @@
 ---
 title: TrueNAS系统配置
 author: ALRCMt
-date: 2025-06-10
+date: 2025-06-12
 category: Jekyll
 layout: post
 ---
