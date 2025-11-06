@@ -26,7 +26,7 @@ permalink: /
 <img src="/images/mhyyyy.png" alt="沉痛悼念米指导" height="200px">
 
 QQ、B站、知乎、TG、X通通不辩经（哎哲逼怎么这么坏）  
-理科生理论水平低低低低（  
+理科生理论水平低（  
 
 装机入门水平，玩玩NAS、软路由，平时折腾折腾Liunx、PVE   
 <img src="/images/psc.jpg" alt="喜报" width="300px">  
@@ -39,8 +39,7 @@ Ctrl+C太好用了你知道吗 （哎\u{200b}怎么这么坏）
 > <b>重大提示：
 > <i>我不是男娘 不OD 不改花刀</i></b>
 
-<hr />
-<i></i>  
+<hr /> 
 
 <i>代码是懒得写的（截止2025.9）</i>  
 <img src="./images/stats.png" alt="stats" width="300px">
