@@ -149,6 +149,7 @@ layout: post
 <th colspan=2 class="name">红星照耀中国</th>
 <th>埃德加斯诺</th>
 </tr>
+<tr>
 <th colspan=2 class="name">青春燃烧：日本动漫与战后左翼运动</th>
 <th>徐靖</th>
 </tr>
