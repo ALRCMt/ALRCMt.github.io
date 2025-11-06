@@ -30,13 +30,17 @@ QQ、B站、知乎、TG、X通通不辩经（哎哲逼怎么这么坏）
 理科生理论水平低（  
 
 装机入门水平，玩玩NAS、软路由，平时折腾折腾Liunx、PVE
-> 太好了，我又把我的CMCCRAX3000M 刷成砖了   
-<img src="/images/psc.jpg" alt="喜报" width="300px">  
+> 太好了，我又把我的CMCCRAX3000M 刷成砖了
+> 有没有对软路由刷机比较熟的？在线等挺急的   
+
+<img src="/images/psc.jpg" alt="喜报" width="300px"> 
+
 不曾熟练掌握任何计算机语言，极不熟练使用JavaScript  
 无论写什么都要De一周Bug  
-<img src="https://raw.githubusercontent.com/ALRCMt/MtAIO-Build/cb99109050678a8dc9f7933bb70bc5681e4f1084/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-16%20161707.png" width="280px">  
 
 Ctrl+C太好用了你知道吗 （哎\u{200b}怎么这么坏）
+
+<img src="https://raw.githubusercontent.com/ALRCMt/MtAIO-Build/cb99109050678a8dc9f7933bb70bc5681e4f1084/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-16%20161707.png" width="280px">  
 
 > <b>重大提示：
 > <i>我不是男娘 不OD 不改花刀</i></b>
