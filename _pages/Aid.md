@@ -87,11 +87,6 @@ layout: post
 <th class="name">自然辩证法</th>
 <th>恩格斯</th>
 </tr>
-<tr>
-<th class="fuck">未阅</th>
-<th class="name">反杜林论</th>
-<th>恩格斯</th>
-</tr>
 </table>
 
 <table>
@@ -119,7 +114,7 @@ layout: post
 <tr>
 <th class="fuck">未阅</th>
 <th class="name">社会理论二十讲</th>
-<th>汉斯·阅阿斯<br />沃尔夫冈·克诺伯</th>
+<th>汉斯·约阿斯<br />沃尔夫冈·克诺伯</th>
 </tr>
 <tr>
 <th colspan=2 class="name">形式逻辑通俗讲话</th>
@@ -258,7 +253,7 @@ layout: post
 <th>余华</th>
 </tr>
 <tr>
-<th colspan=2 class="name">十八岁出门远行/th>
+<th colspan=2 class="name">十八岁出门远行</th>
 <th>余华</th>
 </tr>
 <tr>
