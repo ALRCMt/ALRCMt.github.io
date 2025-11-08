@@ -55,7 +55,7 @@ _确认在用户配置创建的用户勾选了 SMB 用户选项_
 ### 4.NFS 共享配置
 
 > _注意！！！_  
-> _这里请配合 Ubuntu 挂载使用_
+> _这里请配合 [Ubuntu挂载](/jekyll/2025-06-13-ApplyUbuntu.html#5%E5%B0%86-truenas-%E5%AD%98%E5%82%A8%E6%B1%A0%E6%8C%82%E8%BD%BD%E5%88%B0%E6%8C%87%E5%AE%9A%E7%9B%AE%E5%BD%95) 挂载使用_
 
 同上，打开 UNIX（NFS）共享服务  
 添加 NFS 共享，选择共享目录  

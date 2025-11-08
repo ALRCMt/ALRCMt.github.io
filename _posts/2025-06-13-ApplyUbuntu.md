@@ -118,7 +118,7 @@ docker run -it -v [数据卷名字]:[容器目录] [镜像名称]
 
 ### 5.将 TrueNAS 存储池挂载到指定目录
 
-> _注意！！！ 配合[NFS 共享配置](/jekyll/2025-06-10-Apply.html#4nfs-%E5%85%B1%E4%BA%AB%E9%85%8D%E7%BD%AE)、[数据卷的创建挂载](/jekyll/2025-06-10-Apply.html#4%E6%95%B0%E6%8D%AE%E5%8D%B7%E7%9A%84%E5%88%9B%E5%BB%BA%E6%8C%82%E8%BD%BD%E6%9F%A5%E7%9C%8B%E5%88%A0%E9%99%A4)使用，将存储池挂到数据卷的挂载点_
+> _注意！！！ 配合[NFS 共享配置](/jekyll/2025-06-12-Apply.html#4nfs-%E5%85%B1%E4%BA%AB%E9%85%8D%E7%BD%AE)、[数据卷的创建挂载](#4数据卷的创建挂载查看删除)使用，将存储池挂到数据卷的挂载点_
 
 ```shell
 sudo apt update # 更新系统存储库索引
