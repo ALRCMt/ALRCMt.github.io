@@ -8,9 +8,9 @@ layout: post
 
 ### 未开放
 
-简单介绍一下，HMR是我**曾经**创立的一个项目，现已暂停  
-> 项目地址  
-> [![WEB Card](https://github-readme-stats.vercel.app/api/pin?username=ALRCMt&repo=H.M.R&theme=react&show_owner=true)](https://github.com/ALRCMt/H.M.R)
+简单介绍一下，HMR是我**曾经**计划的一个项目，现已暂停  
+ **项目地址**  
+ [![WEB Card 看不见标签就是你的网络垃圾](https://github-readme-stats-bay-xi-61.vercel.app/api/pin?username=ALRCMt&repo=H.M.R&theme=react&show_owner=true)](https://github.com/ALRCMt/H.M.R)
 
 
 <hr />
@@ -49,5 +49,9 @@ Hunan MLM Documents-Repository</h4>
 
 <br />
 <div align="CENTER">
-<img src="/images/keepmelife.png" alt="声明或者说是废话" width="600px"/>
+<figure class="image-preview">
+  <a href="/images/keepmelife.png" class="preview-link">
+    <img src="/images/keepmelife.png" alt="" width="600px">
+  </a>
+</figure>
 </div>

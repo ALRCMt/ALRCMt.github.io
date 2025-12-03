@@ -31,7 +31,11 @@ layout: post
 _确认在用户配置创建的用户勾选了 SMB 用户选项_
 添加 SMB 共享，选择共享目录
 
-<img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-10%20133538.png" alt="" width="700px"/>
+<figure class="image-preview">
+  <a href="https://github.com/ALRCMt/MtAIO-Build/raw/main/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-10%20133538.png" class="preview-link">
+    <img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-10%20133538.png" alt="" width="700px">
+  </a>
+</figure>
 
 在同一个局域网中，在文件管理器显示各个硬盘页面的空白处右键，选择“添加一个网络位置”
 

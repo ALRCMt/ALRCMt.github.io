@@ -51,14 +51,14 @@ docker run -d --name dpanel --restart=always \
  -v /home/dpanel:/dpanel registry.cn-hangzhou.aliyuncs.com/dpanel/dpanel:lite
 ```
 
-DPanel 管理地址：Ubuntu 网络地址加端口 8807
+DPanel 管理地址：Ubuntu 网络地址加端口 8807  
 快速使用教程：[一款更适合国人的 Docker 可视化管理工具](https://www.bilibili.com/video/BV1gDc9eaEBv/?spm_id_from=333.337.search-card.all.click&vd_source=2a55d6df129012c2f31dfcad634bc9de)
 
 <hr />
 
 ### 3.Docker 镜像仓库加速
 
-**命令行加速**
+**I.命令行加速**
 
 编辑`/etc/docker/daemon.json`，加入以下内容
 
@@ -74,11 +74,15 @@ DPanel 管理地址：Ubuntu 网络地址加端口 8807
 
 保存并退出
 
-**面板加速**
+**II.面板加速**
 
 在 DPanel 内选择**仓库管理**，编辑 Docker Hub 仓库  
 添加加速地址，下面有推荐加速地址  
-<img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-10%20151557.png" alt="" width="700px"/>
+<figure class="image-preview">
+  <a href="https://github.com/ALRCMt/MtAIO-Build/raw/main/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-10%20151557.png" class="preview-link">
+    <img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-10%20151557.png" alt="" width="700px">
+  </a>
+</figure>
 
 如果你要加速别的仓库，请**添加仓库**，然后配置加速，[可添加仓库](https://dpanel.cc/manual/image-registry)
 
@@ -108,11 +112,18 @@ docker run -it -v [数据卷名字]:[容器目录] [镜像名称]
 如果你想用图形化操作，如下
 打开 DPanel 的 web 页面，选择储存管理
 
-<img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-10%20145725.png" alt="" width="700px"/>
-
+<figure class="image-preview">
+  <a href="https://github.com/ALRCMt/MtAIO-Build/raw/main/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-10%20145725.png" class="preview-link">
+    <img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-10%20145725.png" alt="" width="700px">
+  </a>
+</figure>
 然后创建储存卷，名称随便，其它默认，然后确定
 
-<img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-10%20145806.png" alt="" width="300px"/>
+<figure class="image-preview">
+  <a href="https://github.com/ALRCMt/MtAIO-Build/raw/main/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-10%20145806.png" class="preview-link">
+    <img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-10%20145806.png" alt="" width="300px">
+  </a>
+</figure>
 
 <hr />
 
@@ -158,16 +169,33 @@ mount | grep nfs # 最后，检查挂载是否成功取消
 
 通过 DPanel 图形化操作，打开容器列表，创建容器，然后拉取镜像，镜像地址`resilio/sync:latest`
 
-<img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-10%20151320.png" alt="" width="600px"/>
-<img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-10%20152541.png" alt="" width="600px"/>   
+<figure class="image-preview">
+  <a href="https://github.com/ALRCMt/MtAIO-Build/raw/main/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-10%20151320.png" class="preview-link">
+    <img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-10%20151320.png" alt="" width="600px">
+  </a>
+</figure>
+<figure class="image-preview">
+  <a href="https://github.com/ALRCMt/MtAIO-Build/raw/main/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-10%20152541.png" class="preview-link">
+    <img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-10%20152541.png" alt="" width="600px">
+  </a>
+</figure> 
 等待镜像拉取完成，大部分设置已经设置好了
 只需要绑定端口，如图  
-<img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-10%20152732.png" alt="" width="500px"/>
+
+<figure class="image-preview">
+  <a href="https://github.com/ALRCMt/MtAIO-Build/raw/main/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-10%20152732.png" class="preview-link">
+    <img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-10%20152732.png" alt="" width="500px">
+  </a>
+</figure>
 
 然后挂载数据卷，选择添加映射目录  
 左侧填你创建的数据卷名称，右侧填容器内目录，目录最好是/mnt/sync/folders/\*，不然可能会没权限
 
-<img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-10%20152741.png" alt="" width="500px"/>
+<figure class="image-preview">
+  <a href="https://github.com/ALRCMt/MtAIO-Build/raw/main/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-10%20152741.png" class="preview-link">
+    <img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-10%20152741.png" alt="" width="500px">
+  </a>
+</figure>
 
 在运行配置页面，重启策略选择**未手动停止则重启**  
 最后选择**提交**，容器就创建并运行了
@@ -180,7 +208,11 @@ Resilio Sync 管理地址：Ubuntu 网络地址加端口 8888
 ### 7.Docker 部署 immich
 通过 Dpanel 图形化操作，使用Docker Compose部署 
 
-<img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-16%20145611.png" alt="" width="650px"/>
+<figure class="image-preview">
+  <a href="https://github.com/ALRCMt/MtAIO-Build/raw/main/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-16%20145611.png" class="preview-link">
+    <img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-16%20145611.png" alt="" width="650px">
+  </a>
+</figure>  
 
 选择Compose，**创建任务**，名称随便  
 下载yaml文件和env文件导入：[https://immich.app/docs/install/docker-compose](https://immich.app/docs/install/docker-compose)  
@@ -209,13 +241,24 @@ services:
 `# TZ`：时区
 
 这是我填的  
-<img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-16%20150025.png" alt="" width="380px"/>  
+<figure class="image-preview">
+  <a href="https://github.com/ALRCMt/MtAIO-Build/raw/main/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-16%20150025.png" class="preview-link">
+    <img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-16%20150025.png" alt="" width="380px">
+  </a>
+</figure>  
 <img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-16%20152101.png" alt="" width="200px"/>  
 然后**提交**，点击详情，选择**启动**  
-<img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-16%20153548.png" alt="" width="350px"/>
-
-等待镜像拉取完成，如果出现`运行中(4)`就好了  
-<img src="https://raw.githubusercontent.com/ALRCMt/MtAIO-Build/cb99109050678a8dc9f7933bb70bc5681e4f1084/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-16%20154355.png" alt="" width="700px"/>  
+<figure class="image-preview">
+  <a href="https://github.com/ALRCMt/MtAIO-Build/raw/main/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-16%20153548.png" class="preview-link">
+    <img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-16%20153548.png" alt="" width="350px">
+  </a>
+</figure>
+等待镜像拉取完成，如果出现`运行中(4)`就好了    
+<figure class="image-preview">
+  <a href="https://raw.githubusercontent.com/ALRCMt/MtAIO-Build/cb99109050678a8dc9f7933bb70bc5681e4f1084/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-16%20154355.png" class="preview-link">
+    <img src="https://raw.githubusercontent.com/ALRCMt/MtAIO-Build/cb99109050678a8dc9f7933bb70bc5681e4f1084/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-16%20154355.png" alt="" width="700px">
+  </a>
+</figure>
 管理地址：Ubuntu 网络地址加端口 2283  
 管理我的相机备份：添加外部图库，选择路径是之前映射到容器内的路径  
 然后扫描，等待，完成，其他教程自己网上搜去  
@@ -261,11 +304,18 @@ services:
 以创建或导入的方式导入节点，导入支持节点链接、订阅链接  
 
 点击右上角的设置，开启ip转发和端开分享，根据自己的需求设置  
-<img src="https://raw.githubusercontent.com/ALRCMt/MtAIO-Build/cb99109050678a8dc9f7933bb70bc5681e4f1084/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-17%20232009.png" alt="" width="450px"/>
+<figure class="image-preview">
+  <a href="https://raw.githubusercontent.com/ALRCMt/MtAIO-Build/cb99109050678a8dc9f7933bb70bc5681e4f1084/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-17%20232009.png" class="preview-link">
+    <img src="https://raw.githubusercontent.com/ALRCMt/MtAIO-Build/cb99109050678a8dc9f7933bb70bc5681e4f1084/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-17%20232009.png" alt="" width="450px">
+  </a>
+</figure>
 
 然后回到首页，选择一个节点点击连接后，在点击左上角的启动按钮启动即可  
-<img src="https://raw.githubusercontent.com/ALRCMt/MtAIO-Build/cb99109050678a8dc9f7933bb70bc5681e4f1084/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-17%20231749.png" alt="" width="750px"/>
-
+<figure class="image-preview">
+  <a href="https://raw.githubusercontent.com/ALRCMt/MtAIO-Build/cb99109050678a8dc9f7933bb70bc5681e4f1084/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-17%20231749.png" class="preview-link">
+    <img src="https://raw.githubusercontent.com/ALRCMt/MtAIO-Build/cb99109050678a8dc9f7933bb70bc5681e4f1084/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-17%20231749.png" alt="" width="750px">
+  </a>
+</figure>
 <hr />
 
 ### 9.配置Socks5代理
@@ -292,7 +342,11 @@ socks5 10.168.1.165 20170 # 如果是本机使用，ip可改为127.0.0.1
 proxychains curl https://www.google.com
 ```
 出现以下内容就算成功  
-<img src="https://raw.githubusercontent.com/ALRCMt/MtAIO-Build/cb99109050678a8dc9f7933bb70bc5681e4f1084/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-17%20234722.png" alt="" width="550px"/>
+<figure class="image-preview">
+  <a href="https://raw.githubusercontent.com/ALRCMt/MtAIO-Build/cb99109050678a8dc9f7933bb70bc5681e4f1084/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-17%20234722.png" class="preview-link">
+    <img src="https://raw.githubusercontent.com/ALRCMt/MtAIO-Build/cb99109050678a8dc9f7933bb70bc5681e4f1084/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-17%20234722.png" alt="" width="550px">
+  </a>
+</figure>
 <br />
 
 <hr />

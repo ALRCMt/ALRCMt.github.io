@@ -24,19 +24,29 @@ layout: post
 </table>
 <hr />
 
-我确实花了很多时间研究社会科学及马列主义基本原理，而且我承认我就是左翼  
-也许你的政治趋向跟我完全不一样，但是尊重理解所有不同思想，我是希望平等理性交流的（如果是倒退封建TV那我草泥马 
-QQ、B站、知乎、X通通不想跟人辩经（哎哲逼怎么这么坏），说实话我觉得互联网辩经从来没谁说服谁过，除了制造更多的网络垃圾信息没有更多的意义，下一次又是一样的吵，加上我自身理论水平也是八十八流（顺便说一下我选的物化生，不过我倒是很乐意交流的
+我确实花了很多时间研究社会科学及马列主义基本原理，而且我承认我就是左翼   
+不论你政治趋向怎么怎么样，尊重理解差异思想，我是希望平等理性交流的（如果是倒退封建TV，md滚  
+<img src="/images/think.gif" alt="" height="150px"> <img src="/images/mks.png" alt="" height="130px">  
 
-鉴证大舞台有种你就来，我是主张应该交流政治的，  
-<img src="/images/mhyyyy.png" alt="沉痛悼念米指导" height="280px">  
+QQ、B站、知乎、X通通不想跟人辩经（哎哲逼怎么这么坏），说实话我觉得互联网辩经从来没谁说服谁过，除了制造更多的网络垃圾信息没有更多的意义，下一次又是一样的吵，加上我自身理论水平也是聊胜于无，不过我倒是很乐意交流的（顺便说一下我选的物化生
 
-装机入门水平，玩玩NAS、软路由，平时折腾Liunx、PVE
-> 太好了，我又把我的CMCCRAX3000M 刷成砖了  
-> ~~有没有对软路由刷机比较熟的？在线等挺急的~~   
-> 太好了，修好了
+鉴证大舞台有种你就来，我是主张应该交流政治的，至于代价？反正我是没什么...随便吧  
+<img src="/images/mhyyyy.png" alt="沉痛悼念米指导" height="240px">  
 
-<img src="/images/psc.jpg" alt="喜报" width="300px"> 
+<hr />
+
+装机入门水平，没有主力机，不过我也不是经常玩3A，竞技游戏的话只玩战地V，所以我对显卡最可能的需求是生产力，但是目前即不是刚需也支付不起，所以现在的话...主要是玩玩PVE，所以我实际上是组了一台个人服务器，集成NAS、远程主机之类（你能想象我是用虚拟机挂明日方舟maa？   
+<figure class="image-preview">
+  <a href="/images/Opve.png" class="preview-link">
+    <img src="/images/Opve.png" alt="" width="500px">
+  </a>
+</figure>
+
+All in One, All in Boom ?拜托别再制造焦虑了好吗，又不是什么大设备大公司，哪里天天炸，你都折腾这个了还没心理准备？不过由于经验不多，我是经常踩坑，咸鱼也不是很会砍价（~~我说话很难听~~，加上我实在没什么钱，所以额..我还是随便  
+随便玩玩软路由，话说我觉得折腾最麻烦就是网络相关内容，非技术内容太多了  
+> 太好了，又把我的CMCCRAX3000M 刷成砖了  
+> ~~有没有能软路由救砖的？在线等挺急的~~修好了   
+<img src="/images/psc.jpg" alt="喜报" width="150px"> 
 
 不曾熟练掌握任何计算机语言，极不熟练使用JavaScript  
 无论写什么都要De一周Bug  
@@ -80,9 +90,9 @@ Ctrl+C太好用了你知道吗 （哎\u{200b}怎么这么坏）
 
 
 
-[![ALRCMt's GitHub stats](https://github-readme-stats-bay-xi-61.vercel.app/api?username=ALRCMt&rank_icon=percentile&theme=radical)](https://github.com/ALRCMt)
+[![ALRCMt's GitHub stats 看不见图片说明你网络垃圾](https://github-readme-stats-bay-xi-61.vercel.app/api?username=ALRCMt&rank_icon=percentile&theme=radical)](https://github.com/ALRCMt)
 
 ![](http://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=ALRCMt&theme=ayu_mirage&utcOffset=8)
-![Top Langs](https://github-readme-stats-bay-xi-61.vercel.app/api/top-langs/?username=ALRCMt&layout=compact&theme=slateorange)
+![Top Langs 看不见图片说明你网络垃圾](https://github-readme-stats-bay-xi-61.vercel.app/api/top-langs/?username=ALRCMt&layout=compact&theme=slateorange)
 
 <hr />
