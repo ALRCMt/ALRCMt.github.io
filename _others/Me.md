@@ -20,15 +20,15 @@ layout: post
 
 <hr />
 
-[![ALRCMt's GitHub stats](https://github-readme-stats.vercel.app/api?username=ALRCMt&rank_icon=percentile&theme=radical)](https://github.com/ALRCMt)
+[![ALRCMt's GitHub stats](https://github-readme-stats-bay-xi-61.vercel.app/api?username=ALRCMt&rank_icon=percentile&theme=radical)](https://github.com/ALRCMt)
 
 ![](http://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=ALRCMt&theme=ayu_mirage&utcOffset=8)
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=ALRCMt&layout=compact&theme=slateorange)
+![Top Langs](https://github-readme-stats-bay-xi-61.vercel.app/api/top-langs/?username=ALRCMt&layout=compact&theme=slateorange)
 
 <hr />
 
 > 本网站的GitHub开源仓库  [![GitHub](https://img.shields.io/badge/GitHub-ALRCMt-black.svg)](https://github.com/ALRCMt/ALRCMt.github.io)  
-[![WEB Card](https://github-readme-stats.vercel.app/api/pin?username=ALRCMt&repo=ALRCMt.github.io&theme=react&show_owner=true)](https://github.com/ALRCMt/ALRCMt.github.io)
+[![WEB Card](https://github-readme-stats-bay-xi-61.vercel.app/api/pin?username=ALRCMt&repo=ALRCMt.github.io&theme=react&show_owner=true)](https://github.com/ALRCMt/ALRCMt.github.io)
 
 
 
