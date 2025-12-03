@@ -1,33 +1,4 @@
-
+/* 保留这部分 */
 .image-preview .preview-link {
   cursor: zoom-in;
-}
-
-/* 遮罩层样式：全屏、半透明背景、置顶 */
-.preview-overlay {
-  position: fixed !important; 
-  top: 0 !important;
-  left: 0 !important;
-  width: 100% !important;
-  height: 100% !important;
-  background-color: rgba(0, 0, 0, 0.85) !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  z-index: 9999 !important; /* 最上层？ */
-  cursor: zoom-out !important;
-}
-
-/* 遮罩层内放大图片 */
-.preview-overlay img {
-  max-width: 90% !important;
-  max-height: 90% !important;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-  animation: fadeIn 0.3s ease-out;
-}
-
-/* 淡入动画 */
-@keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
 }

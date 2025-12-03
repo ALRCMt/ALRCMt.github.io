@@ -18,7 +18,11 @@ layout: post
 <th colspan=2>疯狂星期四，v我50</th>
 </tr>
 <tr>
-<th><a href="/images/wxlll.jpg" target="_blank"><img width="50" height="50" src="/images/wechatpay.png"></a></th>
+<th><figure class="image-preview">
+  <a href="/images/wxlll.jpg" class="preview-link">
+    <img src="/images/wechatpay.png" alt="" width="70px">
+  </a>
+</figure></th>
 <th>我，Mt 打钱 懂？</th>
 </tr>
 </table>
@@ -31,7 +35,11 @@ layout: post
 QQ、B站、知乎、X通通不想跟人辩经（哎哲逼怎么这么坏），说实话我觉得互联网辩经从来没谁说服谁过，除了制造更多的网络垃圾信息没有更多的意义，下一次又是一样的吵，加上我自身理论水平也是聊胜于无，不过我倒是很乐意交流的（顺便说一下我选的物化生
 
 鉴证大舞台有种你就来，我是主张应该交流政治的，至于代价？反正我是没什么...随便吧  
-<img src="/images/mhyyyy.png" alt="沉痛悼念米指导" height="240px">  
+<figure class="image-preview">
+  <a href="/images/mhyyyy.png" alt="沉痛悼念米指导" class="preview-link">
+    <img src="/images/mhyyyy.png" alt="" width="300px">
+  </a>
+</figure>
 
 <hr />
 
@@ -49,11 +57,10 @@ All in One, All in Boom ?拜托别再制造焦虑了好吗，又不是什么大�
 <img src="/images/psc.jpg" alt="喜报" width="150px"> 
 
 不曾熟练掌握任何计算机语言，极不熟练使用JavaScript  
-无论写什么都要De一周Bug  
-
+反正我是菜的出奇的（你知道我是AI生成的吗？  
 Ctrl+C太好用了你知道吗 （哎\u{200b}怎么这么坏）
 
-> <b>重大提示：
+> <b>提示：
 > <i>不是小男娘，不混OD圈，也不会改花刀</i></b>  
 <img src="https://raw.githubusercontent.com/ALRCMt/MtAIO-Build/cb99109050678a8dc9f7933bb70bc5681e4f1084/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-16%20161707.png" width="280px">  
 

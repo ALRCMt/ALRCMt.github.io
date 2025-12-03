@@ -1,3 +1,18 @@
+<script src="/assets/js/image-preview.js"></script>
+<link rel="stylesheet" href="/assets/css/image-preview.css">
+<script>
+  // 检查是否已经存在字体设置
+  if (!localStorage.getItem(':fontState')) {
+    // 如果不存在，则设置为深色模式
+    var defaultState = {
+      size: 2,
+      family: 1,
+      theme: 2
+    };
+    localStorage.setItem(':fontState', JSON.stringify(defaultState));
+  }
+</script>
+
 <meta charset="UTF-8">
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
@@ -21,7 +36,6 @@
     <meta name="author" content="{{ site.author | escape }}">
 {%- endif -%}
 
-<link rel="stylesheet" href="/assets/css/image-preview.css">
 
 <link rel="stylesheet" href="{{site.baseurl}}/assets/gitbook/style.css">
 <link rel="stylesheet" href="{{site.baseurl}}/assets/gitbook/gitbook-plugin-back-to-top-button/plugin.css">
@@ -73,17 +87,3 @@
     {%- endif -%}
 
 {%- endif -%}
-
-<script>
-  // 检查是否已经存在字体设置
-  if (!localStorage.getItem(':fontState')) {
-    // 如果不存在，则设置为深色模式
-    var defaultState = {
-      size: 2,
-      family: 1,
-      theme: 2
-    };
-    localStorage.setItem(':fontState', JSON.stringify(defaultState));
-  }
-</script>
-<script src="/assets/js/image-preview.js"></script>

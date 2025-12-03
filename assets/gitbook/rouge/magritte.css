@@ -10,7 +10,7 @@
 }
 .highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
   color: #006c6c;
-  font-style: italic;
+  font-weight: bold;
 }
 .highlight .cp {
   color: #920241;
@@ -23,7 +23,7 @@
 .highlight .gr {
   color: #f22700;
   font-weight: bold;
-  font-style: italic;
+  font-style: ;
 }
 .highlight .k, .highlight .kd, .highlight .kv {
   color: #19003a;
@@ -43,7 +43,7 @@
   color: #007500;
 }
 .highlight .ge {
-  font-style: italic;
+  font-style: ;
 }
 .highlight .gs {
   font-weight: bold;
