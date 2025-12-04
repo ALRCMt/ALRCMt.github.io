@@ -65,16 +65,8 @@ iface vmbr0 inet static
 source /etc/network/interfaces.d/*
 ```
 
-## 03.ssh 功能开启问题
+## 03.
 
-因为 ubuntu 虚拟机的控制台与本机粘贴板不互通，又不想安装其它插件，于是打算用 windows 的 cmd 远程 ssh，但是 ubuntu 的 ssh 功能死活打不开，最终发现他妈的命令中是`ssh`而不是`sshd`
-
-```shell
-# 首先启动SSH服务
-systemctl start ssh
-# 确认SSH服务已启动，输入以下命令查看SSH服务状态
-systemctl status ssh
-```
 
 ## 04.PVE8 概要面板显示 CPU 温度
 
@@ -247,10 +239,6 @@ cpupower -c all frequency-set -g performance
 cpupower -c all frequency-set -g conservative
 
 ```
-设置机械硬盘休眠：
-编辑 /etc/rc.local，在exit 0之前加如下
-``` shell
-hdparm -B 192 /dev/sda   # 设置APM级别为192
-hdparm -S 240 /dev/sda   # 长时间不活动停转（20分钟）
-```
+~~设置机械硬盘休眠~~不建议这么做，有可能导致硬盘频繁启停，已删除相关内容
+
 
