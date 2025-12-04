@@ -23,7 +23,8 @@ cover: \images\hero.gif
 </figure>
 
 
-还有某位尾号**3218**的人物噢，你永远是最唐的唐太宗
+还有某位尾号**3218**的人物噢，你永远是最撒比的唐太宗  
+草你妈
 
-> 胆小慎入，点击即听，别哭，你也过不了第二秒  
+> 胆小慎入，点击即听，你也撑不了第二秒  
 > <audio controls><source src="/images/hongxuansb.m4a" type="audio/mp3"></audio>

@@ -46,23 +46,31 @@ QQ、B站、知乎、X通通不想跟人辩经（哎哲逼怎么这么坏），�
 装机入门水平，没有主力机，不过我也不是经常玩3A，竞技游戏的话只玩战地V，所以我对显卡最可能的需求是生产力，但是目前即不是刚需也支付不起，所以现在的话...主要是玩玩PVE，所以我实际上是组了一台个人服务器，集成NAS、远程主机之类（你能想象我是用虚拟机挂明日方舟maa？   
 <figure class="image-preview">
   <a href="/images/Opve.png" class="preview-link">
-    <img src="/images/Opve.png" alt="" width="500px">
+    <img src="/images/Opve.png" alt="" width="450px">
   </a>
 </figure>
 
-All in One, All in Boom ?拜托别再制造焦虑了好吗，又不是什么大设备大公司，哪里天天炸，你都折腾这个了还没心理准备？不过由于经验不多，我是经常踩坑，咸鱼也不是很会砍价（~~我说话很难听~~，加上我实在没什么钱，所以额..我还是随便  
+All in One, All in Boom ?拜托别再制造焦虑了好吗，又不是什么大设备大公司，哪里天天炸  
+你都折腾这个了还没心理准备？不过由于经验不多，我是经常踩坑，咸鱼也不是很会砍价（~~我说话很难听的~~，加上我实在没什么钱，所以额..我还是随便 
+
+
 随便玩玩软路由，话说我觉得折腾最麻烦就是网络相关内容，非技术内容太多了  
 > 太好了，又把我的CMCCRAX3000M 刷成砖了  
-> ~~有没有能软路由救砖的？在线等挺急的~~修好了   
-<img src="/images/psc.jpg" alt="喜报" width="150px"> 
+> ~~有没有能软路由救砖的？在线等挺急的~~修好了  
+
+<i>在这里太感谢大学开源镜像站了，我都不敢想GFW下没有镜像站直连国外源有多么折磨人</i>   
+<img src="https://raw.githubusercontent.com/ALRCMt/MtAIO-Build/cb99109050678a8dc9f7933bb70bc5681e4f1084/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-16%20161707.png" width="260px"> 
+
 
 不曾熟练掌握任何计算机语言，极不熟练使用JavaScript  
 反正我是菜的出奇的（你知道我是AI生成的吗？  
-Ctrl+C太好用了你知道吗 （哎\u{200b}怎么这么坏）
+![Top Langs 看不见图片说明你网络垃圾](https://github-readme-stats-bay-xi-61.vercel.app/api/top-langs/?username=ALRCMt&layout=compact&theme=slateorange)  
+Ctrl+C太好用了你知道吗 （哎\u{200b}怎么这么坏）  
+
 
 > <b>提示：
-> <i>不是小男娘，不混OD圈，也不会改花刀</i></b>  
-<img src="https://raw.githubusercontent.com/ALRCMt/MtAIO-Build/cb99109050678a8dc9f7933bb70bc5681e4f1084/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-16%20161707.png" width="280px">  
+> <i>目前没有任何精神疾病，也没有性别认知障碍，不OD不改花刀</i></b>  
+ 
 
 <hr /> 
 
@@ -75,31 +83,31 @@ Ctrl+C太好用了你知道吗 （哎\u{200b}怎么这么坏）
 
 <hr />
 
-### 成就
+### 成就~~(没有)~~
 
-- H.M.R.资料库的建立（已停止）./jekyll/2025-06-06-About.html
-- MtAIO个人服务器的搭建./pages/HMR/
+- [H.M.R.资料库的建立（已停止）](/jekyll/2025-06-06-About.html)
+- [MtAIO个人服务器的搭建](/pages/HMR/)
 
-前者没有什么技术含量，就是超耗费时间，断断续续整理了两千多件社科资料，目前正处于重开发状态（  
-后者纯喜欢折腾折腾，看我教程应该都看得明白
+前者没有什么技术含量，就是超耗费时间，断断续续整理了两千多件社科资料，目前正处于~~重开发~~摆烂状态   
+后者其实你说需求也没有什么特别重要的需求，纯喜欢折腾，看我教程应该都看得明白
 
 
 <br />
 
+<hr />
 
 **我的github账号**
 **[https://github.com/ALRCMt](https://github.com/ALRCMt)**
 
 
-[![QQ](https://img.shields.io/badge/QQ-ALRCMt-white.svg)](https://qm.qq.com/q/4uVkK9nRPW?personal_qrcode_source=3)
-[![邮箱](https://img.shields.io/badge/邮箱-b122330417@163.com-blue.svg)](mailto:b122330417@163.com)
-[![Bilibili](https://img.shields.io/badge/Bilibili-ALRC_Mt-pink.svg)](https://space.bilibili.com/483215864?spm_id_from=333.1007.0.0)
+[![QQ](https://img.shields.io/badge/QQ-ALRCMt-white.svg?style=flat-square&logo=qq)](https://qm.qq.com/q/4uVkK9nRPW?personal_qrcode_source=3)
+[![邮箱](https://img.shields.io/badge/邮箱-b122330417@163.com-blue.svg?style=flat-square&logo=minutemailer)](mailto:b122330417@163.com)
+[![Bilibili](https://img.shields.io/badge/Bilibili-ALRC_Mt-pink.svg?style=flat-square&logo=bilibili)](https://space.bilibili.com/483215864?spm_id_from=333.1007.0.0)
 
 
 
 [![ALRCMt's GitHub stats 看不见图片说明你网络垃圾](https://github-readme-stats-bay-xi-61.vercel.app/api?username=ALRCMt&rank_icon=percentile&theme=radical)](https://github.com/ALRCMt)
 
 ![](http://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=ALRCMt&theme=ayu_mirage&utcOffset=8)
-![Top Langs 看不见图片说明你网络垃圾](https://github-readme-stats-bay-xi-61.vercel.app/api/top-langs/?username=ALRCMt&layout=compact&theme=slateorange)
 
-<hr />
+
