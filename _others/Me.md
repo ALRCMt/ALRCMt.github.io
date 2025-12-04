@@ -76,7 +76,7 @@ Ctrl+C太好用了你知道吗 （哎\u{200b}怎么这么坏）
 
 <i>代码是懒得写的</i>  
 
-![ALRCMt's GitHub stats](https://github-readme-stats-bay-xi-61.vercel.app/api?username=ALRCMt&show_icons=true&theme=cobalt)
+![ALRCMt's GitHub stats 看不见图片说明你网络垃圾](https://github-readme-stats-bay-xi-61.vercel.app/api?username=ALRCMt&show_icons=true&theme=cobalt)
 
 <i>塔学造诣是没有的</i>  
 <img src="/images/ban.png" alt="账号已封禁">
