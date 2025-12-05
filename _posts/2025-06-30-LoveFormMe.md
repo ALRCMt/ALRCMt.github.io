@@ -65,9 +65,48 @@ iface vmbr0 inet static
 source /etc/network/interfaces.d/*
 ```
 
-## 03.
+## 03.LVM精简池空间耗尽
 
+由于我之前的铸币操作，更换硬盘没有扩大LVM精简池，导致爆满  
+故障表现：某个虚拟机失去响应，显示IO错误  
+LVM精简池 (local-lvm) 已100%耗尽  
+``` shell
+# 系统日志类似报错
+Dec 04 17:23:53 pve kernel: device-mapper: thin: 252:4: reached low water mark for data device: sending event.
+Dec 04 17:23:53 pve kernel: device-mapper: thin: 252:4: switching pool to out-of-data-space (queue IO) mode
+Dec 04 17:24:54 pve kernel: device-mapper: thin: 252:4: switching pool to out-of-data-space (error IO) mode
+```
 
+此时应该立即停止错误的虚拟机，然后扩展精简池  
+``` shell
+# 扩展data逻辑卷（使用所有可用空间或部分空间）
+lvextend -l +100%FREE pve/data
+
+# 或者指定扩展大小（例如扩展50G）
+lvextend -L +50G /dev/pve/data
+
+# 验证扩展结果
+lvs
+pvesm status
+```
+
+为了防止以后又出现类似状况，设置一个阈值警告脚本
+
+``` shell
+cat > /usr/local/bin/pve-warn.sh << 'EOF'
+#!/bin/bash
+# 85以上显示严重警告
+
+thin_usage=$(lvs pve/data -o data_percent --noheadings 2>/dev/null | tr -d ' ' | cut -d. -f1)
+if [ -n "$thin_usage" ] && [ "$thin_usage" -ge 85 ]; then
+    echo "警告！精简池使用率: ${thin_usage}%"
+fi
+
+pvesm status | grep "100.00%" && echo "警告！有存储已满！"
+EOF
+
+chmod +x /usr/local/bin/pve-warn.sh
+```
 ## 04.PVE8 概要面板显示 CPU 温度
 
 通过 shell 脚本自动配置，省时省力省心

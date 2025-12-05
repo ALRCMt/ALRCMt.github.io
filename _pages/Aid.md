@@ -213,12 +213,7 @@ layout: post
 <th>乔治·奥威尔</th>
 </tr>
 <tr>
-<th colspan=2 class="name">呐喊 彷徨 故事新编 朝花夕拾<br />野草 华盖集续编 南腔北调集 准月风谈 花边文学 且介亭杂文</th>
-<th>鲁迅</th>
-</tr>
-<tr>
-<th class="fuck">阅中</th>
-<th class="name">热风 华盖集 而已集 三闲集<br />诗歌集 坟 中国小说的历史的变迁</th>
+<th colspan=2 class="name">鲁迅经典全集 中国纺织出版社</th>
 <th>鲁迅</th>
 </tr>
 <tr>

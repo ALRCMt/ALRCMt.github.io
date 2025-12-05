@@ -370,9 +370,8 @@ services:
       - WEBUI_PORT=8085  # Web UI端口
       - TORRENTING_PORT=26881 # 监听端口，默认6881，修改为20000-65535区间值，下同
     volumes:
-      - /vol1/1000/docker/qbittorrent/config:/config  # 冒号左侧修改参照上文
-      - /vol2/1000/Download2:/downloads2
-      - /vol3/1000/Download3:/downloads3          #同上
+      - /vol1/1000/docker/qbittorrent/config:/config  
+      - /var/lib/docker/volumes/link.nas/_data/下载:/downloads 
     ports:
       - 8085:8085  # 同上面Web UI端口一致
       - 26881:26881
@@ -387,15 +386,21 @@ services:
 > 请想办法换一个内核的浏览器（自己想办法）  
 > 登录后在设置>WebUI中去掉 _启用跨站请求伪造 (CSRF) 保护_ 然后保存
 
-怎么用自己搜去
+<figure class="image-preview">
+  <a href="/images/bt.png" class="preview-link">
+    <img src="/images/bt.png" alt="" width="600px">
+  </a>
+</figure>
+
+怎么用自己搜去，记得把下载文件夹别搞错了
 
 <hr />
 
 ### 11.Docker部署OpenList 
-OpenList是Alist的社区版本，这里选择OpenList
+OpenList是Alist的社区版本，这里选择哪个其实大差不差，教程也差不多
 
 创建容器，拉取`openlistteam/openlist:latest`，绑定端口，把要用的文件夹挂好  
-然后 http://ip:5244 ，登录  
+然后端口5244 ，登录  
 官方文档：[https://openlistteam.github.io/docs/zh/](https://openlistteam.github.io/docs/zh)
 使用教程网上一大把
 
@@ -403,6 +408,39 @@ OpenList是Alist的社区版本，这里选择OpenList
 
 ### 12.Docker部署Aria2 webUI
 发现有些功能qB还是没有Aria2方便，选择了Aria2的WebUI版本  
-官方链接：[https://github.com/mayswind/AriaNg](https://github.com/mayswind/AriaNg)
+Github链接：[https://github.com/mayswind/AriaNg](https://github.com/mayswind/AriaNg)
 
-怎么部署的我忘了，等会
+使用Docker Compose部署  
+Yaml文件如下
+``` shell
+version: "3.1"
+services:
+  aria2:
+    image: superng6/aria2:latest
+    container_name: aria2
+    network_mode: host
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Asia/Shanghai
+      - SECRET=Aw112211
+      - CACHE=512M
+      - PORT=6800
+      - WEBUI=true
+      - WEBUI_PORT=8086
+      - BTPORT=32516
+      - UT=true
+      - QUIET=true
+      - SMD=true
+    volumes:
+      - ./config:/config
+      - /var/lib/docker/volumes/link.nas/_data/下载:/downloads #这里是把/downloads挂在TrueNAS的nfs上了
+    restart: unless-stopped
+```
+拉取完成后打开8086端口，第一次登录管理端会提示”认证失败“  
+这是因为aria设置了密码，需要在设置中配置上密码即可  
+<figure class="image-preview">
+  <a href="/images/RPC.png" class="preview-link">
+    <img src="/images/RPC.png" alt="" width="700px">
+  </a>
+</figure>
