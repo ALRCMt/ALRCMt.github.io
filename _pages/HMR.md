@@ -45,7 +45,7 @@ Hunan MLM Documents-Repository</h4>
 <hr />
 
 所以暂不开放，我这里给一个文件列表，自己看要什么文件联系我发你  
-点击下载：[文件列表.xlsx](/images/文件列表.xlsx)
+点击下载：**<a href="/images/文件列表.xlsx" target="_blank" download>文件列表.xlsx</a>**
 
 <br />
 <div align="CENTER">

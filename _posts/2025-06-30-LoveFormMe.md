@@ -177,7 +177,7 @@ sensors
 ## 06.PVE 更换 apt 源后报错
 
 在修改`/etc/apt/sources.list.d/debian.sources`后  
-pve 的"更新>存储库"页面报错出现 "\u{200b}" 的字样  
+pve 的"更新>存储库"页面报错有可能出现 "\u{200b}" 的字样  
 是零宽空格导致，在复制粘贴的过程中产生，自己多检查几遍
 
 至于报错 _没有启用 proxmox ve 存储库没有得到任何更新_

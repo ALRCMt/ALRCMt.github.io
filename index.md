@@ -4,12 +4,25 @@ mermaid: true
 title: 主页
 permalink: /
 ---
-<img src="./images/fav.png" alt="ALRCMt" width="150px"/>
-
+<figure class="image-preview">
+  <a href="./images/fav.png" class="preview-link">
+    <img src="./images/fav.png" alt="" width="150px">
+  </a>
+</figure>
 <b>这里是ALRCMt的个人网站！ :)</b>
+<hr />
 
-目前主要是把我的PVE系统折腾指南挂在这里，以及一些包括嘲讽TYYZ之类，如果没有其它需求的话，我应该不会再变更网站了  
-也许我后面会搞一个人Blog？不管了
+- #### [MtAIO系统介绍及指南](http://127.0.0.1:4000/jekyll/2025-06-06-About.html)
+
+目前主要是把我的PVE系统折腾指南挂在这里，以及一些嘲讽TYYZ之类  
+如果没有其它需求的话，我应该不会再变更网站了，也许我后面会搞一个人Blog？不管了  
+先这样凑合用吧 **[关于ALRCMt](/others/Me/)**
+
+<figure class="image-preview">
+  <a href="/images/oic.gif" class="preview-link">
+    <img src="/images/oic.gif" alt="" width="200px">
+  </a>
+</figure>
 
 <hr />
 

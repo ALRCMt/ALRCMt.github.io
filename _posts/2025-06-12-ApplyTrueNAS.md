@@ -19,8 +19,8 @@ layout: post
 
 ### 2.配置存储池及用户设置
 
-教程：  
-[【司波图】TrueNAS SCALE 教程，第一章——简单用起来](https://www.bilibili.com/video/BV1cK411z7dx/?spm_id_from=333.1007.top_right_bar_window_custom_collection.content.click&vd_source=2a55d6df129012c2f31dfcad634bc9de)
+教程直接看司波图网上找去：  
+**[合集【司波图】TrueNAS SCALE 教程](https://space.bilibili.com/28457/lists/1061554?type=season)**
 
 <hr />
 
