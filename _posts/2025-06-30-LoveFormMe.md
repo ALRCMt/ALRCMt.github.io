@@ -280,4 +280,12 @@ cpupower -c all frequency-set -g conservative
 ```
 ~~设置机械硬盘休眠~~不建议这么做，有可能导致硬盘频繁启停，已删除相关内容
 
+<hr />
 
+## 11.显卡直通虚拟机
+
+<hr />
+
+## 12.机箱USB直通虚拟机
+
+<hr />
