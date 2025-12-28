@@ -35,7 +35,7 @@ docker version # 验证安装
 
 ### 2.安装 Docker 可视化工具 DPanel
 
-DPanel 是一款**支持中文**的 Docker 可视化插件  
+DPanel 是一款**轻量化**的 Docker 可视化插件  
 使用如下命令下载 Dpanel lite 版镜像  
 官方教程：[https://dpanel.cc/install/docker](https://dpanel.cc/install/docker)
 
