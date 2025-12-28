@@ -204,6 +204,22 @@ mount | grep nfs # 最后，检查挂载是否成功取消
 Resilio Sync 管理地址：Ubuntu 网络地址加端口 8888  
 使用教程（更多还是自己摸索吧）：[https://zhuanlan.zhihu.com/p/745919095](https://zhuanlan.zhihu.com/p/745919095)
 
+如果你的服务器有公网地址的话，请在备份端取消 **“使用中继服务器”**（真的很慢）  
+然后选择 **“预定义主机”** ，填写ip与对应端口
+
+<figure class="image-preview">
+  <a href="/images/sync2.png" class="preview-link">
+    <img src="/images/sync2.png" alt="" width="400px">
+  </a>
+</figure>
+
+<figure class="image-preview">
+  <a href="/images/sync1.png" class="preview-link">
+    <img src="/images/sync1.png" alt="" width="600px">
+  </a>
+</figure>
+
+
 <hr />
 
 ### 7.Docker 部署 immich
@@ -401,12 +417,12 @@ OpenList是Alist的社区版本，这里选择哪个其实大差不差，教程�
 
 创建容器，拉取`openlistteam/openlist:latest`，绑定端口，把要用的文件夹挂好  
 然后端口5244 ，登录  
-官方文档：[https://openlistteam.github.io/docs/zh/](https://openlistteam.github.io/docs/zh)
+官方文档：[https://www.oplist.org.cn/](https://www.oplist.org.cn/)
 使用教程网上一大把
 
 <hr />
 
-### 12.Docker部署Aria2 webUI
+### 12.Docker部署AriaNG
 发现有些功能qB还是没有Aria2方便，选择了Aria2的WebUI版本  
 Github链接：[https://github.com/mayswind/AriaNg](https://github.com/mayswind/AriaNg)
 
@@ -438,9 +454,28 @@ services:
     restart: unless-stopped
 ```
 拉取完成后打开8086端口，第一次登录管理端会提示”认证失败“  
-这是因为aria设置了密码，需要在设置中配置上密码即可  
+这是因为aria2设置了密码，需要在设置中配置上密码即可  
+之后使用RPC推送时，就填上相应ip与密码
 <figure class="image-preview">
   <a href="/images/RPC.png" class="preview-link">
     <img src="/images/RPC.png" alt="" width="700px">
+  </a>
+</figure>
+
+  
+请注意，如果你需要公网访问Aria2NG，你会发现PRC协议强制使用https，所以请使用有TLS的公网RPC地址  
+
+
+<figure class="image-preview">
+  <a href="/images/RPC2.png" class="preview-link">
+    <img src="/images/RPC2.png" alt="" width="700px">
+  </a>
+</figure>
+
+如果要使用IPV6，请直接在配置文件里修改 **“禁用IPV6：否”** ，web界面改不了  
+
+<figure class="image-preview">
+  <a href="/images/RPC3.png" class="preview-link">
+    <img src="/images/RPC3.png" alt="" width="700px">
   </a>
 </figure>
