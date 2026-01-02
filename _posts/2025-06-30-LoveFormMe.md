@@ -107,18 +107,25 @@ EOF
 
 chmod +x /usr/local/bin/pve-warn.sh
 ```
-## 04.PVE8 概要面板显示 CPU 温度
+## 04.PVE概要显示硬件监控信息
 
-通过 shell 脚本自动配置，省时省力省心
+通过 shell 脚本自动配置，省时省力省心  
+脚本来源：[https://github.com/ALRCMt/pve-manager-remix](https://github.com/ALRCMt/pve-manager-remix)  
 运行这段指令：
 
 ```shell
-(curl -Lf -o /tmp/temp.sh https://raw.githubusercontent.com/a904055262/PVE-manager-status/main/showtempcpufreq.sh || curl -Lf -o /tmp/temp.sh https://mirror.ghproxy.com/https://raw.githubusercontent.com/a904055262/PVE-manager-status/main/showtempcpufreq.sh) && chmod +x /tmp/temp.sh && /tmp/temp.sh remod
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/ALRCMt/pve-manager-remix/refs/heads/main/merged-script.sh)"
 ```
 
-然后刷新页面就可以了
+然后刷新页面就可以了，预览如下
 
-安装 CPU 温度检测软件 sensors
+<figure class="image-preview">
+  <a href="https://github.com/ALRCMt/pve-manager-remix/blob/main/view.png?raw=true" class="preview-link">
+    <img src="https://github.com/ALRCMt/pve-manager-remix/blob/main/view.png?raw=true" alt="" width="900px">
+  </a>
+</figure>
+
+至于具体温度，安装温度检测软件 sensors
 
 ```shell
 apt install lm-sensors -y
@@ -132,29 +139,15 @@ sensors-detect
 
 全部选择 yes 即可，可能其中一个地方提示 ENTER ，按 回车键 即可
 
-ISA adapter：CPU 温度信息
+~~最气人的是不知道为什么我这里死活不显示 CPU 各核心温度，所以其他我也懒得配置了~~
 
-acpitz-acpi-0：主板温度信息
-
-nvme-pci-0200：nvme 固态硬盘温度（如果有安装的话）普通的 sata 固态硬盘不会显示
-
-- 如果你不是AMD的CPU就继续看这个：[https://www.dgpyy.com/archives/205/](https://www.dgpyy.com/archives/205/)
-
-最气人的是不知道为什么我这里死活不显示 CPU 各核心温度，所以其他我也懒得配置了，平时使用
-
-```shell
-sensors
-```
-
-看一下基本温度就行了
-
-> 后续：已破案，原来是 AMD 的 U 不会显示各核心温度  
+> AMD 的 U 不会显示各核心温度  
 > 如果你是 amd 的 CPU，当输入`sensors`后如下图  
 > SYSTIN 是主板南桥温度  
 > AUXTIN 是电源温度（前提是你有传感器，否则数据无效）  
 > CPUTIN 是主板监控的 CPU 温度  
 > Tctl/Tdie 是 CPU 为降温虚标的高温，目的是使风扇转速加快  
-> 详细见 https://ngabbs.com/read.php?tid=42423467&rand=200
+> 详细见 [https://ngabbs.com/read.php?tid=42423467&rand=200](https://ngabbs.com/read.php?tid=42423467&rand=200)
 
 <img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-09%20224901.png" alt="" width="700px"/>
 
