@@ -171,8 +171,8 @@ sensors-detect
 ## 06.PVE储存库警告
 
 在修改`/etc/apt/sources.list.d/debian.sources`后  
-pve 的"更新>存储库"页面报错有可能出现警告 _没有启用 proxmox ve 存储库没有得到任何更新_  
-**忽视**，反正也不更新  
+pve 的"更新>存储库"页面报错有可能出现警告 “_没有启用 proxmox ve 存储库没有得到任何更新_”  
+**忽视**，反正也不更新（打开这玩意能卡死我）  
 
 ## 07.C6-State导致PVE崩溃
 
