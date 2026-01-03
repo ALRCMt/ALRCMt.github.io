@@ -10,17 +10,17 @@ layout: post
 
 ### 1.实现硬盘直通
 
-教程地址：[pve 硬盘直通](https://github.com/firemakergk/aquar-build-helper/blob/master/details/pve%E7%A1%AC%E7%9B%98%E7%9B%B4%E9%80%9A.md)
+我直接偷懒了 [**Firemakergk的硬盘直通教程**](https://github.com/firemakergk/aquar-build-helper/blob/master/details/pve%E7%A1%AC%E7%9B%98%E7%9B%B4%E9%80%9A.md)
 
 > 取消硬盘直通的方法  
-> pve 的 web 界面选择虚拟机的“硬件”，选择指定硬盘，点击“分离”
+> PVE 的 web 界面选择虚拟机的“硬件”，选择指定硬盘，点击“分离”
 
 <hr />
 
 ### 2.配置存储池及用户设置
 
 教程直接看司波图网上找去：  
-**[合集【司波图】TrueNAS SCALE 教程](https://space.bilibili.com/28457/lists/1061554?type=season)**
+[**合集【司波图】TrueNAS SCALE 教程**](https://space.bilibili.com/28457/lists/1061554?type=season)
 
 <hr />
 
@@ -59,7 +59,7 @@ _确认在用户配置创建的用户勾选了 SMB 用户选项_
 ### 4.NFS 共享配置
 
 > _注意！！！_  
-> _这里请配合 [Ubuntu挂载](/jekyll/2025-06-13-ApplyUbuntu.html#5%E5%B0%86-truenas-%E5%AD%98%E5%82%A8%E6%B1%A0%E6%8C%82%E8%BD%BD%E5%88%B0%E6%8C%87%E5%AE%9A%E7%9B%AE%E5%BD%95) 挂载使用_
+> _这里请配合 [**Ubuntu挂载**](/jekyll/2025-06-13-ApplyUbuntu.html#5%E5%B0%86-truenas-%E5%AD%98%E5%82%A8%E6%B1%A0%E6%8C%82%E8%BD%BD%E5%88%B0%E6%8C%87%E5%AE%9A%E7%9B%AE%E5%BD%95) 挂载使用_
 
 同上，打开 UNIX（NFS）共享服务  
 添加 NFS 共享，选择共享目录  

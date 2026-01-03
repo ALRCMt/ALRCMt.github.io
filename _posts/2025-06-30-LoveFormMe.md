@@ -39,6 +39,8 @@ layout: post
 
 将通过禁用图形化模块解决该问题
 
+<hr />
+
 ## 02._PVE 网卡莫名其妙掉线问题 不确定_
 
 ~~网上看到的原因基本是 intel 的网卡所致，怀疑是驱动兼容性问题~~
@@ -65,6 +67,7 @@ iface vmbr0 inet static
 
 source /etc/network/interfaces.d/*
 ```
+<hr />
 
 ## 03.LVM精简池空间耗尽
 
@@ -108,6 +111,8 @@ EOF
 
 chmod +x /usr/local/bin/pve-warn.sh
 ```
+<hr />
+
 ## 04.PVE概要显示硬件监控信息
 
 通过 shell 脚本自动配置，省时省力省心  
@@ -152,6 +157,8 @@ sensors-detect
 
 <img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-09%20224901.png" alt="" width="700px"/>
 
+<hr />
+
 ## 05.Ubuntu 空间仅占用一半
 
 在安装 ubuntu server 的过程中，默认只占用一半磁盘空间，如果想补救如下
@@ -168,11 +175,25 @@ sensors-detect
  df -h # 再次查看，确认文件系统的总空间大小调整成功
 ```
 
-## 06.PVE储存库警告
+<hr />
+
+## 06.PVE储存库提示
 
 在修改`/etc/apt/sources.list.d/debian.sources`后  
-pve 的"更新>存储库"页面报错有可能出现警告 “_没有启用 proxmox ve 存储库没有得到任何更新_”  
+pve 的 _"更新>存储库"_ 页面报错有可能出现警告 “_没有启用 proxmox ve 存储库没有得到任何更新_”  
 **忽视**，反正也不更新（打开这玩意能卡死我）  
+
+屏蔽PVE 9.x 与8.x 版本系统无有效订阅提示弹窗的方法  
+``` shell
+cp /usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js /usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js.bak
+
+line_num=$(grep -n "res.data.status.toLowerCase() !== 'active'" /usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js | head -1 | cut -d: -f1)
+sed -i "${line_num}s/!==/===/" /usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js
+
+systemctl restart pveproxy              
+```
+
+<hr />
 
 ## 07.C6-State导致PVE崩溃
 
@@ -183,6 +204,8 @@ pve 的"更新>存储库"页面报错有可能出现警告 “_没有启用 prox
 [https://forum.proxmox.com/threads/pve-6-raidz2-freeze-every-day-ryzen-7-1700.66629/](https://forum.proxmox.com/threads/pve-6-raidz2-freeze-every-day-ryzen-7-1700.66629/)  
 
 解决方法：进入主板bios，将**Global C-State Control**设置为disabled
+
+<hr />
 
 ## 08.BIOS时区错误
 
@@ -200,6 +223,8 @@ timedatectl | grep "RTC in local TZ"
 # 若显示yes即生效
 ```
 
+<hr />
+
 ## 09.PVE开机显示ZFS导入错误
 
 在将硬盘直通给TrueNAS后，PVE仍会尝试挂载ZFS，同时访问**可能**会导致**数据损坏**  
@@ -214,6 +239,8 @@ zpool export MtData
 ``` shell
 sudo apt purge zfsutils-linux zfs-zed -y
 ```
+
+<hr />
 
 ## 10.PVE降低功耗
 CPU电源策略调整：
@@ -274,10 +301,13 @@ cpupower -c all frequency-set -g conservative
 
 <hr />
 
-## 11.显卡直通虚拟机
+## 11.PVE本地屏幕btm监控
+
+
+## 12.显卡直通虚拟机
 
 <hr />
 
-## 12.机箱USB直通虚拟机
+## 13.机箱USB直通虚拟机
 
 <hr />
