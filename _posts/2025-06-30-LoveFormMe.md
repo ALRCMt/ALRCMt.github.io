@@ -11,9 +11,10 @@ layout: post
 热知识：**百分之九十的问题来自多余操作**，倘若出现任何问题，请尝试回退操作  
   
 > 在 vi/vim 编辑器中，`:wq`是保存并退出，`:q!`是不保存退出  
-> 在 nano 编辑器中 Ctrl + W 快捷键是查找文本，但是与 web 界面关闭页面冲突，所以可以用 Ctrl + Q 代替。Ctrl + X 是退出，会询问是否保存  
+> 在 nano 编辑器中 Ctrl + W 快捷键是查找文本，但是与 web 界面关闭页面冲突，所以可以用 Ctrl + Q 代替。Ctrl + X 是退出，会询问是否保存   
+> `apt --fix-broken install` 常用于修复依赖问题  
 
-> 请注意！在愉快的Ctrl + C 中，60%的报错来源于复制中产生的零宽空格，如果有`\u{200b}`的字样，那就是了，多检查几遍（虽然你也看不见  
+> 请注意！在愉快的Ctrl + C 中，40%的报错来源于复制中产生的零宽空格，如果有`\u{200b}`的字样，那就是了，多检查几遍（虽然你也看不见  
 
 <hr />
 
@@ -303,11 +304,126 @@ cpupower -c all frequency-set -g conservative
 
 ## 11.PVE本地屏幕btm监控
 
+因为故障排除的需要，我的PVE一直连接这一块物理屏，但是平时空空荡荡又不好看，所以可以利用`bottom`做一个图形化系统监控  
+由于bottom是一个第三方工具，你通常需要从它的GitHub发布页下载预编译的二进制文件。请先查看其GitHub仓库的最新版本  
+``` shell
+# 更新系统软件包列表
+apt update
+# 下载bottom的.deb安装包（示例为v0.9.0，请替换为最新版本）
+wget https://github.com/ClementTsang/bottom/releases/download/0.9.0/bottom_0.9.0_amd64.deb
+# 安装下载的.deb包
+dpkg -i bottom_0.9.0_amd64.deb
+
+``` 
+
+安装完成后，直接在终端输入 `btm` 命令就可以启动bottom工具了  
+快捷键可以用 `?` 查看
+我选择编辑配置文件改了布局，而且我的终端只有8色，如果不一样请自行修改
+配置文件路径：`~/.config/bottom/bottom.toml`  
+
+``` shell
+# ==========================================
+# 配置文件
+# ==========================================
+
+# 刷新频率（毫秒）
+update_rate = 1500
+
+# 温度单位（服务器一般用摄氏）
+temperature_type = "c"
+
+# 服务器通常无电池，关闭以减少干扰
+battery = false
+
+# 主题（8 色终端只能用 default 才能显示颜色）
+color = "default"
+
+# 禁用 truecolor（8 色终端必须关闭）
+truecolor = false
+
+# 隐藏表格间空隙，提高信息密度
+hide_table_gap = true
+
+# 默认按 CPU 排序进程
+default_process_sorting = "cpu"
+
+# 显示平均 CPU 使用率
+show_average_cpu = true
+
+# 网络使用二进制前缀（MiB/GiB）
+network_use_binary_prefix = true
+
+# 不使用圆角边框（SSH 下更兼容）
+use_dot = false
+
+# 不使用进程树（更清晰）
+process_tree = false
+
+# ==========================================
+# 自定义布局
+# ==========================================
+
+# 第一行：CPU（占比大）
+[[row]]
+  ratio = 35
+  [[row.child]]
+    type = "cpu"
+
+# 第二行：内存 + 磁盘 I/O
+[[row]]
+  ratio = 25
+  [[row.child]]
+    type = "mem"
+  [[row.child]]
+    type = "disk"
+
+# 第三行：网络
+[[row]]
+  ratio = 25
+  [[row.child]]
+    type = "net"
+
+# 第四行：进程列表
+[[row]]
+  ratio = 15
+  [[row.child]]
+    type = "process"
+
+# ==========================================
+# END
+# ==========================================
+
+```
+
+然后设置每次开机屏幕自动登录并执行btm  
+只有在 本地屏幕（tty1） 才会自动运行 btm ，SSH 登录不会被影响  
+``` shell
+# 创建 override 目录
+mkdir -p /etc/systemd/system/getty@tty1.service.d
+# 直接编辑 override.conf
+nano /etc/systemd/system/getty@tty1.service.d/override.conf
+```
+写入以下内容，我这里用户是root
+``` shell
+[Service]
+ExecStart=
+ExecStart=-/sbin/agetty --autologin root --noclear %I $TERM
+```
+最后重载 systemd 并重启 tty1
+``` shell
+systemctl daemon-reload
+systemctl restart getty@tty1
+```
+<hr />
 
 ## 12.显卡直通虚拟机
+
+还没到货
 
 <hr />
 
 ## 13.机箱USB直通虚拟机
+
+没时间了
 
 <hr />
