@@ -29,4 +29,4 @@ cover: \images\hero.gif
 还有某位尾号**3218**的人物 草你妈
 
 > ASMR  
-> 
+> <audio controls><source src="/images/apple.mp3" type="audio/mpeg"></audio>
