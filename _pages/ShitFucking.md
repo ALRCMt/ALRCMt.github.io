@@ -26,8 +26,7 @@ cover: \images\hero.gif
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=115315795040343&bvid=BV1PExtzNEfg&cid=32837338830&p=1&autoplay=0" allowfullscreen="allowfullscreen" width="80%" height="400" scrolling="no" frameborder="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts"></iframe>
 
 
-还有某位尾号**3218**的人物噢，你永远是最撒比的唐太宗  
-草你妈
+还有某位尾号**3218**的人物 草你妈
 
-> 胆小慎入，重口猎奇，你也撑不了第二秒  
-> <audio controls><source src="/images/hongxuansb.m4a" type="audio/mp3"></audio>
+> ASMR  
+> <audio controls><source src="/images/apple.mp3" type="audio/mpeg"></audio>

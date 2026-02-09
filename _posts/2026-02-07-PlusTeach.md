@@ -8,6 +8,8 @@ layout: post
 
 以下为附加教程，一些我认为不是必要的配置，但是由于某些原因，可能会有人像我一样需要，所以就贴出来了
 
+<hr />
+
 ## 01.PVE概要显示硬件监控信息
 
 通过 shell 脚本自动配置，省时省力省心  
@@ -21,8 +23,8 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/ALRCMt/pve-manager-remix
 然后刷新页面就可以了，预览如下
 
 <figure class="image-preview">
-  <a href="https://github.com/ALRCMt/pve-manager-remix/blob/main/view.png?raw=true" class="preview-link">
-    <img src="https://github.com/ALRCMt/pve-manager-remix/blob/main/view.png?raw=true" alt="" width="900px">
+  <a href="https://github.com/ALRCMt/pve-manager-remix/raw/main/view.png" class="preview-link">
+    <img src="https://github.com/ALRCMt/pve-manager-remix/raw/main/view.png" alt="" width="900px">
   </a>
 </figure>
 
@@ -50,7 +52,11 @@ sensors-detect
 > Tctl/Tdie 是 CPU 为降温虚标的高温，目的是使风扇转速加快  
 > 详细见 [https://ngabbs.com/read.php?tid=42423467&rand=200](https://ngabbs.com/read.php?tid=42423467&rand=200)
 
-<img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-09%20224901.png" alt="" width="700px"/>
+<figure class="image-preview">
+  <a href="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2411.png" class="preview-link">
+    <img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2411.png" alt="" width="700px">
+  </a>
+</figure>
 
 <hr />
 
@@ -115,7 +121,24 @@ cpupower -c all frequency-set -g conservative
 
 ## 03.本地屏幕调整分辨率
 
-
+编辑GRUB配置文件：
+``` shell
+bash
+nano /etc/default/grub
+```
+``` shell
+GRUB_CMDLINE_LINUX_DEFAULT="quiet video=1366x768"  
+#这一行结尾添加你想要的分辨率，比如video=1366x768，请注意这里面不要有nomodeset 参数
+```
+然后更新并重启
+```shell
+update-grub
+reboot
+```
+如果失败，有可能是 `/etc/default/grub.d/ `目录中文件问题  
+我这里是因为`/etc/default/grub.d/installer.cfg`  
+它里面的一行配置 `GRUB_CMDLINE_LINUX="$GRUB_CMDLINE_LINUX nomodeset"`，会在生成GRUB配置时，强制给所有内核启动行添加 nomodeset 参数  
+注释掉就好了
 
 <hr />
 
@@ -236,11 +259,102 @@ systemctl restart getty@tty1
 
 ## 05.显卡直通虚拟机
 
-还没到货
+编辑`/etc/default/grub`  
+添加关键的PCIe ACS覆盖参数，这个参数能帮助系统更好地分离PCIe设备
+``` shell
+GRUB_CMDLINE_LINUX_DEFAULT="quiet amd_iommu=on pcie_acs_override=downstream,multifunction video=1366x768" 
+# 我的如上，若是是Intel处理器，改成 intel_iommu=on
+```
+
+查看要直通的显卡，并记住PCIe通道，比如25:00
+``` shell
+lspci -nn | grep -E 'VGA|3D'
+```
+
+进一步查看，输出应包含视频与音频的ID，记下这些ID 如10de:128b和 10de:0e0f
+```
+lspci -nn | grep -E "25:00"
+```
+输出应类似如下  
+```shell
+root@pve:~# lspci -nn | grep -E 'VGA|3D'
+25:00.0 VGA compatible controller [0300]: NVIDIA Corporation GK208B [GeForce GT 710] [10de:128b] (rev a1)
+26:00.0 VGA compatible controller [0300]: Advanced Micro Devices, Inc. [AMD/ATI] Cedar [Radeon HD 5000/6000/7350/8350 Series] [1002:68f9]
+
+root@pve:~# lspci -nn | grep -E "25:00"
+25:00.0 VGA compatible controller [0300]: NVIDIA Corporation GK208B [GeForce GT 710] [10de:128b] (rev a1)
+25:00.1 Audio device [0403]: NVIDIA Corporation GK208 HDMI/DP Audio Controller [10de:0e0f] (rev a1)
+```
+
+创建VFIO配置文件（如果已存在则编辑）：
+``` shell
+nano /etc/modprobe.d/vfio.conf
+```
+在文件中添加或确保有类似以下内容（请使用你上一步确认的ID）：
+```shell
+options vfio-pci ids=10de:128b,10de:0e0f
+```
+这行命令告诉系统：对设备ID为 10de:128b 和 10de:0e0f 的PCI设备，使用 vfio-pci 驱动
+
+将VFIO相关模块加入启动加载列表：
+```shell
+nano /etc/modules
+```
+在文件末尾添加以下几行（如果它们不存在）：
+```shell
+bash
+vfio
+vfio_iommu_type1
+vfio_pci
+vfio_virqfd
+```
+更新初始内存盘并重启
+```shell
+bash
+update-initramfs -u -k all
+reboot
+```
+重启后，通过SSH重新登录PVE，运行以下命令验证：
+
+```shell
+lspci -knn -s 25:00 # 检查NVIDIA显卡的驱动是否已变为vfio-pci
+
+lsmod | grep vfio # 检查vfio-pci驱动是否正常加载
+```
+预期结果：  
+在 `lspci` 的输出中，25:00.0 和 25:00.1 的 Kernel driver in use: 一行应该显示为 vfio-pci  
+`lsmod` 应显示 vfio_pci、vfio_iommu_type1 等模块  
+
+接下来，需要为Windows通上显卡及其音频设备，由于WEB页面有点问题，编辑配置文件  
+添加PCI设备，再修改显示设备，保留一个基础的虚拟显示设备
+```shell
+/etc/pve/qemu-server/103.conf #这里的103是虚拟机ID，请自行修改
+```
+```shell
+bios: ovmf
+boot: order=ide0;net0;ide2
+cores: 4
+cpu: host
+efidisk0: local-lvm:vm-103-disk-0,efitype=4m,pre-enrolled-keys=1,size=4M
+hostpci0: 0000:25:00.0,pcie=1,x-vga=1,rombar=1 # 新增这两行，这一行是显卡
+hostpci1: 0000:25:00.1,pcie=1                  # 这一行是音频设备
+......
+vga: virtio # 这里改成 virtio 作为后台的“影子”显示设备，满足PVE管理界面
+......
+```
+
+保存并重启，将你的外接屏幕插在对应显卡上，一开始本地屏幕可能卡在PVE画面（如下），WEB上会先出现画面  
+只需要等待显卡自动打上驱动，本地屏幕就可以看见了  
+
+<figure class="image-preview">
+  <a href="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2441.png" class="preview-link">
+    <img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2441.png" alt="" width="600px">
+  </a>
+</figure>
 
 <hr />
 
-## 06.机箱USB直通虚拟机
+## 06.USB直通虚拟机
 
 没时间了
 

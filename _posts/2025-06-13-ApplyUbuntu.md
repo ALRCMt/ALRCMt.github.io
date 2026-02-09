@@ -80,8 +80,8 @@ DPanel 管理地址：Ubuntu 网络地址加端口 8807
 在 DPanel 内选择**仓库管理**，编辑 Docker Hub 仓库  
 添加加速地址，下面有推荐加速地址  
 <figure class="image-preview">
-  <a href="https://github.com/ALRCMt/MtAIO-Build/raw/main/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-10%20151557.png" class="preview-link">
-    <img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-10%20151557.png" alt="" width="700px">
+  <a href="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2420.png" class="preview-link">
+    <img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2420.png" alt="" width="700px">
   </a>
 </figure>
 
@@ -114,15 +114,15 @@ docker run -it -v [数据卷名字]:[容器目录] [镜像名称]
 打开 DPanel 的 web 页面，选择储存管理
 
 <figure class="image-preview">
-  <a href="https://github.com/ALRCMt/MtAIO-Build/raw/main/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-10%20145725.png" class="preview-link">
-    <img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-10%20145725.png" alt="" width="700px">
+  <a href="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2417.png" class="preview-link">
+    <img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2417.png" alt="" width="700px">
   </a>
 </figure>
 然后创建储存卷，名称随便，其它默认，然后确定
 
 <figure class="image-preview">
-  <a href="https://github.com/ALRCMt/MtAIO-Build/raw/main/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-10%20145806.png" class="preview-link">
-    <img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-10%20145806.png" alt="" width="300px">
+  <a href="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2418.png" class="preview-link">
+    <img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2418.png" alt="" width="300px">
   </a>
 </figure>
 
@@ -171,21 +171,21 @@ mount | grep nfs # 最后，检查挂载是否成功取消
 通过 DPanel 图形化操作，打开容器列表，创建容器，然后拉取镜像，镜像地址`resilio/sync:latest`
 
 <figure class="image-preview">
-  <a href="https://github.com/ALRCMt/MtAIO-Build/raw/main/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-10%20151320.png" class="preview-link">
-    <img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-10%20151320.png" alt="" width="600px">
+  <a href="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2419.png" class="preview-link">
+    <img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2419.png" alt="" width="600px">
   </a>
 </figure>
 <figure class="image-preview">
-  <a href="https://github.com/ALRCMt/MtAIO-Build/raw/main/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-10%20152541.png" class="preview-link">
-    <img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-10%20152541.png" alt="" width="600px">
+  <a href="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2421.png" class="preview-link">
+    <img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2421.png" alt="" width="600px">
   </a>
 </figure> 
 等待镜像拉取完成，大部分设置已经设置好了
 只需要绑定端口，如图  
 
 <figure class="image-preview">
-  <a href="https://github.com/ALRCMt/MtAIO-Build/raw/main/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-10%20152732.png" class="preview-link">
-    <img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-10%20152732.png" alt="" width="500px">
+  <a href="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2422.png" class="preview-link">
+    <img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2422.png" alt="" width="500px">
   </a>
 </figure>
 
@@ -193,8 +193,8 @@ mount | grep nfs # 最后，检查挂载是否成功取消
 左侧填你创建的数据卷名称，右侧填容器内目录，目录最好是/mnt/sync/folders/\*，不然可能会没权限
 
 <figure class="image-preview">
-  <a href="https://github.com/ALRCMt/MtAIO-Build/raw/main/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-10%20152741.png" class="preview-link">
-    <img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-10%20152741.png" alt="" width="500px">
+  <a href="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2423.png" class="preview-link">
+    <img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2423.png" alt="" width="500px">
   </a>
 </figure>
 
@@ -208,14 +208,14 @@ Resilio Sync 管理地址：Ubuntu 网络地址加端口 8888
 然后选择 **“预定义主机”** ，填写ip与对应端口
 
 <figure class="image-preview">
-  <a href="/images/sync2.png" class="preview-link">
-    <img src="/images/sync2.png" alt="" width="400px">
+  <a href="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2438.png" class="preview-link">
+    <img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2438.png" alt="" width="400px">
   </a>
 </figure>
 
 <figure class="image-preview">
-  <a href="/images/sync1.png" class="preview-link">
-    <img src="/images/sync1.png" alt="" width="600px">
+  <a href="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2437.png" class="preview-link">
+    <img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2437.png" alt="" width="600px">
   </a>
 </figure>
 
@@ -226,8 +226,8 @@ Resilio Sync 管理地址：Ubuntu 网络地址加端口 8888
 通过 Dpanel 图形化操作，使用Docker Compose部署 
 
 <figure class="image-preview">
-  <a href="https://github.com/ALRCMt/MtAIO-Build/raw/main/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-16%20145611.png" class="preview-link">
-    <img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-16%20145611.png" alt="" width="650px">
+  <a href="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2424.png" class="preview-link">
+    <img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2424.png" alt="" width="650px">
   </a>
 </figure>  
 
@@ -259,21 +259,21 @@ services:
 
 这是我填的  
 <figure class="image-preview">
-  <a href="https://github.com/ALRCMt/MtAIO-Build/raw/main/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-16%20150025.png" class="preview-link">
-    <img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-16%20150025.png" alt="" width="380px">
+  <a href="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2425.png" class="preview-link">
+    <img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2425.png" alt="" width="380px">
   </a>
 </figure>  
-<img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-16%20152101.png" alt="" width="200px"/>  
+<img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2426.png" alt="" width="200px"/>  
 然后**提交**，点击详情，选择**启动**  
 <figure class="image-preview">
-  <a href="https://github.com/ALRCMt/MtAIO-Build/raw/main/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-16%20153548.png" class="preview-link">
-    <img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-16%20153548.png" alt="" width="350px">
+  <a href="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2427.png" class="preview-link">
+    <img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2427.png" alt="" width="350px">
   </a>
 </figure>
 等待镜像拉取完成，如果出现`运行中(4)`就好了    
 <figure class="image-preview">
-  <a href="https://raw.githubusercontent.com/ALRCMt/MtAIO-Build/cb99109050678a8dc9f7933bb70bc5681e4f1084/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-16%20154355.png" class="preview-link">
-    <img src="https://raw.githubusercontent.com/ALRCMt/MtAIO-Build/cb99109050678a8dc9f7933bb70bc5681e4f1084/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-16%20154355.png" alt="" width="700px">
+  <a href="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2428.png" class="preview-link">
+    <img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2428.png" alt="" width="700px">
   </a>
 </figure>
 管理地址：Ubuntu 网络地址加端口 2283  
@@ -286,7 +286,7 @@ services:
 > 那就是网络问题，如果你已经配置了加速  
 > 那么，似乎没有更好的办法，**祈祷**吧
 
-<img src="https://raw.githubusercontent.com/ALRCMt/MtAIO-Build/cb99109050678a8dc9f7933bb70bc5681e4f1084/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-16%20161707.png" alt="" width="200px"/>
+<img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2429.png" alt="" width="200px"/>
 > 小贴士：上半夜Docker Hub的网络很差
 
 <hr />
@@ -322,15 +322,15 @@ services:
 
 点击右上角的设置，开启ip转发和端开分享，根据自己的需求设置  
 <figure class="image-preview">
-  <a href="https://raw.githubusercontent.com/ALRCMt/MtAIO-Build/cb99109050678a8dc9f7933bb70bc5681e4f1084/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-17%20232009.png" class="preview-link">
-    <img src="https://raw.githubusercontent.com/ALRCMt/MtAIO-Build/cb99109050678a8dc9f7933bb70bc5681e4f1084/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-17%20232009.png" alt="" width="450px">
+  <a href="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2431.png" class="preview-link">
+    <img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2431.png" alt="" width="450px">
   </a>
 </figure>
 
 然后回到首页，选择一个节点点击连接后，在点击左上角的启动按钮启动即可  
 <figure class="image-preview">
-  <a href="https://raw.githubusercontent.com/ALRCMt/MtAIO-Build/cb99109050678a8dc9f7933bb70bc5681e4f1084/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-17%20231749.png" class="preview-link">
-    <img src="https://raw.githubusercontent.com/ALRCMt/MtAIO-Build/cb99109050678a8dc9f7933bb70bc5681e4f1084/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-17%20231749.png" alt="" width="750px">
+  <a href="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2430.png" class="preview-link">
+    <img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2430.png" alt="" width="750px">
   </a>
 </figure>
 <hr />
@@ -360,8 +360,8 @@ proxychains curl https://www.google.com
 ```
 出现以下内容就算成功  
 <figure class="image-preview">
-  <a href="https://raw.githubusercontent.com/ALRCMt/MtAIO-Build/cb99109050678a8dc9f7933bb70bc5681e4f1084/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-17%20234722.png" class="preview-link">
-    <img src="https://raw.githubusercontent.com/ALRCMt/MtAIO-Build/cb99109050678a8dc9f7933bb70bc5681e4f1084/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-17%20234722.png" alt="" width="550px">
+  <a href="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2432.png" class="preview-link">
+    <img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2432.png" alt="" width="550px">
   </a>
 </figure>
 <br />
@@ -403,8 +403,8 @@ services:
 > 登录后在设置>WebUI中去掉 _启用跨站请求伪造 (CSRF) 保护_ 然后保存
 
 <figure class="image-preview">
-  <a href="/images/bt.png" class="preview-link">
-    <img src="/images/bt.png" alt="" width="600px">
+  <a href="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2433.png" class="preview-link">
+    <img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2433.png" alt="" width="600px">
   </a>
 </figure>
 
@@ -457,8 +457,8 @@ services:
 这是因为aria2设置了密码，需要在设置中配置上密码即可  
 之后使用RPC推送时，就填上相应ip与密码
 <figure class="image-preview">
-  <a href="/images/RPC.png" class="preview-link">
-    <img src="/images/RPC.png" alt="" width="700px">
+  <a href="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2434.png" class="preview-link">
+    <img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2434.png" alt="" width="700px">
   </a>
 </figure>
 
@@ -467,15 +467,15 @@ services:
 
 
 <figure class="image-preview">
-  <a href="/images/RPC2.png" class="preview-link">
-    <img src="/images/RPC2.png" alt="" width="700px">
+  <a href="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2434.png" class="preview-link">
+    <img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2435.png" alt="" width="700px">
   </a>
 </figure>
 
 如果要使用IPV6，请直接在配置文件里修改 **“禁用IPV6：否”** ，web界面改不了  
 
 <figure class="image-preview">
-  <a href="/images/RPC3.png" class="preview-link">
-    <img src="/images/RPC3.png" alt="" width="700px">
+  <a href="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2436.png" class="preview-link">
+    <img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2436.png" alt="" width="700px">
   </a>
 </figure>
