@@ -6,6 +6,22 @@ category: Jekyll
 layout: post
 cover: \images\hero.gif
 ---
+<style>
+pre code.language-info,
+pre:has(code.language-info) {
+    display: block;
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", "微软雅黑", "PingFang SC", "Hiragino Sans GB", "Helvetica Neue", Arial, sans-serif !important;
+    font-size: 1.0em;
+    color: #2c3e50;
+    padding: 18px 20px;
+    white-space: pre-wrap;
+    word-break: break-word;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.03);
+}
+</style>
 
 **国内技术平台是煞笔，谁用谁煞笔**  
 <img src="/images/sm.jpg" alt="SM" width="400px">
@@ -28,12 +44,13 @@ cover: \images\hero.gif
 
 还有某位尾号**3218**的人物 草你妈
 
-> ASMR  
+> Apple Flower’s ASMR  
 > <audio controls><source src="/images/apple.mp3" type="audio/mpeg"></audio>
->apple
+>
 
-```text
-亲爱的同学们，大家好。
+
+```info
+亲爱的同学们，大家好
 
 本周，学校将同步开展全校男女生寝室调整工作。这绝非一次简单的空间迁移，而是一场考验大家凝聚力、意志力、战斗力，传承并践行桃源一中精神的特殊历练。首先，我要向每一位理解配合学校安排的同学，向即将从深入寝保障协助同学们搬寝的班主任道一声谢谢。
 
@@ -66,4 +83,5 @@ cover: \images\hero.gif
 最后，希望同学们听从指挥，安全有序，完成搬寝；希望大家团结拼搏，全力以赴，备战期考。祝同学们搬寝顺利，祝同学们期考大捷！
 
 谢谢大家。
+
 ```
