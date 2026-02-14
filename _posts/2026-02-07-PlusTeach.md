@@ -361,3 +361,86 @@ vga: virtio # 这里改成 virtio 作为后台的“影子”显示设备，满�
 <hr />
 
 
+## 07.ServerBox设备监测器
+
+[**ServerBox00Monitor**](https://github.com/lollipopkit/server_box_monitor/blob/main/README_zh.md)是一个运行在服务器端的应用程序  
+
+<figure class="image-preview">
+  <a href="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2442.png" class="preview-link">
+    <img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2442.png" alt="" width="500px">
+  </a>
+</figure>
+
+配合[**Flutter Server Box**](https://github.com/lollipopkit/flutter_server_box/blob/main/README_zh.md)提供服务器状态图表和管理工具
+
+我主要用于IOS的桌面组件查看ImmortalWrt的状态，请先安装**Server Box**  
+由于ImmortalWrt系统安装与其[Wiki实例](https://github.com/lollipopkit/server_box_monitor/wiki)不同，故此给出教程 
+
+```shell
+# 随便进一个目录
+cd /mnt
+
+# 下载你确认的版本
+wget https://github.com/lollipopkit/server_box_monitor/releases/download/v0.1.10/server_box_monitor_0.1.10_linux_arm64.tar.gz
+
+# 解压
+tar -xzf server_box_monitor_0.1.10_linux_arm64.tar.gz
+
+# 移动二进制
+mv server_box_monitor /usr/bin/
+chmod +x /usr/bin/server_box_monitor
+
+# 验证
+file /usr/bin/server_box_monitor
+```
+
+然后创建服务脚本，这里与Wiki不同，用procd服务代替systemd
+```shell
+nano /etc/init.d/server_box_monitor
+```
+``` shell
+#!/bin/sh /etc/rc.common
+
+USE_PROCD=1
+START=95
+STOP=01
+
+start_service() {
+    # 关键：先进入 root 目录，保证相对路径正确
+    cd /root
+    
+    procd_open_instance
+    procd_set_param command /usr/bin/server_box_monitor
+    procd_append_param command serve
+    # procd_append_param command --addr 0.0.0.0:34567
+    procd_set_param respawn
+    procd_set_param stderr 1
+    procd_set_param stdout 1
+    procd_set_param user root
+    
+    # 显式指定配置文件路径
+    procd_set_param env HOME=/root
+    
+    procd_close_instance
+}
+```
+```shell
+# 赋予操作权限
+chmod +x /etc/init.d/server_box_monitor
+# 根据需求编辑配置文件
+nano /root/.config/server_box/config.json
+```
+配置文件可配置端口、主机名及推送机制等，具体看[Wiki](https://github.com/lollipopkit/server_box_monitor/wiki)  
+
+```shell
+# 启用开机自启
+/etc/init.d/server_box_monitor enable
+
+# 启动服务
+/etc/init.d/server_box_monitor start
+
+# 查看进程
+ps | grep server_box_monitor | grep -v grep
+```
+最后启动并访问相应地址 如 http://DEVICE_IP:3770/status  
+若看见json格式的输出就OK了  

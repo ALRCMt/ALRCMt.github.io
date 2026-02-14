@@ -13,7 +13,7 @@ pre:has(code.language-info) {
     background: #f5f5f5;
     border: 1px solid #ddd;
     border-radius: 6px;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", "微软雅黑", "PingFang SC", "Hiragino Sans GB", "Helvetica Neue", Arial, sans-serif !important;
+    font-family: Arial, sans-serif !important;
     font-size: 1.0em;
     color: #2c3e50;
     padding: 18px 20px;
