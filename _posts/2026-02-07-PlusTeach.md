@@ -412,7 +412,7 @@ start_service() {
     procd_open_instance
     procd_set_param command /usr/bin/server_box_monitor
     procd_append_param command serve
-    # procd_append_param command --addr 0.0.0.0:34567
+    # procd_append_param command --addr 0.0.0.0:3770
     procd_set_param respawn
     procd_set_param stderr 1
     procd_set_param stdout 1
@@ -430,8 +430,8 @@ chmod +x /etc/init.d/server_box_monitor
 # 根据需求编辑配置文件
 nano /root/.config/server_box/config.json
 ```
-配置文件可配置端口、主机名及推送机制等，具体看[Wiki](https://github.com/lollipopkit/server_box_monitor/wiki)  
-
+配置文件可配置端口、主机名及推送机制等，具体看[Wiki](https://github.com/lollipopkit/server_box_monitor/wiki)    
+注意记得删掉注释......本人的配置：[**config.json**](https://github.com/ALRCMt/MtAIO-Build/blob/aa627fa453bbd3367d1b80d7bf7b833bd134c6f7/immortalwrt/ServerBox/config.json)  
 ```shell
 # 启用开机自启
 /etc/init.d/server_box_monitor enable

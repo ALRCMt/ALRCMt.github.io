@@ -7,11 +7,10 @@ layout: post
 
 ---
 
-<img src="/images/fav.png" alt="ALRCMt" width="150px"/>
+<img src="/images/ADHD.jpg" alt="ALRCMt" width="180px"/>
 
 
-**一个铸币高中生而已（桃源一中是sm学校）**  
-**图吧垃圾佬，海鲜平台学生党，县城撕裂者（雾**  
+**一个铸币高中生**  
 
 <table width="200">
 <tr>
@@ -27,14 +26,13 @@ layout: post
 </tr>
 </table>
 <hr />
+  
+不论政治趋向怎么样，尊重理解差异，我希望平等理性交流的（如果是倒退TV，妈的滚啊  
+<img src="/images/think.gif" alt="" height="150px"> <img src="/images/mks.png" alt="" height="150px">  
 
-我确实花了很多时间研究社会科学及马列主义基本原理，而且我承认我就是左翼   
-不论你政治趋向怎么怎么样，尊重理解差异思想，我是希望平等理性交流的（如果是倒退封建TV，md滚  
-<img src="/images/think.gif" alt="" height="150px"> <img src="/images/mks.png" alt="" height="130px">  
+QQ、B站、知乎、X通通不想跟人辩经（哎哲逼怎么这么坏），我觉得互联网辩经从来没谁说服谁过，除了制造更多的网络垃圾信息没有更多的意义，下一次又是一样的吵，加上自身理论水平也是聊胜于无，不过我倒是很乐意交流的（顺便说一下我纯理
 
-QQ、B站、知乎、X通通不想跟人辩经（哎哲逼怎么这么坏），说实话我觉得互联网辩经从来没谁说服谁过，除了制造更多的网络垃圾信息没有更多的意义，下一次又是一样的吵，加上我自身理论水平也是聊胜于无，不过我倒是很乐意交流的（顺便说一下我选的物化生
-
-鉴证大舞台有种你就来，我是主张应该交流政治的，至于代价？反正我是没什么...随便吧  
+鉴证大舞台有种你就来，我是主张应该交流政治的，至于代价？反正...随便吧  
 <figure class="image-preview">
   <a href="/images/mhyyyy.png" alt="沉痛悼念米指导" class="preview-link">
     <img src="/images/mhyyyy.png" alt="" width="300px">
@@ -43,7 +41,7 @@ QQ、B站、知乎、X通通不想跟人辩经（哎哲逼怎么这么坏），�
 
 <hr />
 
-装机入门水平，没有主力机，不过我也不是经常玩3A，竞技游戏的话只玩战地V，所以我对显卡最可能的需求是生产力，但是目前即不是刚需也支付不起，所以现在的话...主要是玩玩PVE，所以我实际上是组了一台个人服务器，集成NAS、远程主机之类（你能想象我是用虚拟机挂明日方舟maa？   
+装机入门水平，没有主力机，不过也不是经常玩3A，所以我对显卡最可能的需求是生产力，但是目前即不是刚需也支付不起，所以现在的话...主要是玩玩PVE，所以我实际上是组了一台个人服务器，集成NAS之类 
 <figure class="image-preview">
   <a href="/images/Opve.png" class="preview-link">
     <img src="/images/Opve.png" alt="" width="450px">
@@ -51,30 +49,30 @@ QQ、B站、知乎、X通通不想跟人辩经（哎哲逼怎么这么坏），�
 </figure>
 
 All in One, All in Boom ?拜托别再制造焦虑了好吗，又不是什么大设备大公司，哪里天天炸  
-你都折腾这个了还没心理准备？不过由于经验不多，我是经常踩坑，咸鱼也不是很会砍价（~~我说话很难听的~~，加上我实在没什么钱，所以额..我还是随便 
+你都折腾这个了还没心理准备？不过由于经验不多，我是经常踩坑（~~本人说话很难听的~~，加上我实在没什么钱，所以额..我还是随便 
 
 
 随便玩玩软路由，话说我觉得折腾最麻烦就是网络相关内容，非技术内容太多了  
 > 太好了，又把我的CMCCRAX3000M 刷成砖了  
-> ~~有没有能软路由救砖的？在线等挺急的~~修好了  
+> ~~有没有能软路由救砖的？在线等挺急的~~ 修好了  
 
-<i>在这里太感谢大学开源镜像站了，我都不敢想GFW下没有镜像站直连国外源有多么折磨人</i>   
+<i>在这里太感谢开源镜像站了，我都不敢想GFW下没有镜像站直连国外源有多么折磨人</i>   
 <img src="https://raw.githubusercontent.com/ALRCMt/MtAIO-Build/cb99109050678a8dc9f7933bb70bc5681e4f1084/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-16%20161707.png" width="260px"> 
 
 
 不曾熟练掌握任何计算机语言，极不熟练使用JavaScript  
-反正我是菜的出奇的（你知道我是AI生成的吗？  
+反正是菜的出奇的（你知道我是AI生成的吗？  
 ![Top Langs 看不见图片说明你网络垃圾](https://github-readme-stats-bay-xi-61.vercel.app/api/top-langs/?username=ALRCMt&layout=compact&theme=slateorange)  
 Ctrl+C太好用了你知道吗 （哎\u{200b}怎么这么坏）  
 
 
 > <b>提示：
-> <i>目前没有任何精神疾病，也没有性别认知障碍，不OD不改花刀</i></b>  
+> <i>目前没有任何精神疾病</i></b>  
  
 
 <hr /> 
 
-<i>代码是懒得写的</i>  
+<i>人是懒得出奇的</i>  
 
 ![ALRCMt's GitHub stats 看不见图片说明你网络垃圾](https://github-readme-stats-bay-xi-61.vercel.app/api?username=ALRCMt&show_icons=true&theme=cobalt)
 
@@ -88,7 +86,7 @@ Ctrl+C太好用了你知道吗 （哎\u{200b}怎么这么坏）
 - [H.M.R.资料库的建立（已停止）](/pages/HMR/)
 - [MtAIO个人服务器的搭建](/jekyll/2025-06-06-About.html)
 
-前者没有什么技术含量，就是超耗费时间，断断续续整理了两千多件社科资料，目前正处于~~重开发~~摆烂状态   
+前者没有什么技术含量，就是耗费时间，断断续续整理了一些社科资料，目前正处于~~重开发~~摆烂状态   
 后者其实你说需求也没有什么特别重要的需求，纯喜欢折腾，看我教程应该都看得明白
 
 
@@ -96,7 +94,7 @@ Ctrl+C太好用了你知道吗 （哎\u{200b}怎么这么坏）
 
 <hr />
 
-**我的github账号**
+**Github账号**
 **[https://github.com/ALRCMt](https://github.com/ALRCMt)**
 
 

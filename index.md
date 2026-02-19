@@ -5,8 +5,8 @@ title: 主页
 permalink: /
 ---
 <figure class="image-preview">
-  <a href="./images/fav.png" class="preview-link">
-    <img src="./images/fav.png" alt="" width="150px">
+  <a href="./images/ADHD.jpg" class="preview-link">
+    <img src="./images/ADHD.jpg" alt="" width="180px">
   </a>
 </figure>
 <b>这里是ALRCMt的个人网站！ :)</b>
