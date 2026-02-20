@@ -7,10 +7,14 @@ layout: post
 
 ---
 
-<img src="/images/ADHD.jpg" alt="ALRCMt" width="180px"/>
+<figure class="image-preview">
+  <a href="/images/ADHDsp.jpg" class="preview-link">
+    <img src="/images/ADHD.jpg" alt="" width="180px">
+  </a>
+</figure>
 
 
-**一个铸币高中生**  
+**一个铸币高中生，特长：无**  
 
 <table width="200">
 <tr>
@@ -27,7 +31,7 @@ layout: post
 </table>
 <hr />
   
-不论政治趋向怎么样，尊重理解差异，我希望平等理性交流的（如果是倒退TV，妈的滚啊  
+不论政治趋向怎么样，尊重理解差异，我希望平等理性交流的，倒车TV就别来了  
 <img src="/images/think.gif" alt="" height="150px"> <img src="/images/mks.png" alt="" height="150px">  
 
 QQ、B站、知乎、X通通不想跟人辩经（哎哲逼怎么这么坏），我觉得互联网辩经从来没谁说服谁过，除了制造更多的网络垃圾信息没有更多的意义，下一次又是一样的吵，加上自身理论水平也是聊胜于无，不过我倒是很乐意交流的（顺便说一下我纯理
@@ -41,29 +45,31 @@ QQ、B站、知乎、X通通不想跟人辩经（哎哲逼怎么这么坏），�
 
 <hr />
 
-装机入门水平，没有主力机，不过也不是经常玩3A，所以我对显卡最可能的需求是生产力，但是目前即不是刚需也支付不起，所以现在的话...主要是玩玩PVE，所以我实际上是组了一台个人服务器，集成NAS之类 
+装机入门水平，没有主力机，不过也不是经常玩3A，所以我对显卡最可能的需求是机器学习，但是目前即不是刚需也支付不起，所以现在的话...主要是玩玩NAS，而且我实际上是组了一台个人服务器，集成NAS之类的 
 <figure class="image-preview">
   <a href="/images/Opve.png" class="preview-link">
     <img src="/images/Opve.png" alt="" width="450px">
   </a>
 </figure>
 
-All in One, All in Boom ?拜托别再制造焦虑了好吗，又不是什么大设备大公司，哪里天天炸  
-你都折腾这个了还没心理准备？不过由于经验不多，我是经常踩坑（~~本人说话很难听的~~，加上我实在没什么钱，所以额..我还是随便 
+All in One, All in Boom ?拜托别再制造焦虑了好吗，又不是天天满负荷，哪里那么容易炸  
+你都折腾这个了还没心理准备？不过我经验不多，经常踩坑  
+（~~本人情商很低~~，加上我实在没什么钱，所以额... 
 
 
 随便玩玩软路由，话说我觉得折腾最麻烦就是网络相关内容，非技术内容太多了  
 > 太好了，又把我的CMCCRAX3000M 刷成砖了  
 > ~~有没有能软路由救砖的？在线等挺急的~~ 修好了  
 
-<i>在这里太感谢开源镜像站了，我都不敢想GFW下没有镜像站直连国外源有多么折磨人</i>   
+<i>在这里十分感谢开源镜像站，我都不敢想没有镜像站直连国外源有多么折磨人</i>   
 <img src="https://raw.githubusercontent.com/ALRCMt/MtAIO-Build/cb99109050678a8dc9f7933bb70bc5681e4f1084/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-16%20161707.png" width="260px"> 
 
 
-不曾熟练掌握任何计算机语言，极不熟练使用JavaScript  
-反正是菜的出奇的（你知道我是AI生成的吗？  
+不曾熟练掌握任何计算机语言，基于 AI 提示词编程（  
+Ctrl+C太好用了你知道吗（ 哎AI幻觉怎么这么坏 
+
 ![Top Langs 看不见图片说明你网络垃圾](https://github-readme-stats-bay-xi-61.vercel.app/api/top-langs/?username=ALRCMt&layout=compact&theme=slateorange)  
-Ctrl+C太好用了你知道吗 （哎\u{200b}怎么这么坏）  
+ 
 
 
 > <b>提示：
@@ -81,16 +87,11 @@ Ctrl+C太好用了你知道吗 （哎\u{200b}怎么这么坏）
 
 <hr />
 
-### 成就~~(没有)~~
+### 目前投入
 
 - [H.M.R.资料库的建立（已停止）](/pages/HMR/)
 - [MtAIO个人服务器的搭建](/jekyll/2025-06-06-About.html)
-
-前者没有什么技术含量，就是耗费时间，断断续续整理了一些社科资料，目前正处于~~重开发~~摆烂状态   
-后者其实你说需求也没有什么特别重要的需求，纯喜欢折腾，看我教程应该都看得明白
-
-
-<br />
+- [ProxmoxVE概要页硬件监控](https://github.com/ALRCMt/pve-manager-remix)
 
 <hr />
 

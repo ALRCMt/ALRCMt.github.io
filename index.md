@@ -5,7 +5,7 @@ title: 主页
 permalink: /
 ---
 <figure class="image-preview">
-  <a href="./images/ADHD.jpg" class="preview-link">
+  <a href="./images/ADHDsp.jpg" class="preview-link">
     <img src="./images/ADHD.jpg" alt="" width="180px">
   </a>
 </figure>
