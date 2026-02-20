@@ -1,7 +1,7 @@
 
 <h2>ALRCMt's Web</h2>
 
-<img border-radius="75px" src="./images/fav.png" alt="ALRCMt" width="150px" >
+<img border-radius="75px" src="./images/ADHD.jpg" alt="ALRCMt" width="150px" >
 
 <b>你好，这里是ALRCMt的个人网站！: )</b>
 
