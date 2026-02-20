@@ -45,7 +45,7 @@ sensors-detect
 ~~最气人的是不知道为什么我这里死活不显示 CPU 各核心温度，所以其他我也懒得配置了~~
 
 > AMD 的 U 不会显示各核心温度  
-> 如果你是 amd 的 CPU，当输入`sensors`后如下图  
+> 如果你是 AMD 的 CPU，当输入`sensors`后如下图  
 > SYSTIN 是主板南桥温度  
 > AUXTIN 是电源温度（前提是你有传感器，否则数据无效）  
 > CPUTIN 是主板监控的 CPU 温度  
@@ -444,3 +444,5 @@ ps | grep server_box_monitor | grep -v grep
 ```
 最后启动并访问相应地址 如 http://DEVICE_IP:3770/status  
 若看见json格式的输出就OK了  
+
+<hr />
