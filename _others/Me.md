@@ -1,3 +1,4 @@
+
 ---
 title: 关于ALRCMt
 author: ALRCMt
@@ -106,6 +107,5 @@ Ctrl+C太好用了你知道吗 （哎\u{200b}怎么这么坏）
 
 [![ALRCMt's GitHub stats 看不见图片说明你网络垃圾](https://github-readme-stats-bay-xi-61.vercel.app/api?username=ALRCMt&rank_icon=percentile&theme=radical)](https://github.com/ALRCMt)
 
-![](http://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=ALRCMt&theme=ayu_mirage&utcOffset=8)
-
+![](http://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=ALRCMt&theme=holi&utcOffset=8)
 
