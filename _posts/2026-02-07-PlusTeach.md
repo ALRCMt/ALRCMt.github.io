@@ -563,3 +563,15 @@ systemctl status fancontrol
 ```
 
 <hr />
+
+## 11.Cloudflare回源规则
+在使用DDNS将IPV6地址解析到指定域名时，只能使用默认的80端口（如果打开Cloudflare代理）  
+但是我们有不止一个服务，解决方法之一是一个子前缀全部解析到路由器IPV6（关闭Cloudflare代理），再由路由器根据主机名转发，弊端是不很安全以及纯IPV6网络无法访问  
+为了解决这个问题，还可以使用[Cloudflare Origin Rules](https://developers.cloudflare.com/rules/origin-rules/)来重写到非80端口   
+
+回源规则实际上还支持修改主机标头、SNI和DNS，但是这些都要钱....  
+不过好在Free计划还可以修改端口，可以多创建几个规则导向不同的端口（虽然也最多只能加10个  
+
+不仅如此回源规则还可以筛选主机名、地区、请求方式等等，这里不多介绍
+
+<hr />
