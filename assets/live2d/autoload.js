@@ -54,6 +54,14 @@ function loadExternalResource(url, type) {
     loadExternalResource(live2d_path + 'waifu.css', 'css'),
     loadExternalResource(live2d_path + 'waifu-tips.js', 'js')
   ]);
+
+  if (!localStorage.getItem('modelId')) {
+    localStorage.setItem('modelId', '0');
+  }
+  if (!localStorage.getItem('modelTexturesId')) {
+    localStorage.setItem('modelTexturesId', '0');
+  }
+
   // For detailed usage of configuration options, see README.en.md
   // 配置选项的具体用法见 README.md
   initWidget({
