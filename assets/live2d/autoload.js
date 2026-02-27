@@ -37,7 +37,9 @@ function loadExternalResource(url, type) {
 (async () => {
   // If you are concerned about display issues on mobile devices, you can use screen.width to determine whether to load
   // 如果担心手机上显示效果不佳，可以根据屏幕宽度来判断是否加载
-  // if (screen.width < 768) return;
+  if (window.matchMedia('(max-width: 768px)').matches) {
+    return;
+  }
 
   // Avoid cross-origin issues with image resources
   // 避免图片资源跨域问题
@@ -56,7 +58,7 @@ function loadExternalResource(url, type) {
   ]);
 
   if (!localStorage.getItem('modelId')) {
-    localStorage.setItem('modelId', '0');
+    localStorage.setItem('modelId', '4');
   }
   if (!localStorage.getItem('modelTexturesId')) {
     localStorage.setItem('modelTexturesId', '0');
@@ -74,35 +76,32 @@ function loadExternalResource(url, type) {
     drag: false,
   });
 
-  try {
-    const response = await fetch(live2d_path + 'waifu-tips.json');
-    const tipsConfig = await response.json();
-    const remuModelIds = new Set(
-      (tipsConfig.models || [])
-        .map((model, index) => ({ model, index }))
-        .filter(({ model }) => typeof model.name === 'string' && model.name.toLowerCase().includes('remu'))
-        .map(({ index }) => index)
-    );
+  const bindWheelGuard = () => {
+    const canvas = document.getElementById('live2d');
+    if (!canvas || canvas.dataset.zoomGuardBound === '1') {
+      return;
+    }
 
-    document.addEventListener('click', (event) => {
-      const target = event.target;
-      if (!(target instanceof HTMLElement) || target.id !== 'live2d') {
-        return;
+    const guard = (event) => {
+      const delta = event.wheelDelta ? -event.wheelDelta : event.deltaY;
+      if (delta < 0) {
+        event.preventDefault();
+        event.stopImmediatePropagation();
       }
+    };
 
-      const modelId = Number(localStorage.getItem('modelId'));
-      if (!Number.isInteger(modelId) || !remuModelIds.has(modelId)) {
-        return;
-      }
+    canvas.addEventListener('wheel', guard, { capture: true, passive: false });
+    canvas.addEventListener('mousewheel', guard, { capture: true, passive: false });
+    canvas.dataset.zoomGuardBound = '1';
+  };
 
-      const trackNumber = Math.floor(Math.random() * 26) + 1;
-      const trackFile = String(trackNumber).padStart(2, '0') + '.wav';
-      const audio = new Audio('/assets/live2d/live2d-widget-model-remu/voice/' + trackFile);
-      audio.play().catch(() => {});
-    });
-  } catch (error) {
-    console.warn('Remu voice fallback init failed:', error);
+  bindWheelGuard();
+  const waifuCanvas = document.getElementById('waifu-canvas');
+  if (waifuCanvas) {
+    const observer = new MutationObserver(() => bindWheelGuard());
+    observer.observe(waifuCanvas, { childList: true });
   }
+
 })();
 
 console.log(`\n%cLive2D%cWidget%c\n`, 'padding: 8px; background: #cd3e45; font-weight: bold; font-size: large; color: white;', 'padding: 8px; background: #ff5450; font-size: large; color: #eee;', '');
