@@ -28,7 +28,9 @@ permalink: /
 <hr />
 
 本站是用jekyll搭的，主题是 [https://sighingnow.github.io/jekyll-gitbook](https://sighingnow.github.io/jekyll-gitbook)  
-这原网站模板真的是个草台班子，自己互相的颜色格式都不适配，还要我慢慢改，随便加了个图片预览  
+这原网站模板真的是个草台班子，自己互相的颜色格式都不适配，搞半天还要改，加了个图片预览和看板娘  
+
+
 
 #### 顺便钞一下jekyll本地windows预览的教程
 
