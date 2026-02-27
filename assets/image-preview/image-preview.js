@@ -1,9 +1,11 @@
 // 图片预览脚本
 (function() {
+  const IMAGE_FILE_REGEX = /\.(jpg|jpeg|png|gif|webp|bmp|svg)(\?.*)?$/i;
+
   // 1. 清理旧onclick绑定
   function cleanupOldOnClickBindings() {
     document.querySelectorAll('a').forEach(link => {
-      const isImageLink = /\.(jpg|jpeg|png|gif|webp|bmp)(\?.*)?$/i.test(link.href) || 
+      const isImageLink = IMAGE_FILE_REGEX.test(link.href) || 
                          link.closest('figure.image-preview') !== null;
       if (isImageLink && link.onclick) {
         link.onclick = null;
@@ -11,25 +13,38 @@
     });
   }
   
-  // 2. 判断是否为图片链接
-  function isImageLink(element) {
+  // 2. 从点击位置提取可预览图片 URL
+  function getPreviewTarget(element) {
     const link = element.closest('a');
-    return link && (/\.(jpg|jpeg|png|gif|webp|bmp)(\?.*)?$/i.test(link.href) || 
-                   link.closest('figure.image-preview') !== null);
+    if (link && (IMAGE_FILE_REGEX.test(link.href) || link.closest('figure.image-preview') !== null)) {
+      return link.href;
+    }
+
+    const image = element.closest('img');
+    if (image && image.src) {
+      return image.currentSrc || image.src;
+    }
+
+    return null;
   }
   
   // 3. 点击事件处理
   function handleImageClick(event) {
+    if (event.target.closest('.image-preview-overlay')) {
+      return;
+    }
+
     const link = event.target.closest('a');
-    if (!link || !isImageLink(event.target)) return;
-    
-    if (link.onclick) link.onclick = null;
+    const previewUrl = getPreviewTarget(event.target);
+    if (!previewUrl) return;
+    if (link && link.onclick) link.onclick = null;
     
     event.preventDefault();
     event.stopImmediatePropagation();
     
     // 创建预览层 - 初始状态透明
     const overlay = document.createElement('div');
+    overlay.className = 'image-preview-overlay';
     Object.assign(overlay.style, {
       position: 'fixed',
       top: '0',
@@ -46,8 +61,8 @@
       transition: 'opacity 0.3s ease-out' // 添加过渡效果
     });
     
-    const img = new Image();
-    img.src = link.href;
+    const img = document.createElement('img');
+    img.src = previewUrl;
     img.alt = '预览大图';
     Object.assign(img.style, {
       maxWidth: '95vw',
