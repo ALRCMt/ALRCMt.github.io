@@ -547,6 +547,7 @@ MINTEMP=hwmon0/pwm2=40 hwmon0/pwm5=35 hwmon0/pwm4=30
 MAXTEMP=hwmon0/pwm2=70 hwmon0/pwm5=45 hwmon0/pwm4=50
 MINSTART=hwmon0/pwm2=100 hwmon0/pwm5=100 hwmon0/pwm4=100
 MINSTOP=hwmon0/pwm2=50 hwmon0/pwm5=45 hwmon0/pwm4=40
+#注意必须MINSTOP ≥ MINPWM
 MINPWM=hwmon0/pwm2=30 hwmon0/pwm4=0 hwmon0/pwm5=0
 MAXPWM=hwmon0/pwm2=255 hwmon0/pwm5=255 hwmon0/pwm4=255
 ```
