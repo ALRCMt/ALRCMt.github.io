@@ -782,8 +782,7 @@
     {
       "name": "Histoire(Local)",
       "paths": [
-        "/assets/live2d/HyperdimensionNeptunia/histoire/index.json",
-        "/assets/live2d/HyperdimensionNeptunia/histoirenohover/index.json"
+        "/assets/live2d/HyperdimensionNeptunia/histoire/index.json"
       ],
       "message": "Histoire 到位，档案与情报已整理完毕。"
     }
