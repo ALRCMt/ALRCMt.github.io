@@ -59,6 +59,7 @@ function loadExternalResource(url, type) {
 
   if (!localStorage.getItem('modelId')) {
     localStorage.setItem('modelId', '4');
+    localStorage.setItem('modelTexturesId', '4');
   }
   if (!localStorage.getItem('modelTexturesId')) {
     localStorage.setItem('modelTexturesId', '0');
