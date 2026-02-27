@@ -6,7 +6,7 @@ category: Jekyll
 layout: post
 ---
 
-> 使用与 GitBook 相同 Apache-2.0 开源协议
+> 使用与 jekyll-gitbook 相同 Apache-2.0 开源协议
 
                                  Apache License
                            Version 2.0, January 2004
