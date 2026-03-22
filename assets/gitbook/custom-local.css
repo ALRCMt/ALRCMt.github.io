@@ -3,3 +3,52 @@
  * Its purpose is for users of the theme to be able to add css rules from a blank file
  *   these get simply added to the ones already active in the layout.
  */
+
+.book .book-summary li.sidebar-folder > ul {
+	display: none !important;
+	overflow: hidden;
+}
+
+.book .book-summary li.sidebar-folder.expanded > ul {
+	display: block !important;
+}
+
+.book .book-summary li.sidebar-doc > ul {
+	display: none !important;
+	overflow: hidden;
+}
+
+.book .book-summary li.sidebar-doc.expanded > ul {
+	display: block !important;
+}
+
+.book .book-summary .sidebar-folder-toggle {
+	display: block;
+	user-select: none;
+}
+
+.book .book-summary .sidebar-folder-toggle,
+.book .book-summary li.sidebar-doc > a {
+	position: relative;
+	padding-left: 30px;
+}
+
+.book .book-summary .exc-trigger {
+	position: absolute;
+	left: 12px;
+	top: 10px;
+	transform-origin: 50% 50%;
+	transition: transform 0.15s ease;
+	font-size: 15px;
+	line-height: 1;
+	text-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
+}
+
+.book .book-summary .exc-trigger:before {
+	content: "\f105";
+}
+
+.book .book-summary li.sidebar-folder.expanded > .sidebar-folder-toggle .exc-trigger:before,
+.book .book-summary li.sidebar-doc.expanded > a .exc-trigger:before {
+	content: "\f107";
+}

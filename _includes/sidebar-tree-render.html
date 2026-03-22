@@ -1,0 +1,45 @@
+{% assign current_path = page.relative_path | default: page.path %}
+{% assign current_path = current_path | replace: "\\", "/" %}
+{% capture collection_prefix %}_{{ include.collection_label }}/{% endcapture %}
+{% assign current_rel = current_path | remove_first: collection_prefix %}
+
+{% for entry in include.node.folders %}
+    {% if entry["url"] %}
+        {% if page.url == entry["url"] %}
+        <li class="chapter sidebar-doc active expanded" data-level="doc:{{ entry["url"] }}" data-path="{{site.baseurl}}{{entry["url"]}}">
+        {% else %}
+        <li class="chapter sidebar-doc" data-level="doc:{{ entry["url"] }}" data-path="{{site.baseurl}}{{entry["url"]}}">
+        {% endif %}
+            <a href="{{site.baseurl}}{{entry["url"]}}" onclick="var li=this.parentElement;var child=this.nextElementSibling;if(child&&child.tagName==='UL'){var expanded=li.classList.toggle('expanded');this.setAttribute('aria-expanded', expanded ? 'true' : 'false');return false;} pageScrollToTop(this);" aria-expanded="{% if page.url == entry["url"] %}true{% else %}false{% endif %}">
+                {% if site.toc.enabled and page.url == entry["url"] %}<i class="exc-trigger fa" aria-hidden="true"></i>{% endif %}
+                {{ entry["title"] | escape }}
+            </a>
+            {% if site.toc.enabled and page.url == entry["url"] %}
+                {% assign page_toc_h_min = page.toc_h_min | default: site.toc.h_min %}
+                {% assign page_toc_h_max = page.toc_h_max | default: site.toc.h_max %}
+                {% include toc.html html=content h_min=page_toc_h_min h_max=page_toc_h_max %}
+            {% endif %}
+        </li>
+    {% else %}
+        {% capture folder_prefix %}{{ entry["path"] }}/{% endcapture %}
+        {% assign prefix_size = folder_prefix | size %}
+        {% assign actual_prefix = current_rel | slice: 0, prefix_size %}
+        {% assign folder_active = false %}
+
+        {% if page.collection == include.collection_label and actual_prefix == folder_prefix %}
+        {% assign folder_active = true %}
+        <li class="chapter sidebar-folder active expanded" data-level="folder:{{ include.collection_label }}/{{ entry["path"] }}" data-path="{{site.baseurl}}/{{ include.collection_label }}/{{ entry["path"] }}/">
+        {% else %}
+        <li class="chapter sidebar-folder" data-level="folder:{{ include.collection_label }}/{{ entry["path"] }}" data-path="{{site.baseurl}}/{{ include.collection_label }}/{{ entry["path"] }}/">
+        {% endif %}
+            <span class="sidebar-folder-toggle" role="button" tabindex="0" aria-expanded="{% if folder_active %}true{% else %}false{% endif %}" onclick="var li=this.parentElement;if(li){var expanded=li.classList.toggle('expanded');this.setAttribute('aria-expanded', expanded ? 'true' : 'false');} return false;" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
+                <i class="exc-trigger fa" aria-hidden="true"></i>
+                {{ entry["title"] | escape }}
+            </span>
+            <ul>
+                {% assign next_depth = include.depth | default: 0 | plus: 1 %}
+                {% include sidebar-tree-render.html node=entry collection_label=include.collection_label depth=next_depth %}
+            </ul>
+        </li>
+    {% endif %}
+{% endfor %}
