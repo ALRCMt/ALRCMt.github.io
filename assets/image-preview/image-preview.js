@@ -15,16 +15,10 @@
   
   // 2. 从点击位置提取可预览图片 URL
   function getPreviewTarget(element) {
-    const link = element.closest('a');
-    if (link && (IMAGE_FILE_REGEX.test(link.href) || link.closest('figure.image-preview') !== null)) {
+    const link = element.closest('a.preview-link');
+    if (link && IMAGE_FILE_REGEX.test(link.href)) {
       return link.href;
     }
-
-    const image = element.closest('img');
-    if (image && image.src) {
-      return image.currentSrc || image.src;
-    }
-
     return null;
   }
   
