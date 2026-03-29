@@ -10,15 +10,12 @@
         {% else %}
         <li class="chapter sidebar-doc" data-level="doc:{{ entry["url"] }}" data-path="{{site.baseurl}}{{entry["url"]}}">
         {% endif %}
+            {% capture sidebar_toc %}{% if site.toc.enabled and page.url == entry["url"] %}{% assign page_toc_min = page.toc_min | default: site.toc.h_min %}{% assign page_toc_max = page.toc_max | default: site.toc.h_max %}{% include toc.html html=content h_min=page_toc_min h_max=page_toc_max %}{% endif %}{% endcapture %}
             <a href="{{site.baseurl}}{{entry["url"]}}" onclick="var li=this.parentElement;var child=this.nextElementSibling;if(child&&child.tagName==='UL'){var expanded=li.classList.toggle('expanded');this.setAttribute('aria-expanded', expanded ? 'true' : 'false');return false;} pageScrollToTop(this);" aria-expanded="{% if page.url == entry["url"] %}true{% else %}false{% endif %}">
-                {% if site.toc.enabled and page.url == entry["url"] %}<i class="exc-trigger fa" aria-hidden="true"></i>{% endif %}
+                {% if sidebar_toc contains '<li' %}<i class="exc-trigger fa" aria-hidden="true"></i>{% endif %}
                 {{ entry["title"] | escape }}
             </a>
-            {% if site.toc.enabled and page.url == entry["url"] %}
-                {% assign page_toc_h_min = page.toc_h_min | default: site.toc.h_min %}
-                {% assign page_toc_h_max = page.toc_h_max | default: site.toc.h_max %}
-                {% include toc.html html=content h_min=page_toc_h_min h_max=page_toc_h_max %}
-            {% endif %}
+            {{ sidebar_toc }}
         </li>
     {% else %}
         {% capture folder_prefix %}{{ entry["path"] }}/{% endcapture %}

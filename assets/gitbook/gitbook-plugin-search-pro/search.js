@@ -51,7 +51,7 @@ require([
         $searchQuery.text(res.query);
 
         // Create an <li> element for each result
-        res.results.forEach(function(item) {
+        res.results.forEach(function(item, index) {
             var $li = $('<li>', {
                 'class': 'search-results-item'
             });
@@ -78,6 +78,10 @@ require([
             $title.appendTo($li);
             $content.appendTo($li);
             $li.appendTo($searchList);
+            // Add <hr> separator between search results (but not after the last one)
+            if (index < res.results.length - 1) {
+                $('<hr>').appendTo($searchList);
+            }
         });
         $('.body-inner').scrollTop(0);
     }

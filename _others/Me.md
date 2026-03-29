@@ -4,7 +4,8 @@ author: ALRCMt
 date: 2025-10-01
 category: Jekyll
 layout: post
-
+toc_min: 2
+toc_max: 2
 ---
 
 <figure class="image-preview">
@@ -13,8 +14,9 @@ layout: post
   </a>
 </figure>
 
+<br />
 
-**一个铸币高中生，特长：无**  
+#### 苦币高中学生党。。。  
 
 <table width="200">
 <tr>
@@ -31,58 +33,62 @@ layout: post
 </table>
 <hr />
   
-不论政治趋向怎么样，尊重理解差异，我希望平等理性交流的，倒车TV就别来了  
-<img src="/images/think.gif" alt="" height="150px"> <img src="/images/mks.png" alt="" height="150px">  
 
-QQ、B站、知乎、X通通不想跟人辩经（哎哲逼怎么这么坏），我觉得互联网辩经从来没谁说服谁过，除了制造更多的网络垃圾信息没有更多的意义，下一次又是一样的吵，加上自身理论水平也是聊胜于无，不过我倒是很乐意交流的（顺便说一下我纯理
+一个电子爱好者，对嵌入式开发与网络工程感兴趣 :)
 
-鉴证大舞台有种你就来，我是主张应该交流政治的，至于代价？反正...随便吧  
-<figure class="image-preview">
-  <a href="/images/mhyyyy.png" alt="沉痛悼念米指导" class="preview-link">
-    <img src="/images/mhyyyy.png" alt="" width="300px">
-  </a>
-</figure>
+正在培养动手能力，尝试自己搭建一套个人服务器系统，  
+玩玩NAS与软路由也不错，毕竟我不是经常玩游戏（闲的发慌（并不是  
+至于All in One, All in Boom 的说法，不要在意就行了，为什么总是Boom你应该反思自己  
+（虽然其实我也经常把机子刷成砖）
 
-<hr />
-
-装机入门水平，没有主力机，不过也不是经常玩3A，所以我对显卡最可能的需求是机器学习，但是目前即不是刚需也支付不起，所以现在的话...主要是玩玩NAS，而且我实际上是组了一台个人服务器，集成NAS之类的 
 <figure class="image-preview">
   <a href="/images/Opve.png" class="preview-link">
     <img src="/images/Opve.png" alt="" width="450px">
   </a>
 </figure>
 
-All in One, All in Boom ?拜托别再制造焦虑了好吗，又不是天天满负荷，哪里那么容易炸  
-你都折腾这个了还没心理准备？不过我经验不多，经常踩坑  
-（~~本人情商很低~~，加上我实在没什么钱，所以额... 
 
-
-随便玩玩软路由，话说我觉得折腾最麻烦就是网络相关内容，非技术内容太多了  
-> 太好了，又把我的CMCCRAX3000M 刷成砖了  
-> ~~有没有能软路由救砖的？在线等挺急的~~ 修好了  
-
-<i>在这里十分感谢开源镜像站，我都不敢想没有镜像站直连国外源有多么折磨人</i>   
+> <i>十分感谢开源镜像站，直连境外源多么折磨人都知道</i>   
 <img src="https://raw.githubusercontent.com/ALRCMt/MtAIO-Build/cb99109050678a8dc9f7933bb70bc5681e4f1084/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-16%20161707.png" width="260px"> 
 
 
-不曾熟练掌握任何计算机语言，基于 AI 提示词编程（  
-Ctrl+C太好用了你知道吗（ 哎AI幻觉怎么这么坏 
+不曾熟练掌握任何计算机语言，基于 AI 提示词编程（   
+在学JavaScript和Shell，还想学Golang和C   
+哎，还是有时间慢慢学的，我还年轻，毕竟 [**来日方长**](https://book.douban.com/subject/24298157/)
+
 
 ![Top Langs 看不见图片说明你网络垃圾](https://github-readme-stats-bay-xi-61.vercel.app/api/top-langs/?username=ALRCMt&layout=compact&theme=slateorange)  
- 
 
+  
+<hr />
 
-> <b>提示：
-> <i>目前没有任何精神疾病</i></b>  
- 
+不知道是说幸运还是不幸，我同时迷上了了两个完全不同的领域，电子信息技术和政治哲学  
+也许后面的人生二者只能择一，但是现在我不想放弃谁  
+（其实我曾还对心理学的精神分析分支很感兴趣，但是实在没有精力了  
+
+我现在重心是研究当代马列毛主义政治与中国**现当代**史，顺带西马哲学及国际共运史  
+但是不论政治趋向怎么样，我都是尊重理解差异，希望平等理性交流的  
+<img src="/images/think.gif" alt="" height="150px"> <img src="/images/mks.png" alt="" height="150px">  
+
+#### 我认为，政治必须为技术开路  
+
+不想跟人辩经......（哎哲逼怎么这么坏），我觉得互联网辩经从来没谁说服谁过，除了制造更多的网络垃圾没有更多的意义，下一次又是一样的吵......
+
+我还是主张应该交流政治的，至于代价？我不在意（这也是哲学理念的一部分吧
+<figure class="image-preview">
+  <a href="/images/mhyyyy.png" alt="沉痛悼念米指导" class="preview-link">
+    <img src="/images/mhyyyy.png" alt="" width="300px">
+  </a>
+</figure>
+
 
 <hr /> 
 
-<i>人是懒得出奇的</i>  
+人是懒得出奇的  
 
 ![ALRCMt's GitHub stats 看不见图片说明你网络垃圾](https://github-readme-stats-bay-xi-61.vercel.app/api?username=ALRCMt&show_icons=true&theme=cobalt)
 
-<i>塔学造诣是没有的</i>  
+塔学造诣是没有的 
 <img src="/images/ban.png" alt="账号已封禁">
 
 <hr />
@@ -109,3 +115,8 @@ Ctrl+C太好用了你知道吗（ 哎AI幻觉怎么这么坏
 
 ![](http://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=ALRCMt&theme=holi&utcOffset=8)
 
+
+
+> <b>提示：
+> <i>目前没有任何精神疾病</i></b>  
+ 

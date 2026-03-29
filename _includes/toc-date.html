@@ -41,7 +41,9 @@
                 </a>
                 {% if site.toc.enabled %}
                     {% if site.toc.enabled_index %}
-                        {% include toc.html html=content h_min=site.toc.h_min h_max=site.toc.h_max %}
+                        {% assign h_min = page.toc_min | default: site.toc.h_min %}
+                        {% assign h_max = page.toc_max | default: site.toc.h_max %}
+                        {% include toc.html html=content h_min=h_min h_max=h_max %}
                     {% endif %}
                 {% endif %}
             </li>
@@ -79,7 +81,9 @@
                                     </a>
                                     {% if site.toc.enabled %}
                                         {% if page.url == post.url %}
-                                            {% include toc.html html=content h_min=site.toc.h_min h_max=site.toc.h_max %}
+                                            {% assign h_min = page.toc_min | default: site.toc.h_min %}
+                                            {% assign h_max = page.toc_max | default: site.toc.h_max %}
+                                            {% include toc.html html=content h_min=h_min h_max=h_max %}
                                         {% endif %}
                                     {% endif %}
                                 </li>
@@ -113,7 +117,9 @@
                                     </a>
                                     {% if site.toc.enabled %}
                                         {% if page.url == post.url %}
-                                            {% include toc.html html=content h_min=site.toc.h_min h_max=site.toc.h_max %}
+                                            {% assign h_min = page.toc_min | default: site.toc.h_min %}
+                                            {% assign h_max = page.toc_max | default: site.toc.h_max %}
+                                            {% include toc.html html=content h_min=h_min h_max=h_max %}
                                         {% endif %}
                                     {% endif %}
                                 </li>

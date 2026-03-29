@@ -4,9 +4,11 @@ author: ALRCMt
 date: 2025-10-01
 category: Jekyll
 layout: post
+toc_min: 1
+toc_max: 1
 ---
 
-### 未开放
+## 未开放
 
 简单介绍一下，HMR是我**曾经**计划的一个项目，现已暂停  
  **项目地址**  
