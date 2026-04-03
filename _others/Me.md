@@ -57,8 +57,11 @@ toc_max: 2
 哎，还是有时间慢慢学的，我还年轻，毕竟 [**来日方长**](https://book.douban.com/subject/24298157/)
 
 
-![Top Langs 看不见图片说明你网络垃圾](https://github-readme-stats-bay-xi-61.vercel.app/api/top-langs/?username=ALRCMt&layout=compact&theme=slateorange)  
-
+<figure class="image-preview">
+  <a href="https://github-readme-stats-bay-xi-61.vercel.app/api/top-langs/?username=ALRCMt&layout=compact&theme=slateorange" class="preview-link">
+    <img src="https://github-readme-stats-bay-xi-61.vercel.app/api/top-langs/?username=ALRCMt&layout=compact&theme=slateorange" alt="Top Langs 看不见图片说明你网络垃圾" >
+  </a>
+</figure>
 
   
 <hr />
@@ -87,14 +90,23 @@ toc_max: 2
 
 人是懒得出奇的  
 
-![ALRCMt's GitHub stats 看不见图片说明你网络垃圾](https://github-readme-stats-bay-xi-61.vercel.app/api?username=ALRCMt&show_icons=true&theme=cobalt)
+<figure class="image-preview">
+  <a href="https://github-readme-stats-bay-xi-61.vercel.app/api?username=ALRCMt&show_icons=true&theme=cobalt" class="preview-link">
+    <img src="https://github-readme-stats-bay-xi-61.vercel.app/api?username=ALRCMt&show_icons=true&theme=cobalt" alt="ALRCMt's GitHub stats 看不见图片说明你网络垃圾" >
+  </a>
+</figure>
 
 塔学造诣是没有的 
-<img src="/images/ban.png" alt="账号已封禁">
+
+<figure class="image-preview">
+  <a href="/images/ban.png" class="preview-link">
+    <img src="/images/ban.png" alt="账号已封禁" >
+  </a>
+</figure>
 
 <hr />
 
-### 目前投入
+### 投入
 
 - [H.M.R.资料库的建立（已停止）](/pages/HMR/)
 - [MtAIO个人服务器的搭建](/jekyll/2025-06-06-About.html)
@@ -111,11 +123,14 @@ toc_max: 2
 [![Bilibili](https://img.shields.io/badge/Bilibili-ALRC_Mt-pink.svg?style=flat-square&logo=bilibili)](https://space.bilibili.com/483215864?spm_id_from=333.1007.0.0)
 
 
+<a href="https://github.com/ALRCMt" target="_blank"><img src="https://github-readme-stats-bay-xi-61.vercel.app/api?username=ALRCMt&rank_icon=percentile&theme=radical" alt="ALRCMt's GitHub stats 看不见图片说明你网络垃圾" ></a>
 
-[![ALRCMt's GitHub stats 看不见图片说明你网络垃圾](https://github-readme-stats-bay-xi-61.vercel.app/api?username=ALRCMt&rank_icon=percentile&theme=radical)](https://github.com/ALRCMt)
 
-![](http://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=ALRCMt&theme=holi&utcOffset=8)
-
+<figure class="image-preview">
+  <a href="http://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=ALRCMt&theme=holi&utcOffset=8" class="preview-link">
+    <img src="http://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=ALRCMt&theme=holi&utcOffset=8" alt="看不见图片说明你网络垃圾" >
+  </a>
+</figure>
 
 
 > <b>提示：

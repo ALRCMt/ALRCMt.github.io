@@ -22,20 +22,28 @@
         {% assign prefix_size = folder_prefix | size %}
         {% assign actual_prefix = current_rel | slice: 0, prefix_size %}
         {% assign folder_active = false %}
+        {% assign parent_expanded = include.parent_expanded | default: true %}
+        {% assign folder_default_expanded = entry["expanded"] | default: false %}
 
         {% if page.collection == include.collection_label and actual_prefix == folder_prefix %}
         {% assign folder_active = true %}
-        <li class="chapter sidebar-folder active expanded" data-level="folder:{{ include.collection_label }}/{{ entry["path"] }}" data-path="{{site.baseurl}}/{{ include.collection_label }}/{{ entry["path"] }}/">
+        {% assign folder_expanded = true %}
         {% else %}
-        <li class="chapter sidebar-folder" data-level="folder:{{ include.collection_label }}/{{ entry["path"] }}" data-path="{{site.baseurl}}/{{ include.collection_label }}/{{ entry["path"] }}/">
+        {% assign folder_expanded = folder_default_expanded %}
         {% endif %}
-            <span class="sidebar-folder-toggle" role="button" tabindex="0" aria-expanded="{% if folder_active %}true{% else %}false{% endif %}" onclick="var li=this.parentElement;if(li){var expanded=li.classList.toggle('expanded');this.setAttribute('aria-expanded', expanded ? 'true' : 'false');} return false;" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
+
+        {% if parent_expanded == false %}
+        {% assign folder_expanded = false %}
+        {% endif %}
+
+        <li class="chapter sidebar-folder{% if folder_active %} active{% endif %}{% if folder_expanded %} expanded{% endif %}" data-level="folder:{{ include.collection_label }}/{{ entry["path"] }}" data-path="{{site.baseurl}}/{{ include.collection_label }}/{{ entry["path"] }}/">
+            <span class="sidebar-folder-toggle" role="button" tabindex="0" aria-expanded="{% if folder_expanded %}true{% else %}false{% endif %}" onclick="var li=this.parentElement;if(li){var expanded=li.classList.toggle('expanded');this.setAttribute('aria-expanded', expanded ? 'true' : 'false');} return false;" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
                 <i class="exc-trigger fa" aria-hidden="true"></i>
                 {{ entry["title"] | escape }}
             </span>
             <ul>
                 {% assign next_depth = include.depth | default: 0 | plus: 1 %}
-                {% include sidebar-tree-render.html node=entry collection_label=include.collection_label depth=next_depth %}
+                {% include sidebar-tree-render.html node=entry collection_label=include.collection_label depth=next_depth parent_expanded=folder_expanded %}
             </ul>
         </li>
     {% endif %}

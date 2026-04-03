@@ -9,6 +9,7 @@ gem 'jekyll-feed'
 gem 'jekyll-readme-index'
 gem 'jemoji'
 gem 'webrick'
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Disabled for local development to allow custom plugins in _plugins.
 # gem "github-pages", group: :jekyll_plugins
 

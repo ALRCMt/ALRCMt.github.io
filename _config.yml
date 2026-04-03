@@ -6,6 +6,8 @@ email:            b122330417@163.com
 description: >
   ALRCMt build Jekyll site with the GitBook style now.
 
+timezone:         Asia/Shanghai
+
 version:          1.0
 gitbook_version:  3.2.3
 

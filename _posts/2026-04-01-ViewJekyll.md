@@ -1,12 +1,15 @@
 ---
-title: Jekyll
+title: Windows Jekyll本地预览
 author: ALRCMt
-date: 2025-10-01
+date: 2026-04-01
 category: Jekyll
 layout: post
 toc_min: 2
 toc_max: 2
 ---
+
+
+<hr />
 
 ### 顺便钞一下jekyll本地windows预览的教程
 

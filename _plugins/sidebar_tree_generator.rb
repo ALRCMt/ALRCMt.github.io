@@ -74,6 +74,7 @@ module Jekyll
               "title" => folder_meta["title"],
               "path" => folder_path,
               "sort_date" => folder_meta["sort_date"],
+              "expanded" => folder_meta["expanded"],
               "docs" => [],
               "folders" => {},
             }
@@ -98,6 +99,7 @@ module Jekyll
       config_path = File.join(site.source, "_#{label}", *path_parts, "_folder.yml")
       title = path_parts[-1]
       sort_date = nil
+      expanded = false
 
       if File.exist?(config_path)
         begin
@@ -109,6 +111,7 @@ module Jekyll
           loaded_title = data["title"]
           title = loaded_title.to_s.strip unless loaded_title.nil? || loaded_title.to_s.strip.empty?
           sort_date = parse_sort_date(data["date"])
+          expanded = data["expanded"] == true
         rescue StandardError
           # Keep fallback folder name if config is invalid.
         end
@@ -117,6 +120,7 @@ module Jekyll
       cache[cache_key] = {
         "title" => title,
         "sort_date" => sort_date,
+        "expanded" => expanded,
       }
       cache[cache_key]
     end
@@ -188,6 +192,7 @@ module Jekyll
         "title" => (node["title"] || fallback_name),
         "path" => node["path"],
         "sort_date" => node["sort_date"],
+        "expanded" => node["expanded"],
         "docs" => [],
         "folders" => mixed_entries.map do |entry|
           entry.reject { |k, _v| k == "sort_date" }.merge("sort_key" => sort_key_for(entry["sort_date"]))

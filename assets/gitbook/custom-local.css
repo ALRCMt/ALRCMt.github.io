@@ -33,6 +33,20 @@
 	padding-left: 30px;
 }
 
+.book .book-summary li.sidebar-folder:hover > .sidebar-folder-toggle,
+.book .book-summary li.sidebar-folder.active > .sidebar-folder-toggle {
+	background: rgba(0, 0, 0, 0.18);
+	box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+	border-radius: 4px;
+}
+
+.book .book-summary li.sidebar-doc:hover > a,
+.book .book-summary li.sidebar-doc.active > a {
+	background: rgba(179, 217, 255, 0.4);
+	box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+	border-radius: 4px;
+}
+
 .book .book-summary .exc-trigger {
 	position: absolute;
 	left: 12px;

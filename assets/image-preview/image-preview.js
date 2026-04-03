@@ -16,7 +16,7 @@
   // 2. 从点击位置提取可预览图片 URL
   function getPreviewTarget(element) {
     const link = element.closest('a.preview-link');
-    if (link && IMAGE_FILE_REGEX.test(link.href)) {
+    if (link /* && IMAGE_FILE_REGEX.test(link.href) */) {
       return link.href;
     }
     return null;
