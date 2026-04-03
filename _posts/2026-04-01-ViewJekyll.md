@@ -6,6 +6,7 @@ category: Jekyll
 layout: post
 toc_min: 2
 toc_max: 2
+description: Windows系统本地Jekyll环境搭建与预览教程，涵盖Ruby、RubyGems、Jekyll和Bundler安装配置，实现本地网站实时预览功能。
 ---
 
 

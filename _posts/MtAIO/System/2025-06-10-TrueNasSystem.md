@@ -6,6 +6,7 @@ category: Jekyll
 layout: post
 toc_min: 2
 toc_max: 2
+description: TrueNAS Scale系统安装与配置完整指南，涵盖镜像下载、PVE集成、虚拟机创建以及ZFS存储池设置，为MtAIO系统提供可靠的NAS存储服务。
 ---
 
 

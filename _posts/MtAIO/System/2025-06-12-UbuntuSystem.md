@@ -6,6 +6,7 @@ category: Jekyll
 layout: post
 toc_min: 2
 toc_max: 2
+description: Ubuntu Server系统安装完整指南，专注于无GUI的服务器版本，为MtAIO系统提供运行Docker服务的轻量级Linux平台。
 ---
 
 

@@ -6,6 +6,7 @@ category: Jekyll
 layout: post
 toc_min: 2
 toc_max: 2
+description: Windows10系统安装与配置完整指南，涵盖镜像下载、PVE虚拟机创建、UEFI BIOS设置及显卡直通配置，为MtAIO系统提供完整的云Windows环境。
 ---
 
 <hr />

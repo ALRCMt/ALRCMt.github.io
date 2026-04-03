@@ -6,6 +6,7 @@ category: Jekyll
 layout: post
 toc_min: 2
 toc_max: 2
+description: Proxmox VE系统安装完整指南，涵盖镜像下载、启动盘制作、BIOS设置、PVE安装流程以及基本配置步骤，是构建MtAIO虚拟化平台的基础教程。
 ---
 
 <hr />

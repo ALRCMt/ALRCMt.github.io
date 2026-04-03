@@ -4,7 +4,7 @@ longtitle:        主页
 author:           ALRCMt
 email:            b122330417@163.com
 description: >
-  ALRCMt build Jekyll site with the GitBook style now.
+  这是ALRCMt的个人网站，记录了我的学习笔记、项目经验和一些有趣的想法。希望通过这个平台与更多的人分享我的知识和经验，同时也欢迎大家与我交流和合作
 
 timezone:         Asia/Shanghai
 
@@ -79,4 +79,5 @@ plugins:
   - jekyll-feed
   - jekyll-readme-index
   - jemoji
-
+  - jekyll-sitemap
+  - jekyll-seo-tag
