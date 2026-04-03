@@ -3,6 +3,7 @@ layout: home
 mermaid: true
 title: 主页
 permalink: /
+image: /images/ADHDsp.jpg
 ---
 
 <figure class="image-preview">
