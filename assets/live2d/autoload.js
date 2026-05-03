@@ -37,7 +37,7 @@ function loadExternalResource(url, type) {
 (async () => {
   // If you are concerned about display issues on mobile devices, you can use screen.width to determine whether to load
   // 如果担心手机上显示效果不佳，可以根据屏幕宽度来判断是否加载
-  if (window.matchMedia('(max-width: 768px)').matches) {
+  if (window.matchMedia('(max-width: 768px)').matches || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
     return;
   }
 
