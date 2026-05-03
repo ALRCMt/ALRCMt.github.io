@@ -4,6 +4,7 @@ author: ALRCMt
 date: 2025-10-01 +08:00
 category: Jekyll
 layout: post
+description: 草稿页面，记录作者正在整理的马列毛主义与政治哲学经典阅读清单，内容尚在补充中。
 ---
 
 <style>

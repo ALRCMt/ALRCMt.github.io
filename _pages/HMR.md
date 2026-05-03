@@ -6,6 +6,7 @@ category: Jekyll
 layout: post
 toc_min: 1
 toc_max: 1
+description: HMR 项目历史说明，介绍湖南马列毛资料库暂停原因、敏感属性与不完全开放状态，以及项目现阶段的存档与下载方式。
 ---
 
 ## 未开放

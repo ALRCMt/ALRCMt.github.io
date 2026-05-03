@@ -24,7 +24,7 @@
 [![GitHub last commit](https://img.shields.io/github/last-commit/ALRCMt/ALRCMt.github.io?style=for-the-badge)](https://github.com/ALRCMt/ALRCMt.github.io)
 [![GitHub Created At](https://img.shields.io/github/created-at/ALRCMt/ALRCMt.github.io?style=for-the-badge)](https://github.com/ALRCMt/ALRCMt.github.io)
 
-[![WEB Card 看不见图片说明你网络垃圾](https://github-readme-stats-bay-xi-61.vercel.app/api/pin?username=ALRCMt&repo=ALRCMt.github.io&theme=react&show_owner=true)](https://github.com/ALRCMt/ALRCMt.github.io)
+<a href="https://github.com/ALRCMt/ALRCMt.github.io" target="_blank"><img src="https://github-readme-stats-bay-xi-61.vercel.app/api/pin?username=ALRCMt&repo=ALRCMt.github.io&theme=react&show_owner=true" alt="WEB Card 看不见图片说明你网络垃圾" ></a>
 
 <hr />
 

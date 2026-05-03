@@ -4,6 +4,7 @@ author: ALRCMt
 date: 2025-10-01 +08:00
 category: Jekyll
 layout: post
+description: ALRCMt 个人网站与 jekyll-gitbook 主题使用的 Apache License 2.0 开源协议全文，说明许可条款与版权声明。
 ---
 
 > 使用与 jekyll-gitbook 相同 Apache-2.0 开源协议
