@@ -1,7 +1,7 @@
 ---
 title: License
 author: ALRCMt
-date: 2025-10-01
+date: 2025-10-01 +08:00
 category: Jekyll
 layout: post
 ---

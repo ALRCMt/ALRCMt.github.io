@@ -1,7 +1,7 @@
 ---
 title: Proxmox VE 系统
 author: ALRCMt
-date: 2025-06-09
+date: 2025-06-09 08:00:00 +08:00
 category: Jekyll
 layout: post
 toc_min: 2
@@ -33,7 +33,7 @@ Etcher 下载地址：[https://pve.proxmox.com/pve-docs/pve-admin-guide.html#ins
 
 安装流程的官方文档：[https://pve.proxmox.com/pve-docs/pve-admin-guide.html#installation_installer](https://pve.proxmox.com/pve-docs/pve-admin-guide.html#installation_installer)
 
-安装过程中卡死？解决方法：[PVE 安装时卡死](/jekyll/2025-06-30-LoveFormMe.html#01pve-%E5%AE%89%E8%A3%85%E6%97%B6%E5%8D%A1%E6%AD%BB)
+安装过程中卡死？解决方法：[PVE 安装时卡死](/jekyll/2026-02-08-e01.html)
 
 **4.验证安装**
 

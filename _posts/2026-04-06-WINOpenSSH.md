@@ -1,7 +1,7 @@
 ---
 title: Windows安装OpenSSH
 author: ALRCMt
-date: 2026-04-06
+date: 2026-04-06 +08:00
 category: Jekyll
 layout: post
 toc_min: 2

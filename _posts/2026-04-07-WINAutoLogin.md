@@ -1,7 +1,7 @@
 ---
 title: Windows开机自动登录
 author: ALRCMt
-date: 2026-04-07
+date: 2026-04-07 +08:00
 category: Jekyll
 layout: post
 toc_min: 2

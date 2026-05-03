@@ -1,7 +1,7 @@
 ---
 title: 关于ALRCMt
 author: ALRCMt
-date: 2025-10-01
+date: 2025-10-01 +08:00
 category: Jekyll
 layout: post
 toc_min: 2

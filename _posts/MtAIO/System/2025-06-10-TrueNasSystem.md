@@ -1,7 +1,7 @@
 ---
 title: TrueNAS scale 系统
 author: ALRCMt
-date: 2025-06-10
+date: 2025-06-10 08:00:00 +08:00
 category: Jekyll
 layout: post
 toc_min: 2

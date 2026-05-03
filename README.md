@@ -6,11 +6,10 @@
 <b>你好，这里是ALRCMt的个人网站！: )</b>
 
 >  因为我的铸币操作，导致Git文件错误覆盖  
-> 所以本仓库`2ecd03c`号之前的提交为仓库PersonWeb-Ago
-的提交记录  
+> 所以本仓库`2ecd03c`号之前的提交为仓库PersonWeb-Ago的提交记录  
 > 如果你想看本仓库之前的提交记录，请看https://github.com/ALRCMt/ALRCMt.github.io/commits/dde1be4f513c2b7ba78d583087a61c4720a2a7f1/
 
-### [MtAIO系统介绍及指南](https://ht.tyyz2415.top/jekyll/2025-06-06-About.html)
+### [MtAIO系统介绍及指南](https://ht.tyyz2415.top/jekyll/2025-06-05-About.html)
 
 目前主要是把我的PVE系统折腾指南挂在这里，以及一些嘲讽之类  
 如果没有其它需求的话，我应该不会再变更网站了，也许我后面会搞一个人Blog？不管了  

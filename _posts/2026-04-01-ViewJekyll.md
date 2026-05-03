@@ -1,7 +1,7 @@
 ---
 title: Windows Jekyll本地预览
 author: ALRCMt
-date: 2026-04-01
+date: 2026-04-01 +08:00
 category: Jekyll
 layout: post
 toc_min: 2
