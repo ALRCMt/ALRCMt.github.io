@@ -1,5 +1,4 @@
 {% if page.disqus != false %}
-  <br/><br/><h3>Comments:</h3>
   <script src="https://giscus.app/client.js"
           data-repo="{{ site.comments.giscus.repo }}"
           data-repo-id="{{ site.comments.giscus.repo_id }}"
@@ -12,7 +11,6 @@
           data-input-position="{{ site.comments.giscus.input_position | default: 'top' }}"
           data-theme="{{ site.comments.giscus.theme | default: 'preferred_color_scheme' }}"
           data-lang="{{ site.comments.giscus.lang | default: 'zh-CN' }}"
-          data-loading="{{ site.comments.giscus.loading | default: 'lazy' }}"
           crossorigin="anonymous"
           async>
   </script>

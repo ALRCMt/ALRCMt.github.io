@@ -89,7 +89,6 @@ comments:
     input_position: "top"
     theme: "preferred_color_scheme"
     lang: "zh-CN"
-    loading: "lazy"
 
 plugins:
   - jekyll-feed
