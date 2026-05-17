@@ -20,7 +20,9 @@
 
                     {{ content }}
 
-                    {%- if jekyll.environment != 'dev' and site.disqushandler -%}
+                    {%- if jekyll.environment != 'dev' and site.comments.provider == 'giscus' -%}
+                        {%- include giscus.html -%}
+                    {%- elsif jekyll.environment != 'dev' and site.disqushandler -%}
                         {%- include disqus.html -%}
                     {%- endif -%}
                 </section>

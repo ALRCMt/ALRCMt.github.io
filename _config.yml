@@ -75,6 +75,22 @@ destination:      ./_site
 incremental:      false
 regenerate:       true
 
+comments:
+  provider: "giscus"
+  giscus:
+    repo: "ALRCMt/ALRCMt.github.io"              # 你的 GitHub 仓库名
+    repo_id: "R_kgDOPvgepA"                                  # 可选：从 giscus 配置页获得，如果使用 repo 名可留空
+    category_name: "Comments"                    # 你刚才创建的 Discussion 分类名
+    category_id: "DIC_kwDOPvgepM4C9O3h"                     # 从 giscus 配置页获得
+    mapping: "pathname"                          # 映射方式，可选 pathname、url、title 等
+    strict: 0
+    reactions_enabled: 1
+    emit_metadata: 0
+    input_position: "top"
+    theme: "preferred_color_scheme"
+    lang: "zh-CN"
+    loading: "lazy"
+
 plugins:
   - jekyll-feed
   - jekyll-readme-index
