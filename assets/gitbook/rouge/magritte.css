@@ -3,6 +3,12 @@
 .highlight {
   color: #000707;
   background-color: #f3ffff;
+  font-family: Arial, sans-serif;
+}
+.highlight pre,
+.highlight code,
+.highlight pre > code {
+  font-family: Arial, sans-serif;
 }
 .highlight .gl {
   color: #f3ffff;
@@ -23,7 +29,6 @@
 .highlight .gr {
   color: #f22700;
   font-weight: bold;
-  font-style: ;
 }
 .highlight .k, .highlight .kd, .highlight .kv {
   color: #19003a;
@@ -41,9 +46,6 @@
 }
 .highlight .gi {
   color: #007500;
-}
-.highlight .ge {
-  font-style: ;
 }
 .highlight .gs {
   font-weight: bold;
