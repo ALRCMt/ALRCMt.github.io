@@ -3,6 +3,7 @@
 source "https://rubygems.org"
 
 git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
+gem 'sass-embedded', '1.69.5'
 gem "jekyll"
 gem "kramdown-parser-gfm"
 gem 'jekyll-feed'
