@@ -31,7 +31,7 @@ jobs:
 
       # 3. 如果有变更的文件，则构建URL并提交给 IndexNow
       - name: Submit URLs to IndexNow
-        if: steps.changed-files.outputs.any_changed == 'true'
+        if: steps.changed-files.outputs.any_changed
         env:
           # 将所有变更的文件路径，转换为网站的完整URL
           CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
