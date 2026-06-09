@@ -1,0 +1,64 @@
+# .github/workflows/submit-indexnow.yml
+name: Submit URLs to IndexNow
+
+# 触发条件：当代码被推送到 master 或 main 分支时
+on:
+  push:
+    branches:
+      - master      # 如果你的主分支是 master
+      - main        # 如果是 main，都写上也没关系
+
+# 环境变量：这里填入你的 IndexNow 密钥
+env:
+  INDEXNOW_KEY: '9f349e95fe6a40998d56799c679fc0a0' 
+
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    steps:
+      # 1. 检出代码
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 2. 获取本次变更的文件列表 (找出新增或修改的 .md 和 .html 文件)
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@v41
+        with:
+          files: |
+            **/*.md
+            **/*.html
+
+      # 3. 如果有变更的文件，则构建URL并提交给 IndexNow
+      - name: Submit URLs to IndexNow
+        if: steps.changed-files.outputs.any_changed == 'true'
+        env:
+          # 将所有变更的文件路径，转换为网站的完整URL
+          CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
+        run: |
+          # 这是你的网站地址
+          SITE_URL="https://ht.tyyz2415.top"
+          
+          # 读取变更列表，拼接成完整的URL数组
+          URL_LIST="["
+          for file in $CHANGED_FILES; do
+            # 将文件路径 (如 '2025/hello-world.md') 转为网址路径
+            # Jekyll 会将 .md 文件编译成同名的 .html 文件 (除非使用了永久链接)
+            # 这是一个通用的转换规则，如果不符合你的情况，可以按需修改
+            PAGE_PATH="${file%.md}"
+            PAGE_PATH="${PAGE_PATH%.html}"
+            URL_LIST="${URL_LIST}\"${SITE_URL}/${PAGE_PATH}\","
+          done
+          # 移除末尾多余的逗号，并闭合数组
+          URL_LIST="${URL_LIST%,}]"
+          
+          # 使用 curl 发送 POST 请求给 Bing (IndexNow)
+          curl --request POST \
+            --url 'https://www.bing.com/indexnow' \
+            --header 'Content-Type: application/json' \
+            --data-raw "{
+              \"host\": \"ht.tyyz2415.top\",
+              \"key\": \"${INDEXNOW_KEY}\",
+              \"keyLocation\": \"https://ht.tyyz2415.top/${INDEXNOW_KEY}.txt\",
+              \"urlList\": ${URL_LIST}
+            }"
