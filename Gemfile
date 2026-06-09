@@ -3,7 +3,7 @@
 source "https://rubygems.org"
 
 git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
-# gem 'sass-embedded', '1.69.5'
+gem 'sass-embedded', '1.69.5' #这一行是兼容Github Pages的sass-embedded版本，解决了jekyll build时的sass-embedded版本不兼容问题
 gem "jekyll"
 gem "kramdown-parser-gfm"
 gem 'jekyll-feed'
