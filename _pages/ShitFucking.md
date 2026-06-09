@@ -5,7 +5,7 @@ date: 2025-10-01 +08:00
 category: Jekyll
 layout: post
 cover: \images\hero.gif
-description: 桃源一中？杂鱼~杂鱼~杂鱼而已啦~
+description: 桃源一中？杂鱼~杂鱼~杂鱼而已啦~ ざこ学校只会无能狂怒吧？哎呀呀，真是对不起呢，不过我还是要炮打桃源一中哦？ 嘶，对不起哟~~
 ---
 <style>
 pre code.language-info,

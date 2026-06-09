@@ -4,16 +4,17 @@ longtitle:        主页
 author:           ALRCMt
 email:            b122330417@163.com
 description: >
-  这是ALRCMt的个人网站，记录了我的折腾历程。希望与更多的人分享我的经验，同时也欢迎大家与我交流和合作（你看到这一句说明我忘记写摘要了）
+  ALRCMt 的个人网站，记录服务器、虚拟化、软路由、嵌入式、Jekyll 博客搭建与日常技术折腾的学习笔记、教程和个人介绍。
 
 timezone:         Asia/Shanghai
 
 version:          1.0
 gitbook_version:  3.2.3
 
-url:              'http://ht.tyyz2415.top'
+url:              'https://ht.tyyz2415.top'
 baseurl:          ''
 rss:              RSS
+lang:             'zh-CN'
 
 # bootstrap: use the remote theme for the site itself
 # remote_theme: sighingnow/jekyll-gitbook

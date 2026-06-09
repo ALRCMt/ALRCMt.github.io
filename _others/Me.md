@@ -4,8 +4,10 @@ author: ALRCMt
 date: 2025-10-01 +08:00
 category: Jekyll
 layout: post
+description: 关于 ALRCMt 的个人介绍页，包含兴趣方向、技术尝试、项目经历、联系方式与一些随手记录的生活与学习状态。
 toc_min: 2
 toc_max: 2
+
 ---
 
 <figure class="image-preview">
