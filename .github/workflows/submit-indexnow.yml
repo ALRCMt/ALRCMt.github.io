@@ -53,7 +53,7 @@ jobs:
           URL_LIST="${URL_LIST%,}]"
           
           # 使用 curl 发送 POST 请求给 Bing (IndexNow)
-          curl --request POST \
+          curl -i --request POST \
             --url 'https://www.bing.com/indexnow' \
             --header 'Content-Type: application/json' \
             --data-raw "{
