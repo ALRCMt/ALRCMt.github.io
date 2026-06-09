@@ -126,9 +126,8 @@ DEPENDENCIES
   jekyll-sitemap
   jemoji
   kramdown-parser-gfm
-  sass-embedded (= 1.69.5)
   tzinfo-data
   webrick
 
 BUNDLED WITH
-   2.7.2
+   2.3.27
