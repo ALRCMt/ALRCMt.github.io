@@ -6,7 +6,7 @@ category: Jekyll
 layout: post
 toc_min: 2
 toc_max: 2
-description: Windows系统本地Jekyll环境搭建与预览教程，涵盖Ruby、RubyGems、Jekyll和Bundler安装配置，实现本地网站实时预览功能。
+description: Windows系统本地Jekyll环境搭建与预览完整教程，涵盖Ruby、RubyGems、Jekyll和Bundler的安装配置步骤，详细说明如何在本地机器上创建、构建和实时预览Jekyll网站，实现本地网站的快速迭代与调试，并提供常见错误的解决方案以及提升构建速度的技巧，帮助用户高效开发静态网站。
 ---
 
 

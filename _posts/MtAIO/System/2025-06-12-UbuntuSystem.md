@@ -6,7 +6,7 @@ category: Jekyll
 layout: post
 toc_min: 2
 toc_max: 2
-description: Ubuntu Server系统安装完整指南，专注于无GUI的服务器版本，为MtAIO系统提供运行Docker服务的轻量级Linux平台。
+description: Ubuntu Server 系统安装完整指南，专注于无 GUI 的服务器版本，详细阐述从镜像下载、系统安装到网络配置的全过程，为 MtAIO 系统提供轻量级、适合运行 Docker 服务的 Linux 平台。文章涵盖分区方案、软件源优化、SSH 远程管理等关键配置，并提供后续安全加固、防火墙设置以及常用工具安装的详细步骤，帮助用户打造高效稳定的服务器运行环境。
 ---
 
 

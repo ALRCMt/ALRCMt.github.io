@@ -6,7 +6,7 @@ category: Jekyll
 layout: post
 toc_min: 2
 toc_max: 2
-description: 通过netplwiz工具配置Windows开机自动登录功能，支持无密码启动，包含注册表修复方案以解决新版本Windows缺少复选框的问题
+description: 通过netplwiz工具配置Windows开机自动登录功能，支持无密码启动，本文详细介绍了操作步骤、注册表修复方案以及在新版本Windows中缺少复选框的问题解决方法，帮助用户实现快速登录并提供安全性考量与备选方案，确保系统启动后自动完成登录过程。
 ---
 
 

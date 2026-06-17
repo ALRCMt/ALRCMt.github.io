@@ -6,7 +6,7 @@ category: Jekyll
 layout: post
 toc_min: 2
 toc_max: 2
-description: Proxmox VE系统安装完整指南，涵盖镜像下载、启动盘制作、BIOS设置、PVE安装流程以及基本配置步骤，是构建MtAIO虚拟化平台的基础教程。
+description: Proxmox VE 系统安装完整指南，涵盖镜像下载、启动盘制作、BIOS 设置、PVE 安装流程以及基本配置步骤，是构建 MtAIO 虚拟化平台的基础教程。文章详细说明了网络配置、存储池设置、APT 源优化以及系统更新等关键操作，并提供常见安装问题的解决方案，帮助用户快速搭建稳定可靠的虚拟化环境，为后续部署各类虚拟机和容器服务奠定坚实基础。
 ---
 
 <hr />

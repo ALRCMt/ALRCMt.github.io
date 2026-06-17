@@ -6,7 +6,7 @@ category: Jekyll
 layout: post
 toc_min: 2
 toc_max: 2
-description: Windows10系统安装与配置完整指南，涵盖镜像下载、PVE虚拟机创建、UEFI BIOS设置及显卡直通配置，为MtAIO系统提供完整的云Windows环境。
+description: Windows 10 系统安装与配置完整指南，涵盖镜像下载、在 Proxmox VE 虚拟机中创建 Windows 实例、UEFI BIOS 设置以及显卡直通配置等关键步骤。文章详细说明了 VirtIO 驱动安装、网络与存储优化、远程桌面配置以及系统激活等操作，帮助用户在 MtAIO 环境中快速部署云 Windows，并提供后续驱动更新、性能调优与常见问题排查的详细说明，实现完整的桌面虚拟化体验。
 ---
 
 <hr />

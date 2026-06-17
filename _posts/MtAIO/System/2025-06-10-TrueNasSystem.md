@@ -6,7 +6,7 @@ category: Jekyll
 layout: post
 toc_min: 2
 toc_max: 2
-description: TrueNAS Scale系统安装与配置完整指南，涵盖镜像下载、PVE集成、虚拟机创建以及ZFS存储池设置，为MtAIO系统提供可靠的NAS存储服务。
+description: TrueNAS Scale 系统安装与配置完整指南，涵盖镜像下载、在 Proxmox VE 中的虚拟机创建、ZFS 存储池设置以及与 MtAIO 系统的集成步骤。文章详细阐述了硬盘直通配置、SMB/NFS 共享服务搭建、用户权限管理等核心功能，帮助用户构建可靠的 NAS 存储服务，并提供后续数据备份、快照管理与性能调优的实用技巧，确保数据安全与高效访问。
 ---
 
 

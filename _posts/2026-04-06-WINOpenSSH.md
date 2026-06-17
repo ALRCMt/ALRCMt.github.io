@@ -6,7 +6,7 @@ category: Jekyll
 layout: post
 toc_min: 2
 toc_max: 2
-description: 在Windows系统中安装配置OpenSSH Server，支持SSH远程登录和远程电源管理，包含SSH密码登录故障修复的一键脚本
+description: 本文提供了在 Windows 系统中完整安装、配置 OpenSSH Server 的详细指南，涵盖服务的下载安装、启动方式、开机自启设置、端口防火墙放行以及常见的密码登录故障排查步骤。通过逐步演示配置文件的编辑、权限设置和日志检查，帮助读者快速实现安全的远程登录、实现跨平台的 SSH 访问，并提供了进一步的安全加固与性能调优建议，确保系统远程管理的安全性与稳定性。
 ---
 
 
