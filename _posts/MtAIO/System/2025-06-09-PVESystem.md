@@ -15,7 +15,7 @@ description: Proxmox VE 系统安装完整指南，涵盖镜像下载、启动�
 
 **1.下载镜像**
 
-pve 的镜像官网下载页面：[https://www.proxmox.com/en/downloads/category/iso-images-pve](https://www.proxmox.com/en/downloads/category/iso-images-pve)
+PVE 的镜像官网下载页面：[https://www.proxmox.com/en/downloads/category/iso-images-pve](https://www.proxmox.com/en/downloads/category/iso-images-pve)
 
 直接下载最新版本即可
 

@@ -1,7 +1,7 @@
 ---
-title: 9.Cloudflare回源规则
+title: Cloudflare回源规则
 author: ALRCMt
-date: 2026-02-17 08:00:00 +08:00
+date: 2026-06-17 08:00:00 +08:00
 category: Jekyll
 layout: post
 description: Cloudflare Origin Rules 回源规则配置教程，实现 IPv6 地址通过 DDNS 解析到非 80 端口服务，支持多服务部署。文章详细说明了 Cloudflare DNS 配置方法、DDNS 客户端设置、Origin Rules 规则创建步骤、端口转发配置以及 SSL/TLS 加密设置，并提供多域名解析策略、自定义主机头配置、防火墙规则优化、访问日志分析以及故障排查技巧，帮助用户在 IPv6 网络环境下灵活部署各类 Web 服务。

@@ -39,7 +39,7 @@ Ubuntu Server 官方文档的安装指引：[https://ubuntu.com/server/docs/inst
 安装时有几点需要注意：
 
 1.  Mirror 设置时，Ubuntu 现在默认为国内源地址，如果不是的话请更换成你所在的地区最稳定的地址
-2.  ubuntu 安装默认只占用一半空间，需自己勾选上 _[已经安装完成？补救方法](/jekyll/2025-06-30-LoveFormMe.html#05ubuntu-%E7%A9%BA%E9%97%B4%E4%BB%85%E5%8D%A0%E7%94%A8%E4%B8%80%E5%8D%8A)_
+2.  ubuntu 安装默认只占用一半空间，需自己勾选上 _[已经安装完成？补救方法](/jekyll/2026-02-11-e04.html)_
 3.  SSH 设置时勾选 Install SSH Server
 4.  Snaps 页面不要选择任何软件进行安装
 5.  在 Ubuntu 安装开始执行一段时间后（大概几分钟），会开始拉取软件源信息，没必要等待，直接选择"跳过并重启"即可
