@@ -51,7 +51,7 @@ image: /images/ADHDsp.jpg
 </figure>
 
 
-> <i>十分感谢开源镜像站，直连境外源多么折磨人都知道</i>   
+> <i>感谢开源镜像站，直连境外源多么折磨人都知道</i>   
 <img src="https://raw.githubusercontent.com/ALRCMt/MtAIO-Build/cb99109050678a8dc9f7933bb70bc5681e4f1084/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-16%20161707.png" width="260px"> 
 
 
@@ -61,8 +61,8 @@ image: /images/ADHDsp.jpg
 
 
 <figure class="image-preview">
-  <a href="https://github-readme-stats-bay-xi-61.vercel.app/api/top-langs/?username=ALRCMt&layout=compact&theme=slateorange" class="preview-link">
-    <img src="https://github-readme-stats-bay-xi-61.vercel.app/api/top-langs/?username=ALRCMt&layout=compact&theme=slateorange" alt="Top Langs 看不见图片说明你网络垃圾" >
+  <a href="https://stats.tyyz2415.top/api/top-langs/?username=ALRCMt&layout=compact&theme=slateorange" class="preview-link">
+    <img src="https://stats.tyyz2415.top/api/top-langs/?username=ALRCMt&layout=compact&theme=slateorange" alt="Top Langs 看不见图片说明你网络垃圾" >
   </a>
 </figure>
 
@@ -94,8 +94,8 @@ image: /images/ADHDsp.jpg
 人是懒得出奇的  
 
 <figure class="image-preview">
-  <a href="https://github-readme-stats-bay-xi-61.vercel.app/api?username=ALRCMt&show_icons=true&theme=cobalt" class="preview-link">
-    <img src="https://github-readme-stats-bay-xi-61.vercel.app/api?username=ALRCMt&show_icons=true&theme=cobalt" alt="ALRCMt's GitHub stats 看不见图片说明你网络垃圾" >
+  <a href="https://stats.tyyz2415.top/api?username=ALRCMt&show_icons=true&theme=cobalt" class="preview-link">
+    <img src="https://stats.tyyz2415.top/api?username=ALRCMt&show_icons=true&theme=cobalt" alt="ALRCMt's GitHub stats 看不见图片说明你网络垃圾" >
   </a>
 </figure>
 
@@ -130,8 +130,8 @@ image: /images/ADHDsp.jpg
 
 
 <figure class="image-preview">
-  <a href="http://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=ALRCMt&theme=holi&utcOffset=8" class="preview-link">
-    <img src="http://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=ALRCMt&theme=holi&utcOffset=8" alt="看不见图片说明你网络垃圾" >
+  <a href="https://stats.tyyz2415.top/api/cards/productive-time?username=ALRCMt&theme=holi&utcOffset=8" class="preview-link">
+    <img src="https://stats.tyyz2415.top/api/cards/productive-time?username=ALRCMt&theme=holi&utcOffset=8" alt="看不见图片说明你网络垃圾" >
   </a>
 </figure>
 
