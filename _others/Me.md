@@ -130,8 +130,8 @@ image: /images/ADHDsp.jpg
 
 
 <figure class="image-preview">
-  <a href="https://stats.tyyz2415.top/api/cards/productive-time?username=ALRCMt&theme=holi&utcOffset=8" class="preview-link">
-    <img src="https://stats.tyyz2415.top/api/cards/productive-time?username=ALRCMt&theme=holi&utcOffset=8" alt="看不见图片说明你网络垃圾" >
+  <a href="summary.tyyz2415.top/api/cards/productive-time?username=ALRCMt&theme=holi&utcOffset=8" class="preview-link">
+    <img src="summary.tyyz2415.top/api/cards/productive-time?username=ALRCMt&theme=holi&utcOffset=8" alt="看不见图片说明你网络垃圾" >
   </a>
 </figure>
 
