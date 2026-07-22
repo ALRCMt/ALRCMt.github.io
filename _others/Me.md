@@ -126,7 +126,7 @@ image: /images/ADHDsp.jpg
 [![Bilibili](https://img.shields.io/badge/Bilibili-ALRC_Mt-pink.svg?style=flat-square&logo=bilibili)](https://space.bilibili.com/483215864?spm_id_from=333.1007.0.0)
 
 
-<a href="https://github.com/ALRCMt" target="_blank"><img src="https://github-readme-stats-bay-xi-61.vercel.app/api?username=ALRCMt&rank_icon=percentile&theme=radical" alt="ALRCMt's GitHub stats 看不见图片说明你网络垃圾" ></a>
+<a href="https://github.com/ALRCMt" target="_blank"><img src="https://stats.tyyz2415.top/api?username=ALRCMt&rank_icon=percentile&theme=radical" alt="ALRCMt's GitHub stats 看不见图片说明你网络垃圾" ></a>
 
 
 <figure class="image-preview">
