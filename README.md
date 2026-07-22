@@ -15,6 +15,7 @@
 如果没有其它需求的话，我应该不会再变更网站了，也许我后面会搞一个人Blog？不管了  
 先这样凑合用吧 **[关于ALRCMt](https://ht.tyyz2415.top/others/Me/)**
 
+有什么建设性意见请联系我！邮箱：<alrcmt86@outlook.com>
 <hr />
 
 > <b>本网站的GitHub开源仓库</b>  
