@@ -29,6 +29,27 @@ image: /images/ADHDsp.jpg
      background-color: #ff9800; 
      animation: pulse 1s infinite;
      }
+    .status-row {
+     display: inline-flex;
+     align-items: center;
+     gap: 20px;
+     flex-wrap: wrap;
+    }
+    .status-box {
+     display: inline-flex;
+     align-items: center;
+     gap: 8px;
+    }
+    @media (max-width: 640px) {
+      .status-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .status-box,
+      #statusTime {
+        width: 100%;
+      }
+    }
      @keyframes pulse {
       0% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7); }
       70% { box-shadow: 0 0 0 10px rgba(76, 175, 80, 0); }
@@ -46,12 +67,12 @@ image: /images/ADHDsp.jpg
 
 <b>这里是ALRCMt的个人网站！ :)</b>
 
-<div style="display:inline-flex; align-items:center; gap:20px;">
-  <div style="display:inline-flex; align-items:center; gap:8px;">
+<div class="status-row">
+  <div class="status-box">
     <div id="statusDot2" class="status-dot status-checking"></div>
     <span id="statusText2" style="vertical-align:middle;">正在检测...</span>
   </div>
-  <div style="display:inline-flex; align-items:center; gap:8px;">
+  <div class="status-box">
     <div id="statusDot1" class="status-dot status-checking"></div>
     <span id="statusText1" style="vertical-align:middle;">正在检测...</span>
   </div>
