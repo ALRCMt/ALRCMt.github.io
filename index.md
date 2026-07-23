@@ -8,12 +8,112 @@ image: /images/ADHDsp.jpg
 
 ---
 
+<head>
+ <style>
+    .status-dot {
+     width: 14px;
+     height: 14px;
+     border-radius: 50%;
+     display: inline-block;
+     vertical-align: middle;
+     margin-left: 8px;
+     }
+    .status-online { 
+     background-color: #4CAF50; 
+     animation: pulse 2s infinite;
+     }
+    .status-offline { 
+     background-color: #f44336; 
+     }
+    .status-checking { 
+     background-color: #ff9800; 
+     animation: pulse 1s infinite;
+     }
+     @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7); }
+      70% { box-shadow: 0 0 0 10px rgba(76, 175, 80, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0); }
+     }
+</style>
+</head>
+
 <figure class="image-preview">
   <a href="./images/ADHDsp.jpg" class="preview-link">
     <img src="./images/ADHD.jpg" alt="" width="180px">
   </a>
 </figure>
+
+
 <b>这里是ALRCMt的个人网站！ :)</b>
+
+<div style="display:inline-flex; align-items:center; gap:20px;">
+  <div style="display:inline-flex; align-items:center; gap:8px;">
+    <div id="statusDot2" class="status-dot status-checking"></div>
+    <span id="statusText2" style="vertical-align:middle;">正在检测...</span>
+  </div>
+  <div style="display:inline-flex; align-items:center; gap:8px;">
+    <div id="statusDot1" class="status-dot status-checking"></div>
+    <span id="statusText1" style="vertical-align:middle;">正在检测...</span>
+  </div>
+  <span id="statusTime" style="vertical-align:middle; color:#999;">检测时间: --:--:--</span>
+</div>
+
+<script>
+        class ServerStatus {
+            constructor() {
+                this.statusDot1 = document.getElementById('statusDot1');
+                this.statusText1 = document.getElementById('statusText1');
+                this.statusDot2 = document.getElementById('statusDot2');
+                this.statusText2 = document.getElementById('statusText2');
+                this.statusTime = document.getElementById('statusTime');
+                this.checkInterval = 100000;
+                this.init();
+            }
+            
+            init() {
+                this.checkStatus();
+                setInterval(() => this.checkStatus(), this.checkInterval);
+            }
+            
+            updateStatus(dot, textEl, mode, onlineLabel, offlineLabel) {
+                const now = new Date().toLocaleTimeString('zh-CN');
+                dot.className = 'status-dot';
+                if (mode === 'checking') {
+                    dot.classList.add('status-checking');
+                    textEl.textContent = '正在检测...';
+                } else if (mode === 'online') {
+                    dot.classList.add('status-online');
+                    textEl.textContent = onlineLabel;
+                } else {
+                    dot.classList.add('status-offline');
+                    textEl.textContent = offlineLabel;
+                }
+                this.statusTime.textContent = '检测时间: '+ now;
+            }
+            async checkStatus() {
+                this.updateStatus(this.statusDot1, this.statusText1, 'checking');
+                this.updateStatus(this.statusDot2, this.statusText2, 'checking');
+                const url = 'https://w-status.tyyz2415.top/w-cb/p?' + Date.now();
+                
+                try {
+                    const response = await fetch(url, { mode: 'cors', cache: 'no-store' });
+                    const text = await response.text();
+                    const status = text.trim();
+
+                    const serverMode = response.ok && (status === 'pveonline' || status === 'winonline') ? 'online' : 'offline';
+                    this.updateStatus(this.statusDot1, this.statusText1, serverMode, '服务器在线', '服务器离线');
+                    this.updateStatus(this.statusDot2, this.statusText2, 'online', '路由在线', '路由离线');
+                } catch (error) {
+                    this.updateStatus(this.statusDot1, this.statusText1, 'offline', '服务器在线', '服务器离线');
+                    this.updateStatus(this.statusDot2, this.statusText2, 'offline', '路由在线', '路由离线');
+                }
+            }
+        }
+
+        const server = new ServerStatus();
+
+</script>
+
 <hr />
 
 - #### [MtAIO系统介绍及指南](/jekyll/2025-06-05-About.html)

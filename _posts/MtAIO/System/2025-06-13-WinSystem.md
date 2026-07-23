@@ -31,7 +31,9 @@ Windows虚拟机的创建步骤参考TruNAS章节，但需要注意如下几点�
 将BIOS设置为OVMF(UEFI)，EFI存储设置为local-lvm即可  
 勾选添加TPM，TPM存储设置为local-lvm即可，版本v2.0  
 在CPU设置时，类型选择host以提升性能  
-在网络配置时选择virtIO类型以提升网络性能，但这种方式需要安装完Windows后再手动安装VirtIO驱动  
+在网络配置时选择virtIO类型以提升网络性能，但这种方式需要安装完Windows后再手动安装VirtIO驱动
+
+> 其实也可以不使用虚拟硬盘，而直接[直通硬盘](/jekyll/2025-06-12-b01.html)启动，直通后把引导顺序改一下就行了
 
 **4.安装Windows系统**
 
