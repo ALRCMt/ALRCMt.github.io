@@ -67,6 +67,8 @@ image: /images/ADHDsp.jpg
 
 <b>这里是ALRCMt的个人网站！ :)</b>
 
+<a href="https://github.com/ALRCMt/ALRCMt.github.io" target="_blank"><img src="https://stats.tyyz2415.top/api/pin?username=ALRCMt&repo=ALRCMt.github.io&theme=react&show_owner=true" alt="WEB Card 看不见图片说明你网络垃圾" ></a>
+
 <div class="status-row">
   <div class="status-box">
     <div id="statusDot2" class="status-dot status-checking"></div>
@@ -151,9 +153,9 @@ image: /images/ADHDsp.jpg
 
 <hr />
 
-本站是用Jekyll搭的，~~主题是~~借鉴 [https://sighingnow.github.io/jekyll-gitbook](https://sighingnow.github.io/jekyll-gitbook)  
-这原模板真的是个草台班子，自己互相的颜色格式都不适配  
-加了图片预览 文件夹目录等功能  
+本站使用Jekyll构建，沿用了<https://github.com/sighingnow/jekyll-gitbook>的主题  
+修改了一些样式、排版  
+加了图片预览、文件夹目录、 giscus评论等功能  
 
 > <b>GitHub仓库: [https://github.com/ALRCMt/ALRCMt.github.io](https://github.com/ALRCMt/ALRCMt.github.io)</b>  
 [![GitHub commit activity](https://img.shields.io/github/commit-activity/t/ALRCMt/ALRCMt.github.io?style=for-the-badge&logo=GitHub)](https://github.com/ALRCMt/ALRCMt.github.io)
@@ -163,7 +165,36 @@ image: /images/ADHDsp.jpg
 [![GitHub Created At](https://img.shields.io/github/created-at/ALRCMt/ALRCMt.github.io?style=for-the-badge)](https://github.com/ALRCMt/ALRCMt.github.io)
 
 
-<a href="https://github.com/ALRCMt/ALRCMt.github.io" target="_blank"><img src="https://stats.tyyz2415.top/api/pin?username=ALRCMt&repo=ALRCMt.github.io&theme=react&show_owner=true" alt="WEB Card 看不见图片说明你网络垃圾" ></a>
+
+## 关于本站的拓展功能
+
+如果你想搭建一个类似的网站，大部分可以沿用<https://sighingnow.github.io/jekyll-gitbook/>的教程  
+我在这里只说明做出修改的内容：
+
+#### 1.目录结构的重构
+
+原本是使用插件构建的目录结构，我这里采用了别的方法
+
+原来：_posts等文件夹下只能直接放置Markdown文件，识别文件标题作为目录  
+在`_config.yml`文件里通过如下  
+``` yml
+toc:
+  enabled: true
+  h_min:   1
+  h_max:   3
+```
+来控制所有文件是否开启目录、设置几级目录
+
+现在：不仅上述方法仍可用，而且可以在每个文件开头设置`toc_min`与`toc_max`来确定几级目录  
+而且新增文件夹里还可以放置文件夹，通过在每个文件夹添加`_folder.yml`文件来设置文件夹的目录名、时间及是否默认展开，如  
+```yml
+title: 个人服务器系统构建
+date: 2026-01-01
+expanded: true
+```
+
+
+#### 2.图片预览功能
 
 <hr />
 
