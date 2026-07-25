@@ -90,7 +90,10 @@ class ServerStatus {
         this.statusText2 = document.getElementById('statusText2');
         this.statusTime = document.getElementById('statusTime');
         this.checkInterval = 100000;
-        this.timeoutDuration = 12000; // 15秒超时
+        this.timeoutDuration = 12000;
+        this.pingFailCount = 0;
+        this.maxPingFail = 3;
+        this.isCloudflareDown = false;
         this.init();
     }
 
@@ -102,6 +105,12 @@ class ServerStatus {
     updateStatus(dot, textEl, mode, onlineLabel, offlineLabel) {
         const now = new Date().toLocaleTimeString('zh-CN');
         dot.className = 'status-dot';
+        if (this.isCloudflareDown) {
+            dot.classList.add('status-offline');
+            textEl.textContent = 'Cloudflare失去连接';
+            this.statusTime.textContent = '检测时间: ' + now;
+            return;
+        }
         if (mode === 'checking') {
             dot.classList.add('status-checking');
             textEl.textContent = '正在检测...';
@@ -115,13 +124,55 @@ class ServerStatus {
         this.statusTime.textContent = '检测时间: ' + now;
     }
 
+    async pingHost() {
+        const url = 'https://w-status.tyyz2415.top?' + Date.now();
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 2500); // 5秒超时
+
+        try {
+            const response = await fetch(url, {
+                mode: 'cors',
+                cache: 'no-store',
+                signal: controller.signal,
+                method: 'HEAD' // 只获取头部，减少数据量
+            });
+            clearTimeout(timeoutId);
+            
+            if (response.ok) {
+                this.pingFailCount = 0;
+                this.isCloudflareDown = false;
+                return true;
+            } else {
+                this.pingFailCount++;
+                return false;
+            }
+        } catch (error) {
+            clearTimeout(timeoutId);
+            this.pingFailCount++;
+            return false;
+        }
+    }
+
     async checkStatus() {
+        // 先进行ping检测
+        const pingSuccess = await this.pingHost();
+        
+        // 检查是否达到最大失败次数
+        if (this.pingFailCount >= this.maxPingFail) {
+            this.isCloudflareDown = true;
+            this.updateStatus(this.statusDot1, this.statusText1, 'offline', '', '');
+            this.updateStatus(this.statusDot2, this.statusText2, 'offline', '', '');
+            console.log('Cloudflare失去连接，已停止后续检测');
+            return; // 停止后续的详细检测
+        }
+
+        // 如果ping成功或失败次数未达到上限，继续正常检测
+        this.isCloudflareDown = false;
         this.updateStatus(this.statusDot1, this.statusText1, 'checking');
         this.updateStatus(this.statusDot2, this.statusText2, 'checking');
 
         const url = 'https://w-status.tyyz2415.top/w-cb/p?' + Date.now();
         
-        // 创建AbortController用于超时控制
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), this.timeoutDuration);
 
@@ -129,10 +180,10 @@ class ServerStatus {
             const response = await fetch(url, {
                 mode: 'cors',
                 cache: 'no-store',
-                signal: controller.signal // 传入信号
+                signal: controller.signal
             });
             
-            clearTimeout(timeoutId); // 清除超时定时器
+            clearTimeout(timeoutId);
             
             const text = await response.text();
             const status = text.trim();
@@ -141,14 +192,12 @@ class ServerStatus {
             this.updateStatus(this.statusDot1, this.statusText1, serverMode, '服务器在线', '服务器离线');
             this.updateStatus(this.statusDot2, this.statusText2, 'online', '路由在线', '路由离线');
         } catch (error) {
-            clearTimeout(timeoutId); // 清除超时定时器
+            clearTimeout(timeoutId);
             
-            // 判断是否为超时错误
             if (error.name === 'AbortError') {
                 console.log('请求超时（15秒）');
             }
             
-            // 超时或任何错误都将状态设为离线
             this.updateStatus(this.statusDot1, this.statusText1, 'offline', '服务器在线', '服务器离线');
             this.updateStatus(this.statusDot2, this.statusText2, 'offline', '路由在线', '路由离线');
         }
