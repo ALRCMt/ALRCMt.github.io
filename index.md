@@ -90,7 +90,7 @@ class ServerStatus {
         this.statusText2 = document.getElementById('statusText2');
         this.statusTime = document.getElementById('statusTime');
         this.checkInterval = 100000;
-        this.timeoutDuration = 15000; // 15秒超时
+        this.timeoutDuration = 12000; // 15秒超时
         this.init();
     }
 
