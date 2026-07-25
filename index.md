@@ -82,59 +82,80 @@ image: /images/ADHDsp.jpg
 </div>
 
 <script>
-        class ServerStatus {
-            constructor() {
-                this.statusDot1 = document.getElementById('statusDot1');
-                this.statusText1 = document.getElementById('statusText1');
-                this.statusDot2 = document.getElementById('statusDot2');
-                this.statusText2 = document.getElementById('statusText2');
-                this.statusTime = document.getElementById('statusTime');
-                this.checkInterval = 100000;
-                this.init();
-            }
-            
-            init() {
-                this.checkStatus();
-                setInterval(() => this.checkStatus(), this.checkInterval);
-            }
-            
-            updateStatus(dot, textEl, mode, onlineLabel, offlineLabel) {
-                const now = new Date().toLocaleTimeString('zh-CN');
-                dot.className = 'status-dot';
-                if (mode === 'checking') {
-                    dot.classList.add('status-checking');
-                    textEl.textContent = '正在检测...';
-                } else if (mode === 'online') {
-                    dot.classList.add('status-online');
-                    textEl.textContent = onlineLabel;
-                } else {
-                    dot.classList.add('status-offline');
-                    textEl.textContent = offlineLabel;
-                }
-                this.statusTime.textContent = '检测时间: '+ now;
-            }
-            async checkStatus() {
-                this.updateStatus(this.statusDot1, this.statusText1, 'checking');
-                this.updateStatus(this.statusDot2, this.statusText2, 'checking');
-                const url = 'https://w-status.tyyz2415.top/w-cb/p?' + Date.now();
-                
-                try {
-                    const response = await fetch(url, { mode: 'cors', cache: 'no-store' });
-                    const text = await response.text();
-                    const status = text.trim();
+class ServerStatus {
+    constructor() {
+        this.statusDot1 = document.getElementById('statusDot1');
+        this.statusText1 = document.getElementById('statusText1');
+        this.statusDot2 = document.getElementById('statusDot2');
+        this.statusText2 = document.getElementById('statusText2');
+        this.statusTime = document.getElementById('statusTime');
+        this.checkInterval = 100000;
+        this.timeoutDuration = 15000; // 15秒超时
+        this.init();
+    }
 
-                    const serverMode = response.ok && (status === 'pveonline' || status === 'winonline') ? 'online' : 'offline';
-                    this.updateStatus(this.statusDot1, this.statusText1, serverMode, '服务器在线', '服务器离线');
-                    this.updateStatus(this.statusDot2, this.statusText2, 'online', '路由在线', '路由离线');
-                } catch (error) {
-                    this.updateStatus(this.statusDot1, this.statusText1, 'offline', '服务器在线', '服务器离线');
-                    this.updateStatus(this.statusDot2, this.statusText2, 'offline', '路由在线', '路由离线');
-                }
-            }
+    init() {
+        this.checkStatus();
+        setInterval(() => this.checkStatus(), this.checkInterval);
+    }
+
+    updateStatus(dot, textEl, mode, onlineLabel, offlineLabel) {
+        const now = new Date().toLocaleTimeString('zh-CN');
+        dot.className = 'status-dot';
+        if (mode === 'checking') {
+            dot.classList.add('status-checking');
+            textEl.textContent = '正在检测...';
+        } else if (mode === 'online') {
+            dot.classList.add('status-online');
+            textEl.textContent = onlineLabel;
+        } else {
+            dot.classList.add('status-offline');
+            textEl.textContent = offlineLabel;
         }
+        this.statusTime.textContent = '检测时间: ' + now;
+    }
 
-        const server = new ServerStatus();
+    async checkStatus() {
+        this.updateStatus(this.statusDot1, this.statusText1, 'checking');
+        this.updateStatus(this.statusDot2, this.statusText2, 'checking');
 
+        const url = 'https://w-status.tyyz2415.top/w-cb/p?' + Date.now();
+        
+        // 创建AbortController用于超时控制
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), this.timeoutDuration);
+
+        try {
+            const response = await fetch(url, {
+                mode: 'cors',
+                cache: 'no-store',
+                signal: controller.signal // 传入信号
+            });
+            
+            clearTimeout(timeoutId); // 清除超时定时器
+            
+            const text = await response.text();
+            const status = text.trim();
+            const serverMode = response.ok && (status === 'pveonline' || status === 'winonline') ? 'online' : 'offline';
+            
+            this.updateStatus(this.statusDot1, this.statusText1, serverMode, '服务器在线', '服务器离线');
+            this.updateStatus(this.statusDot2, this.statusText2, 'online', '路由在线', '路由离线');
+        } catch (error) {
+            clearTimeout(timeoutId); // 清除超时定时器
+            
+            // 判断是否为超时错误
+            if (error.name === 'AbortError') {
+                console.log('请求超时（15秒）');
+            }
+            
+            // 超时或任何错误都将状态设为离线
+            this.updateStatus(this.statusDot1, this.statusText1, 'offline', '服务器在线', '服务器离线');
+            this.updateStatus(this.statusDot2, this.statusText2, 'offline', '路由在线', '路由离线');
+        }
+    }
+}
+
+const server = new ServerStatus();
 </script>
 
 <hr />
