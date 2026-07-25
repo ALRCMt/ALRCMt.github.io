@@ -90,10 +90,10 @@ class ServerStatus {
         this.statusText2 = document.getElementById('statusText2');
         this.statusTime = document.getElementById('statusTime');
         this.checkInterval = 100000;
-        this.timeoutDuration = 12000;
-        this.pingFailCount = 0;
-        this.maxPingFail = 3;
+        this.timeoutDuration = 15000;
         this.isCloudflareDown = false;
+        this.detailedCheckAbortController = null;
+        this.detailedCheckTimeoutId = null;
         this.init();
     }
 
@@ -127,63 +127,93 @@ class ServerStatus {
     async pingHost() {
         const url = 'https://w-status.tyyz2415.top?' + Date.now();
         const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 2500); // 5秒超时
+        const timeoutId = setTimeout(() => controller.abort(), 5000);
 
         try {
             const response = await fetch(url, {
                 mode: 'cors',
                 cache: 'no-store',
                 signal: controller.signal,
-                method: 'HEAD' // 只获取头部，减少数据量
+                method: 'HEAD'
             });
             clearTimeout(timeoutId);
-            
-            if (response.ok) {
-                this.pingFailCount = 0;
-                this.isCloudflareDown = false;
-                return true;
-            } else {
-                this.pingFailCount++;
-                return false;
-            }
+            return response.ok;
         } catch (error) {
             clearTimeout(timeoutId);
-            this.pingFailCount++;
             return false;
         }
     }
 
-    async checkStatus() {
-        // 先进行ping检测
-        const pingSuccess = await this.pingHost();
+    async performPingSequence() {
+        let pingSuccess = false;
         
-        // 检查是否达到最大失败次数
-        if (this.pingFailCount >= this.maxPingFail) {
+        for (let i = 0; i < 4; i++) {
+            const result = await this.pingHost();
+            
+            if (result) {
+                pingSuccess = true;
+                break;
+            }
+            
+            if (i < 3) {
+                await new Promise(resolve => setTimeout(resolve, 1000));
+            }
+        }
+
+        if (!pingSuccess) {
             this.isCloudflareDown = true;
             this.updateStatus(this.statusDot1, this.statusText1, 'offline', '', '');
             this.updateStatus(this.statusDot2, this.statusText2, 'offline', '', '');
-            console.log('Cloudflare失去连接，已停止后续检测');
-            return; // 停止后续的详细检测
+            
+            if (this.detailedCheckAbortController) {
+                this.detailedCheckAbortController.abort();
+                this.detailedCheckAbortController = null;
+            }
+            if (this.detailedCheckTimeoutId) {
+                clearTimeout(this.detailedCheckTimeoutId);
+                this.detailedCheckTimeoutId = null;
+            }
+        } else {
+            this.isCloudflareDown = false;
         }
+    }
 
-        // 如果ping成功或失败次数未达到上限，继续正常检测
+    async checkStatus() {
         this.isCloudflareDown = false;
+        
+        const detailedCheckPromise = this.performDetailedCheck();
+        const pingPromise = this.performPingSequence();
+        
+        await Promise.all([detailedCheckPromise, pingPromise]);
+    }
+
+    async performDetailedCheck() {
         this.updateStatus(this.statusDot1, this.statusText1, 'checking');
         this.updateStatus(this.statusDot2, this.statusText2, 'checking');
 
         const url = 'https://w-status.tyyz2415.top/w-cb/p?' + Date.now();
         
-        const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), this.timeoutDuration);
+        this.detailedCheckAbortController = new AbortController();
+        this.detailedCheckTimeoutId = setTimeout(() => {
+            if (this.detailedCheckAbortController) {
+                this.detailedCheckAbortController.abort();
+            }
+        }, this.timeoutDuration);
 
         try {
             const response = await fetch(url, {
                 mode: 'cors',
                 cache: 'no-store',
-                signal: controller.signal
+                signal: this.detailedCheckAbortController.signal
             });
             
-            clearTimeout(timeoutId);
+            clearTimeout(this.detailedCheckTimeoutId);
+            this.detailedCheckTimeoutId = null;
+            this.detailedCheckAbortController = null;
+            
+            if (this.isCloudflareDown) {
+                return;
+            }
             
             const text = await response.text();
             const status = text.trim();
@@ -192,14 +222,18 @@ class ServerStatus {
             this.updateStatus(this.statusDot1, this.statusText1, serverMode, '服务器在线', '服务器离线');
             this.updateStatus(this.statusDot2, this.statusText2, 'online', '路由在线', '路由离线');
         } catch (error) {
-            clearTimeout(timeoutId);
+            clearTimeout(this.detailedCheckTimeoutId);
+            this.detailedCheckTimeoutId = null;
+            this.detailedCheckAbortController = null;
             
             if (error.name === 'AbortError') {
-                console.log('请求超时（15秒）');
+                return;
             }
             
-            this.updateStatus(this.statusDot1, this.statusText1, 'offline', '服务器在线', '服务器离线');
-            this.updateStatus(this.statusDot2, this.statusText2, 'offline', '路由在线', '路由离线');
+            if (!this.isCloudflareDown) {
+                this.updateStatus(this.statusDot1, this.statusText1, 'offline', '服务器在线', '服务器离线');
+                this.updateStatus(this.statusDot2, this.statusText2, 'offline', '路由在线', '路由离线');
+            }
         }
     }
 }
