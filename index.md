@@ -90,7 +90,7 @@ class ServerStatus {
         this.statusText2 = document.getElementById('statusText2');
         this.statusTime = document.getElementById('statusTime');
         this.checkInterval = 100000;
-        this.timeoutDuration = 15000;
+        this.timeoutDuration = 12000;  // 15s → 12s
         this.isCloudflareDown = false;
         this.detailedCheckAbortController = null;
         this.detailedCheckTimeoutId = null;
@@ -127,17 +127,17 @@ class ServerStatus {
     async pingHost() {
         const url = 'https://w-status.tyyz2415.top?' + Date.now();
         const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 5000);
+        const timeoutId = setTimeout(() => controller.abort(), 3000);  // 5s → 3s
 
         try {
-            const response = await fetch(url, {
+            await fetch(url, {
                 mode: 'cors',
                 cache: 'no-store',
                 signal: controller.signal,
                 method: 'HEAD'
             });
             clearTimeout(timeoutId);
-            return response.ok;
+            return true;  // 不管状态码，只要不抛异常就算通
         } catch (error) {
             clearTimeout(timeoutId);
             return false;
@@ -147,7 +147,7 @@ class ServerStatus {
     async performPingSequence() {
         let pingSuccess = false;
         
-        for (let i = 0; i < 4; i++) {
+        for (let i = 0; i < 3; i++) {  // 4次 → 3次
             const result = await this.pingHost();
             
             if (result) {
@@ -155,7 +155,7 @@ class ServerStatus {
                 break;
             }
             
-            if (i < 3) {
+            if (i < 2) {  // 3次对应等2次
                 await new Promise(resolve => setTimeout(resolve, 1000));
             }
         }
