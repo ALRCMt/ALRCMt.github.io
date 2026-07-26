@@ -82,59 +82,121 @@ image: /images/ADHDsp.jpg
 </div>
 
 <script>
-        class ServerStatus {
-            constructor() {
-                this.statusDot1 = document.getElementById('statusDot1');
-                this.statusText1 = document.getElementById('statusText1');
-                this.statusDot2 = document.getElementById('statusDot2');
-                this.statusText2 = document.getElementById('statusText2');
-                this.statusTime = document.getElementById('statusTime');
-                this.checkInterval = 100000;
-                this.init();
-            }
-            
-            init() {
-                this.checkStatus();
-                setInterval(() => this.checkStatus(), this.checkInterval);
-            }
-            
-            updateStatus(dot, textEl, mode, onlineLabel, offlineLabel) {
-                const now = new Date().toLocaleTimeString('zh-CN');
-                dot.className = 'status-dot';
-                if (mode === 'checking') {
-                    dot.classList.add('status-checking');
-                    textEl.textContent = '正在检测...';
-                } else if (mode === 'online') {
-                    dot.classList.add('status-online');
-                    textEl.textContent = onlineLabel;
-                } else {
-                    dot.classList.add('status-offline');
-                    textEl.textContent = offlineLabel;
-                }
-                this.statusTime.textContent = '检测时间: '+ now;
-            }
-            async checkStatus() {
-                this.updateStatus(this.statusDot1, this.statusText1, 'checking');
-                this.updateStatus(this.statusDot2, this.statusText2, 'checking');
-                const url = 'https://w-status.tyyz2415.top/w-cb/p?' + Date.now();
-                
-                try {
-                    const response = await fetch(url, { mode: 'cors', cache: 'no-store' });
-                    const text = await response.text();
-                    const status = text.trim();
+class ServerStatus {
+    constructor() {
+        this.statusDot1 = document.getElementById('statusDot1');
+        this.statusText1 = document.getElementById('statusText1');
+        this.statusDot2 = document.getElementById('statusDot2');
+        this.statusText2 = document.getElementById('statusText2');
+        this.statusTime = document.getElementById('statusTime');
+        this.checkInterval = 60000;
+        this.init();
+    }
 
-                    const serverMode = response.ok && (status === 'pveonline' || status === 'winonline') ? 'online' : 'offline';
-                    this.updateStatus(this.statusDot1, this.statusText1, serverMode, '服务器在线', '服务器离线');
-                    this.updateStatus(this.statusDot2, this.statusText2, 'online', '路由在线', '路由离线');
-                } catch (error) {
-                    this.updateStatus(this.statusDot1, this.statusText1, 'offline', '服务器在线', '服务器离线');
-                    this.updateStatus(this.statusDot2, this.statusText2, 'offline', '路由在线', '路由离线');
-                }
-            }
+    init() {
+        this.checkStatus();
+        setInterval(() => this.checkStatus(), this.checkInterval);
+    }
+
+    updateStatus(dot, textEl, mode, onlineLabel, offlineLabel) {
+        const now = new Date().toLocaleTimeString('zh-CN');
+        dot.className = 'status-dot';
+        if (mode === 'checking') {
+            dot.classList.add('status-checking');
+            textEl.textContent = '正在检测...';
+        } else if (mode === 'online') {
+            dot.classList.add('status-online');
+            textEl.textContent = onlineLabel;
+        } else {
+            dot.classList.add('status-offline');
+            textEl.textContent = offlineLabel;
         }
+        this.statusTime.textContent = '检测时间: ' + now;
+    }
 
-        const server = new ServerStatus();
+    pingWithTimeout(url, timeout) {
+        return new Promise((resolve) => {
+            const ctrl = new AbortController();
+            const timer = setTimeout(() => { ctrl.abort(); resolve({ timedOut: true }); }, timeout);
+            fetch(url, { signal: ctrl.signal, mode: 'cors', cache: 'no-store' })
+                .then(() => { clearTimeout(timer); resolve({ timedOut: false }); })
+                .catch(() => { clearTimeout(timer); resolve({ timedOut: false }); });
+        });
+    }
 
+    async checkStatus() {
+    this.updateStatus(this.statusDot1, this.statusText1, 'checking');
+    this.updateStatus(this.statusDot2, this.statusText2, 'checking');
+
+    const url = 'https://w-status.tyyz2415.top/w-cb/p?t=' + Date.now();
+    const mainAbort = new AbortController();
+    const mainTimeoutId = setTimeout(() => mainAbort.abort(), 15000);
+
+    const mainPromise = fetch(url, { signal: mainAbort.signal, mode: 'cors', cache: 'no-store' })
+        .then(async res => {
+            const text = await res.text();
+            return { ok: res.ok, text: text };
+        })
+        .catch(err => {
+            if (err.name === 'AbortError') return { aborted: true };
+            return { error: true };
+        });
+
+    const pingBase = 'https://w-status.tyyz2415.top?t=' + Date.now() + '_';
+    const pingPromises = [1, 2, 3].map(i => this.pingWithTimeout(pingBase + i, 3000));
+
+    const allPingTimedOut = new Promise((resolve) => {
+        let done = 0, allTimeout = true;
+        pingPromises.forEach(p => {
+            p.then(r => { if (!r.timedOut) allTimeout = false; })
+             .finally(() => { done++; if (done === 3 && allTimeout) resolve(); });
+        });
+    });
+
+    const winner = await Promise.race([mainPromise, allPingTimedOut]);
+    clearTimeout(mainTimeoutId);
+
+    // 全部Ping超时 → CF连接失败
+    if (winner === undefined) {
+        mainAbort.abort();
+        this.statusDot1.className = 'status-dot status-offline';
+        this.statusText1.textContent = 'CF连接失败';
+        this.statusDot2.className = 'status-dot status-offline';
+        this.statusText2.textContent = 'CF连接失败';
+        this.statusTime.textContent = '检测时间: ' + new Date().toLocaleTimeString('zh-CN');
+        return;
+    }
+
+    const result = winner;
+
+    // 主请求15s超时或网络错误 → 全部离线
+    if (result.aborted || result.error) {
+        this.updateStatus(this.statusDot1, this.statusText1, 'offline', '服务器在线', '服务器离线');
+        this.updateStatus(this.statusDot2, this.statusText2, 'offline', '路由在线', '路由离线');
+        this.statusTime.textContent = '检测时间: ' + new Date().toLocaleTimeString('zh-CN');
+        return;
+    }
+
+    // 正常响应：根据内容判断状态
+    const { ok, text } = result;
+    const status = text.trim();
+
+    // 判断是否为错误内容（接口返回 200 但内容是错误信息）
+    const isErrorContent = /^error/i.test(status) || /error code/i.test(status);
+
+    // 路由在线：HTTP 200 且 内容不是错误信息
+    const routeMode = (ok && !isErrorContent) ? 'online' : 'offline';
+    // 服务器在线：HTTP 200 且 内容为 pveonline 或 winonline
+    const serverMode = (ok && (status === 'pveonline' || status === 'winonline')) ? 'online' : 'offline';
+
+    this.updateStatus(this.statusDot1, this.statusText1, serverMode, '服务器在线', '服务器离线');
+    this.updateStatus(this.statusDot2, this.statusText2, routeMode, '路由在线', '路由离线');
+    this.statusTime.textContent = '检测时间: ' + new Date().toLocaleTimeString('zh-CN');
+    }
+}
+
+// 实例化
+const server = new ServerStatus();
 </script>
 
 <hr />
