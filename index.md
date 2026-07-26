@@ -67,7 +67,9 @@ image: /images/ADHDsp.jpg
 
 <b>这里是ALRCMt的个人网站！ :)</b>
 
-<a href="https://github.com/ALRCMt/ALRCMt.github.io" target="_blank"><img src="https://stats.tyyz2415.top/api/pin?username=ALRCMt&repo=ALRCMt.github.io&theme=react&show_owner=true" alt="WEB Card 看不见图片说明你网络垃圾" ></a>
+<a href="https://github.com/ALRCMt/ALRCMt.github.io" target="_blank">
+  <img src="https://stats.tyyz2415.top/api/pin?username=ALRCMt&repo=ALRCMt.github.io&theme=react&show_owner=true" alt="WEB Card 看不见图片说明你网络垃圾">
+</a>
 
 <div class="status-row">
   <div class="status-box">
@@ -80,6 +82,7 @@ image: /images/ADHDsp.jpg
   </div>
   <span id="statusTime" style="vertical-align:middle; color:#999;">检测时间: --:--:--</span>
 </div>
+<div id="relayMsg" style="margin-top:5px; color:#ff6b6b; font-size:15px;"></div>
 
 <script>
 class ServerStatus {
@@ -89,6 +92,7 @@ class ServerStatus {
         this.statusDot2 = document.getElementById('statusDot2');
         this.statusText2 = document.getElementById('statusText2');
         this.statusTime = document.getElementById('statusTime');
+        this.relayMsg = document.getElementById('relayMsg');
         this.checkInterval = 60000;
         this.init();
     }
@@ -125,73 +129,85 @@ class ServerStatus {
     }
 
     async checkStatus() {
-    this.updateStatus(this.statusDot1, this.statusText1, 'checking');
-    this.updateStatus(this.statusDot2, this.statusText2, 'checking');
+        // 每次检测前清空中继提示
+        this.relayMsg.innerHTML = '';
 
-    const url = 'https://w-status.tyyz2415.top/w-cb/p?t=' + Date.now();
-    const mainAbort = new AbortController();
-    const mainTimeoutId = setTimeout(() => mainAbort.abort(), 15000);
+        this.updateStatus(this.statusDot1, this.statusText1, 'checking');
+        this.updateStatus(this.statusDot2, this.statusText2, 'checking');
 
-    const mainPromise = fetch(url, { signal: mainAbort.signal, mode: 'cors', cache: 'no-store' })
-        .then(async res => {
-            const text = await res.text();
-            return { ok: res.ok, text: text };
-        })
-        .catch(err => {
-            if (err.name === 'AbortError') return { aborted: true };
-            return { error: true };
+        const url = 'https://w-status.tyyz2415.top/w-cb/p?t=' + Date.now();
+        const mainAbort = new AbortController();
+        const mainTimeoutId = setTimeout(() => mainAbort.abort(), 15000);
+
+        const mainPromise = fetch(url, { signal: mainAbort.signal, mode: 'cors', cache: 'no-store' })
+            .then(async res => {
+                const text = await res.text();
+                return { ok: res.ok, text: text };
+            })
+            .catch(err => {
+                if (err.name === 'AbortError') return { aborted: true };
+                return { error: true };
+            });
+
+        const pingBase = 'https://w-status.tyyz2415.top?t=' + Date.now() + '_';
+        const pingPromises = [1, 2, 3].map(i => this.pingWithTimeout(pingBase + i, 3500));
+
+        const allPingTimedOut = new Promise((resolve) => {
+            let done = 0, allTimeout = true;
+            pingPromises.forEach(p => {
+                p.then(r => { if (!r.timedOut) allTimeout = false; })
+                 .finally(() => { done++; if (done === 3 && allTimeout) resolve(); });
+            });
         });
 
-    const pingBase = 'https://w-status.tyyz2415.top?t=' + Date.now() + '_';
-    const pingPromises = [1, 2, 3].map(i => this.pingWithTimeout(pingBase + i, 3600));
+        const winner = await Promise.race([mainPromise, allPingTimedOut]);
+        clearTimeout(mainTimeoutId);
 
-    const allPingTimedOut = new Promise((resolve) => {
-        let done = 0, allTimeout = true;
-        pingPromises.forEach(p => {
-            p.then(r => { if (!r.timedOut) allTimeout = false; })
-             .finally(() => { done++; if (done === 3 && allTimeout) resolve(); });
-        });
-    });
+        // 全部Ping超时 → CF连接失败，额外检测 cloudflare.com
+        if (winner === undefined) {
+            mainAbort.abort();
+            this.statusDot1.className = 'status-dot status-offline';
+            this.statusText1.textContent = 'Cloudflare连接失败';
+            this.statusDot2.className = 'status-dot status-offline';
+            this.statusText2.textContent = 'Cloudflare连接失败';
+            this.statusTime.textContent = '检测时间: ' + new Date().toLocaleTimeString('zh-CN');
 
-    const winner = await Promise.race([mainPromise, allPingTimedOut]);
-    clearTimeout(mainTimeoutId);
+            // 检测 cloudflare.com 4次（3.5s超时）
+            const cfPingBase = 'https://cloudflare.com?t=' + Date.now() + '_';
+            const cfPings = [1, 2, 3, 4].map(i => this.pingWithTimeout(cfPingBase + i, 3500));
+            const results = await Promise.all(cfPings);
+            const anySuccess = results.some(r => !r.timedOut);
+            if (anySuccess) {
+                this.relayMsg.innerHTML = 'Cloudflare中继故障，请联系我：<a href="mailto:alrcmt86@outlook.com">alrcmt86@outlook.com</a>';
+            }
+            return;
+        }
 
-    // 全部Ping超时 → CF连接失败
-    if (winner === undefined) {
-        mainAbort.abort();
-        this.statusDot1.className = 'status-dot status-offline';
-        this.statusText1.textContent = 'Cloudflare连接失败';
-        this.statusDot2.className = 'status-dot status-offline';
-        this.statusText2.textContent = 'Cloudflare连接失败';
+        const result = winner;
+
+        // 主请求15s超时或网络错误 → 全部离线
+        if (result.aborted || result.error) {
+            this.updateStatus(this.statusDot1, this.statusText1, 'offline', '服务器在线', '服务器离线');
+            this.updateStatus(this.statusDot2, this.statusText2, 'offline', '路由在线', '路由离线');
+            this.statusTime.textContent = '检测时间: ' + new Date().toLocaleTimeString('zh-CN');
+            return;
+        }
+
+        // 正常响应：根据内容判断状态
+        const { ok, text } = result;
+        const status = text.trim();
+
+        // 判断是否为错误内容（接口返回 200 但内容是错误信息）
+        const isErrorContent = /^error/i.test(status) || /error code/i.test(status);
+
+        // 路由在线：HTTP 200 且 内容不是错误信息
+        const routeMode = (ok && !isErrorContent) ? 'online' : 'offline';
+        // 服务器在线：HTTP 200 且 内容为 pveonline 或 winonline
+        const serverMode = (ok && (status === 'pveonline' || status === 'winonline')) ? 'online' : 'offline';
+
+        this.updateStatus(this.statusDot1, this.statusText1, serverMode, '服务器在线', '服务器离线');
+        this.updateStatus(this.statusDot2, this.statusText2, routeMode, '路由在线', '路由离线');
         this.statusTime.textContent = '检测时间: ' + new Date().toLocaleTimeString('zh-CN');
-        return;
-    }
-
-    const result = winner;
-
-    // 主请求15s超时或网络错误 → 全部离线
-    if (result.aborted || result.error) {
-        this.updateStatus(this.statusDot1, this.statusText1, 'offline', '服务器在线', '服务器离线');
-        this.updateStatus(this.statusDot2, this.statusText2, 'offline', '路由在线', '路由离线');
-        this.statusTime.textContent = '检测时间: ' + new Date().toLocaleTimeString('zh-CN');
-        return;
-    }
-
-    // 正常响应：根据内容判断状态
-    const { ok, text } = result;
-    const status = text.trim();
-
-    // 判断是否为错误内容（接口返回 200 但内容是错误信息）
-    const isErrorContent = /^error/i.test(status) || /error code/i.test(status);
-
-    // 路由在线：HTTP 200 且 内容不是错误信息
-    const routeMode = (ok && !isErrorContent) ? 'online' : 'offline';
-    // 服务器在线：HTTP 200 且 内容为 pveonline 或 winonline
-    const serverMode = (ok && (status === 'pveonline' || status === 'winonline')) ? 'online' : 'offline';
-
-    this.updateStatus(this.statusDot1, this.statusText1, serverMode, '服务器在线', '服务器离线');
-    this.updateStatus(this.statusDot2, this.statusText2, routeMode, '路由在线', '路由离线');
-    this.statusTime.textContent = '检测时间: ' + new Date().toLocaleTimeString('zh-CN');
     }
 }
 
