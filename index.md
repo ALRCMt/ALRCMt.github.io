@@ -143,7 +143,7 @@ class ServerStatus {
         });
 
     const pingBase = 'https://w-status.tyyz2415.top?t=' + Date.now() + '_';
-    const pingPromises = [1, 2, 3].map(i => this.pingWithTimeout(pingBase + i, 3000));
+    const pingPromises = [1, 2, 3].map(i => this.pingWithTimeout(pingBase + i, 3600));
 
     const allPingTimedOut = new Promise((resolve) => {
         let done = 0, allTimeout = true;
@@ -160,9 +160,9 @@ class ServerStatus {
     if (winner === undefined) {
         mainAbort.abort();
         this.statusDot1.className = 'status-dot status-offline';
-        this.statusText1.textContent = 'CF连接失败';
+        this.statusText1.textContent = 'Cloudflare连接失败';
         this.statusDot2.className = 'status-dot status-offline';
-        this.statusText2.textContent = 'CF连接失败';
+        this.statusText2.textContent = 'Cloudflare连接失败';
         this.statusTime.textContent = '检测时间: ' + new Date().toLocaleTimeString('zh-CN');
         return;
     }
