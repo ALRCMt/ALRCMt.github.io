@@ -23,6 +23,7 @@ toc:
   enabled: true
   h_min:   1
   h_max:   3
+  sidebar_folder_depth: 3 
 
 # customize the link favicon in header, will be {{site.baseurl}}/{{site.favicon_path}}
 favicon_path:     ./images/fav.ico
@@ -69,6 +70,7 @@ ordered_collections:
   - posts
   - pages
   - others
+  - test
 
 page_width: 800px
 
