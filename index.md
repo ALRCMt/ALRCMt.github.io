@@ -106,6 +106,7 @@ expanded: true
 - 模型全部走**本地路径**，不依赖远程 API
 - **移动端**（宽度 < 768px）自动不加载
 - Cubism 2 渲染器用本地 `live2d.min.js`，Cubism 5 **走 CDN**
+- **延迟加载**：`autoload.js` 加 `defer` 不阻塞页面解析，初始化逻辑推迟到 `window.load` + 浏览器空闲（`requestIdleCallback`，3 秒超时兜底，老浏览器降级 `setTimeout` 1 秒）后才执行，避免首屏与正文抢带宽
 
 **模型来源：** <https://github.com/fghrsh/live2d_api>
 
