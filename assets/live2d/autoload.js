@@ -10,27 +10,43 @@ const live2d_path = currentScript && currentScript.src
   ? new URL('./', currentScript.src).href
   : '/assets/live2d/';
 
-// Method to encapsulate asynchronous resource loading
-// 封装异步加载资源的方法
-function loadExternalResource(url, type) {
-  return new Promise((resolve, reject) => {
-    let tag;
+// ===== CDN 配置 =====
+// 核心库（live2d.min.js、waifu-tips.js、waifu.css）优先走 jsDelivr CDN，
+// 国内访问比直连 GitHub Pages 快；加载失败自动降级回本地路径。
+// 想完全关闭 CDN 走本地：把 USE_CDN 改为 false
+const USE_CDN = true;
+const live2d_cdn = 'https://cdn.jsdelivr.net/gh/ALRCMt/ALRCMt.github.io@main/assets/live2d/';
+const cdnUrl = (path) => live2d_cdn + path;
 
-    if (type === 'css') {
-      tag = document.createElement('link');
-      tag.rel = 'stylesheet';
-      tag.href = url;
-    }
-    else if (type === 'js') {
-      tag = document.createElement('script');
-      tag.type = 'module';
-      tag.src = url;
-    }
-    if (tag) {
-      tag.onload = () => resolve(url);
-      tag.onerror = () => reject(url);
-      document.head.appendChild(tag);
-    }
+// Method to encapsulate asynchronous resource loading
+// 封装异步加载资源的方法；urls 可以是单个 URL 或 [CDN, 本地] 数组，依次尝试直到成功
+function loadExternalResource(urls, type) {
+  const list = Array.isArray(urls) ? urls : [urls];
+  return new Promise((resolve, reject) => {
+    let next = (i) => {
+      if (i >= list.length) { reject(new Error('all resources failed: ' + list.join(', '))); return; }
+      const url = list[i];
+      let tag;
+
+      if (type === 'css') {
+        tag = document.createElement('link');
+        tag.rel = 'stylesheet';
+        tag.href = url;
+      }
+      else if (type === 'js') {
+        tag = document.createElement('script');
+        tag.type = 'module';
+        tag.src = url;
+      }
+      if (tag) {
+        tag.onload = () => resolve(url);
+        tag.onerror = () => next(i + 1);
+        document.head.appendChild(tag);
+      } else {
+        next(i + 1);
+      }
+    };
+    next(0);
   });
 }
 
@@ -55,10 +71,10 @@ function loadExternalResource(url, type) {
     };
     window.Image.prototype = OriginalImage.prototype;
     // Load waifu.css and waifu-tips.js
-    // 加载 waifu.css 和 waifu-tips.js
+    // 加载 waifu.css 和 waifu-tips.js（CDN 优先，失败降级本地）
     await Promise.all([
-      loadExternalResource(live2d_path + 'waifu.css', 'css'),
-      loadExternalResource(live2d_path + 'waifu-tips.js', 'js')
+      loadExternalResource(USE_CDN ? [cdnUrl('waifu.css'), live2d_path + 'waifu.css'] : live2d_path + 'waifu.css', 'css'),
+      loadExternalResource(USE_CDN ? [cdnUrl('waifu-tips.js'), live2d_path + 'waifu-tips.js'] : live2d_path + 'waifu-tips.js', 'js')
     ]);
 
     if (!localStorage.getItem('modelId')) {
@@ -72,9 +88,11 @@ function loadExternalResource(url, type) {
     // For detailed usage of configuration options, see README.en.md
     // 配置选项的具体用法见 README.md
     initWidget({
+      // UI 数据（提示语/模型列表）走本地，保证界面一定能加载出来；
+      // 模型路径本身在 waifu-tips.json 里已指向 CDN（见下方说明）
       waifuPath: live2d_path + 'waifu-tips.json',
       // cdnPath: 'https://fastly.jsdelivr.net/gh/fghrsh/live2d_api/',
-      cubism2Path: live2d_path + 'live2d.min.js',
+      cubism2Path: USE_CDN ? cdnUrl('live2d.min.js') : live2d_path + 'live2d.min.js',
       cubism5Path: 'https://cubism.live2d.com/sdk-web/cubismcore/live2dcubismcore.min.js',
       tools: ['hitokoto', 'asteroids', 'switch-model', 'switch-texture', 'photo', 'info', 'quit'],
       logLevel: 'warn',
