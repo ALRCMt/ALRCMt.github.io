@@ -1,0 +1,30 @@
+/* 浅色模式（white / sepia / 无主题类）下的代码高亮：复用原 magritte 主题配色，仅作用于浅色主题。
+   注意：白色主题（theme=0）时插件不给 .book 加 color-theme 类，深色模式才有 color-theme-2，
+   所以用 :not(.color-theme-2) 精确匹配浅色；该选择器特异性高于 vscode_dark.css 的全局规则，可正常覆盖 */
+.book:not(.color-theme-2) .highlight { color: #000707; }
+/* 重置 vscode_dark.css 的全局 token 颜色，浅色模式先统一继承基础色 */
+.book:not(.color-theme-2) .highlight span { color: inherit; }
+.book:not(.color-theme-2) .highlight .c, .book:not(.color-theme-2) .highlight .ch, .book:not(.color-theme-2) .highlight .cd, .book:not(.color-theme-2) .highlight .cm, .book:not(.color-theme-2) .highlight .cpf, .book:not(.color-theme-2) .highlight .c1, .book:not(.color-theme-2) .highlight .cs { color: #006c6c; font-weight: bold; }
+.book:not(.color-theme-2) .highlight .cp { color: #920241; font-weight: bold; }
+.book:not(.color-theme-2) .highlight .k, .book:not(.color-theme-2) .highlight .kd, .book:not(.color-theme-2) .highlight .kv { color: #19003a; font-weight: bold; }
+.book:not(.color-theme-2) .highlight .o, .book:not(.color-theme-2) .highlight .ow { color: #4c48fe; font-weight: bold; }
+.book:not(.color-theme-2) .highlight .p, .book:not(.color-theme-2) .highlight .pi { color: #4c48fe; }
+.book:not(.color-theme-2) .highlight .gd { color: #f22700; }
+.book:not(.color-theme-2) .highlight .gi { color: #007500; }
+.book:not(.color-theme-2) .highlight .gs { font-weight: bold; }
+.book:not(.color-theme-2) .highlight .kc, .book:not(.color-theme-2) .highlight .kn, .book:not(.color-theme-2) .highlight .kp, .book:not(.color-theme-2) .highlight .kr { color: #007500; font-weight: bold; }
+.book:not(.color-theme-2) .highlight .gh, .book:not(.color-theme-2) .highlight .gu { color: #007500; font-weight: bold; }
+.book:not(.color-theme-2) .highlight .kt, .book:not(.color-theme-2) .highlight .no, .book:not(.color-theme-2) .highlight .nc, .book:not(.color-theme-2) .highlight .nd, .book:not(.color-theme-2) .highlight .nn, .book:not(.color-theme-2) .highlight .bp, .book:not(.color-theme-2) .highlight .ne { color: #920241; font-weight: bold; }
+.book:not(.color-theme-2) .highlight .nl, .book:not(.color-theme-2) .highlight .nt { color: #840084; font-weight: bold; }
+.book:not(.color-theme-2) .highlight .m, .book:not(.color-theme-2) .highlight .mb, .book:not(.color-theme-2) .highlight .mf, .book:not(.color-theme-2) .highlight .mh, .book:not(.color-theme-2) .highlight .mi, .book:not(.color-theme-2) .highlight .il, .book:not(.color-theme-2) .highlight .mo, .book:not(.color-theme-2) .highlight .mx { color: #007500; font-weight: bold; }
+.book:not(.color-theme-2) .highlight .ld { color: #007500; font-weight: bold; }
+.book:not(.color-theme-2) .highlight .ss { color: #007500; }
+.book:not(.color-theme-2) .highlight .s, .book:not(.color-theme-2) .highlight .sb, .book:not(.color-theme-2) .highlight .dl, .book:not(.color-theme-2) .highlight .sd, .book:not(.color-theme-2) .highlight .s2, .book:not(.color-theme-2) .highlight .sh, .book:not(.color-theme-2) .highlight .sx, .book:not(.color-theme-2) .highlight .sr, .book:not(.color-theme-2) .highlight .s1 { color: #7c0000; font-weight: bold; }
+.book:not(.color-theme-2) .highlight .sa { color: #19003a; font-weight: bold; }
+.book:not(.color-theme-2) .highlight .se, .book:not(.color-theme-2) .highlight .sc, .book:not(.color-theme-2) .highlight .si { color: #840084; font-weight: bold; }
+.book:not(.color-theme-2) .highlight .nb { color: inherit; font-weight: bold; }
+.book:not(.color-theme-2) .highlight .ni { color: #999999; font-weight: bold; }
+.book:not(.color-theme-2) .highlight .w { color: #BBBBBB; }
+.book:not(.color-theme-2) .highlight .go { color: #19003a; }
+.book:not(.color-theme-2) .highlight .err { color: #f3ffff; background-color: #f22700; }
+.book:not(.color-theme-2) .highlight td { padding: 5px; }

@@ -158,6 +158,15 @@
     color: #757575;
 }
 
+/* === VS Code Dark+ 风格代码高亮（背景用主题原本的深色） ===
+   主题 color-theme-2 会给 pre 背景 #282a39、code 背景 #2d3143，
+   两层不一致会导致每行文字背后有一层色块；这里统一 code 背景为透明，
+   让整块代码显示 .highlight 的 #282a39 深色背景。
+   文字/token 颜色由 assets/gitbook/rouge/vscode_dark.css 提供（亮色系，不与深底混淆）。 */
+.book .book-body .page-wrapper .page-inner section.normal .highlight code {
+    background: transparent;
+}
+
 #book-search-input {
     display: block;
 }

@@ -1,0 +1,106 @@
+/* VS Code Dark+ (default dark theme) syntax highlighting for Rouge */
+/* Colors replicated from VS Code's "Dark+ (default dark)" theme */
+/* 背景色不在此设置：由主题（color-theme-N）的 .highlight 规则控制 */
+
+.highlight {
+  color: #d4d4d4;
+}
+.highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+
+/* Comments - VS Code #6a9955 */
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
+  color: #6a9955;
+  font-weight: bold;
+}
+
+/* Keywords - VS Code #569cd6 */
+.highlight .k, .highlight .kd, .highlight .kv, .highlight .kc, .highlight .kp, .highlight .kr, .highlight .kt {
+  color: #569cd6;
+}
+.highlight .kn, .highlight .ow, .highlight .o {
+  color: #569cd6;
+}
+
+/* Control flow keywords - VS Code #c586c0 */
+.highlight .k {
+  color: #c586c0;
+}
+
+/* Strings - VS Code #ce9178 */
+.highlight .s, .highlight .s1, .highlight .s2, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .sh, .highlight .si, .highlight .sx, .highlight .sr, .highlight .ss, .highlight .sa {
+  color: #ce9178;
+}
+
+/* Numbers - VS Code #b5cea8 */
+.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mx {
+  color: #b5cea8;
+}
+
+/* Function names - VS Code #dcdcaa */
+.highlight .nf, .highlight .fm {
+  color: #dcdcaa;
+}
+
+/* Class / type names - VS Code #4ec9b0 */
+.highlight .nc, .highlight .nn, .highlight .nd {
+  color: #4ec9b0;
+}
+
+/* Variables - VS Code #9cdcfe */
+.highlight .nv, .highlight .vc, .highlight .vg, .highlight .vi, .highlight .vm, .highlight .bp, .highlight .nb {
+  color: #9cdcfe;
+}
+
+/* Constants / builtins - VS Code #569cd6 */
+.highlight .no, .highlight .nl, .highlight .ne {
+  color: #569cd6;
+}
+
+/* Tags / attributes - VS Code #569cd6 (tag) #9cdcfe (attr) */
+.highlight .nt {
+  color: #569cd6;
+}
+.highlight .na, .highlight .nb {
+  color: #9cdcfe;
+}
+
+/* Preprocessor / import - VS Code #c586c0 */
+.highlight .cp, .highlight .cpf {
+  color: #c586c0;
+}
+
+/* Punctuation / operators */
+.highlight .p, .highlight .pi {
+  color: #d4d4d4;
+}
+
+/* Escape sequences - VS Code #d7ba7d */
+.highlight .se {
+  color: #d7ba7d;
+}
+
+/* Diff - VS Code diff colors */
+.highlight .gd {
+  color: #f48771;
+  background-color: #5a1d1d;
+}
+.highlight .gi {
+  color: #b5cea8;
+  background-color: #1d5a1d;
+}
+
+/* Line numbers */
+.highlight .lineno, .highlight .gl {
+  color: #858585;
+}
+
+/* Generic */
+.highlight .gh { color: #569cd6; }
+.highlight .gu { color: #4ec9b0; }
+.highlight .go { color: #808080; }
+.highlight .gr, .highlight .gt { color: #f14c4c; }
+.highlight .gs { font-weight: bold; }
+.highlight .ge { font-style: italic; }
+.highlight .gp { color: #858585; }
+.highlight .w { color: #d4d4d4; }

@@ -1,19 +1,6 @@
 <script src="{{ '/assets/image-preview/image-preview.js' | relative_url }}"></script>
 <link rel="stylesheet" href="{{ '/assets/image-preview/image-preview.css' | relative_url }}">
 
-<script>
-  // 检查是否已经存在字体设置
-  if (!localStorage.getItem(':fontState')) {
-    // 如果不存在，则设置为深色模式
-    var defaultState = {
-      size: 2,
-      family: 1,
-      theme: 2
-    };
-    localStorage.setItem(':fontState', JSON.stringify(defaultState));
-  }
-</script>
-
 <script src="{{ '/assets/live2d/autoload.js' | relative_url }}" defer></script>
 
 
@@ -52,6 +39,9 @@
 <link rel="stylesheet" href="{{site.baseurl}}/assets/gitbook/gitbook-plugin-splitter/splitter.css">
 
 <link rel="stylesheet" href="{{site.baseurl}}/assets/gitbook/rouge/{{ site.syntax_highlighter_style | default: 'colorful' }}.css">
+{% if site.syntax_highlighter_style == 'vscode_dark' %}
+    <link rel="stylesheet" href="{{site.baseurl}}/assets/gitbook/rouge/magritte-light.css">
+{% endif %}
 
 <link rel="stylesheet" href="{{site.baseurl}}/assets/gitbook/custom.css">
 <link rel="stylesheet" href="{{site.baseurl}}/assets/gitbook/custom-local.css">
