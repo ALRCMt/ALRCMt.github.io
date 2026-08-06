@@ -123,9 +123,9 @@ expanded: true
 #### **5. 其它小修改**
 
 **深色模式默认：** `_includes/metadata.json.tpl` 中 fontsettings 插件默认 `theme: "night"`，首次访问即深色；用户手动切换后仍存 localStorage 覆盖   
-**语法高亮主题：** `_config.yml` 中设置 `syntax_highlighter_style: vscode_dark`，深色模式配色复刻 VS Code Dark+（注释绿/字符串橙/数字浅绿/关键字蓝/函数黄/类型青），代码注释用粗体非斜体；`_includes/head.html` 额外加载 `assets/gitbook/rouge/magritte-light.css`，浅色模式（White/Sepia）自动回落 magritte 配色（该文件用 `:not(.color-theme-2)` 作用域匹配浅色，因为白色主题时 `.book` 无 color-theme 类）；代码块背景沿用主题深色 `#282a39`，`assets/gitbook/custom.css` 中统一 `code` 背景透明避免每行色块    
+**语法高亮主题：** `_config.yml` 设置 `syntax_highlighter_style: vscode_dark`。深色模式代码配色复刻 VS Code Dark+（注释绿/字符串橙/数字浅绿/关键字蓝/函数黄/类型青），浅色模式（White/Sepia）自动回落原 magritte 浅色配色，注释一律粗体非斜体    
 **本地化 `mermaid.min.js`：** 放在 `/assets/mermaid/`，`_includes/mermaid.html` 中引用本地路径加载，不依赖 CDN   
-**文章导航箭头 + 侧边栏拖拽分隔条：** `assets/gitbook/custom.css`。箭头改 `position: fixed` 钉在视口两侧（宽屏左箭头距侧边栏右缘 30px），`≤1240px` 隐藏；分隔条原样会随侧边栏内容滚动，改 `fixed` 钉住。两者定位都用 CSS 变量 `--summary-width`（由 splitter 拖拽时同步更新），跟随可拖拽的侧边栏宽度。坑：导航必须 `transition: none`，否则主题的过渡动画会把 `left` 锁死
+**文章导航箭头 + 侧边栏拖拽分隔条：** `assets/gitbook/custom.css`。宽屏时文章两侧固定导航箭头（窄屏自动隐藏），侧边栏可拖拽调宽，分隔条始终钉在视口不随内容滚动
 
 **Gemfile 改变的插件：**
 
