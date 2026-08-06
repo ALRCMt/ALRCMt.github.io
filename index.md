@@ -103,7 +103,7 @@ expanded: true
 直接把 <https://github.com/stevenjoezhang/live2d-widget> 整个项目下载到 `/assets/live2d/` 下面，然后在 `_includes/head.html` 里加载 `autoload.js`
 
 **实现特点：**
-- 模型全部走**本地路径**，不依赖远程 API
+- 模型全部走 **jsDelivr CDN**（`https://cdn.jsdelivr.net/gh/ALRCMt/ALRCMt.github.io@main/assets/live2d/`），`autoload.js` 顶部 `USE_CDN` 开关控制，CDN 失败自动降级本地路径（`loadExternalResource` 逐段回退）
 - **移动端**（宽度 < 768px）自动不加载
 - Cubism 2 渲染器用本地 `live2d.min.js`，Cubism 5 **走 CDN**
 - **延迟加载**：`autoload.js` 加 `defer` 不阻塞页面解析，初始化逻辑推迟到 `window.load` + 浏览器空闲（`requestIdleCallback`，3 秒超时兜底，老浏览器降级 `setTimeout` 1 秒）后才执行，避免首屏与正文抢带宽
@@ -124,7 +124,8 @@ expanded: true
 
 **深色模式默认：** `_includes/head.html` 中通过 `localStorage` 在首次访问时默认设置暗色主题   
 **语法高亮主题：** `_config.yml` 中设置 `syntax_highlighter_style: magritte`，自定义代码块配色    
-**本地化 `mermaid.min.js`：** 放在 `/assets/mermaid/`，`_includes/mermaid.html` 中引用本地路径加载，不依赖 CDN
+**本地化 `mermaid.min.js`：** 放在 `/assets/mermaid/`，`_includes/mermaid.html` 中引用本地路径加载，不依赖 CDN   
+**文章导航箭头 + 侧边栏拖拽分隔条：** `assets/gitbook/custom.css`。箭头改 `position: fixed` 钉在视口两侧（宽屏左箭头距侧边栏右缘 30px），`≤1240px` 隐藏；分隔条原样会随侧边栏内容滚动，改 `fixed` 钉住。两者定位都用 CSS 变量 `--summary-width`（由 splitter 拖拽时同步更新），跟随可拖拽的侧边栏宽度。坑：导航必须 `transition: none`，否则主题的过渡动画会把 `left` 锁死
 
 **Gemfile 改变的插件：**
 

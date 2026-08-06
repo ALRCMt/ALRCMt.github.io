@@ -12,7 +12,7 @@
 
 .book.with-summary .book-body .book-header {
     position: fixed;
-    width: calc(100% - 300px);
+    width: calc(100% - var(--summary-width, 300px));
 }
 
 .book-body .body-inner {
@@ -33,14 +33,55 @@
     min-height: calc(100% - 46px);
 }
 
+/* 上一篇/下一篇箭头：主题在所有宽度下都跟随内容滚动（宽屏 absolute 相对滚动容器、窄屏 static），
+   这里统一用 fixed 钉在可视区两侧。
+   fixed 是相对视口定位，需要补偿侧边栏宽度（with-summary 时内容区从侧边栏右侧开始，
+   宽度由 --summary-width 变量控制，默认 300px，可被 gitbook-plugin-splitter 拖拽改变）。
+   注意：必须禁用 transition！主题的 .navigation{transition:all 350ms} 会因 JS 反复
+   重置 left 而产生永不停歇的过渡动画，把 left 锁死在过渡起点，导致定位失效 */
+.book-body .body-inner .navigation {
+    position: fixed;
+    top: 50px;
+    bottom: 0;
+    z-index: 1;
+    transition: none;
+}
+
+.book.with-summary .book-body .body-inner .navigation-prev {
+    /* 再往右让出 30px，避免箭头贴着侧边栏右缘容易误触 */
+    left: calc(var(--summary-width, 300px) + 30px);
+}
+
+.book.without-summary .book-body .body-inner .navigation-prev {
+    left: 0;
+}
+
+/* 侧边栏拖拽分隔条：主题原样是 .book-summary 内的 absolute（top:0; right:0），
+   .book-summary 本身是滚动容器（overflow-y:auto），侧边栏内容一滚动分隔条就跟着滚走了。
+   改成 fixed 钉在视口、left 跟随 --summary-width 变量（可拖拽变宽），并随内容高度铺满视口。
+   注意：必须禁用 transition（主题给的是 color 350ms，无碍），z-index 需高于滚动内容 */
+.divider-content-summary {
+    position: fixed !important;
+    top: 0 !important;
+    right: auto !important;
+    left: calc(var(--summary-width, 300px) - 5px) !important;
+    height: 100vh !important;
+    z-index: 10;
+}
+
+/* 侧边栏折叠时分隔条随侧边栏一起隐藏 */
+.book.without-summary .divider-content-summary {
+    display: none !important;
+}
+
 .book-body .body-inner .page-wrapper .page-inner {
     padding-bottom: 20px;
 }
 
 @media (max-width: 1240px) {
+    /* 窄屏直接隐藏上一页/下一页箭头，避免遮挡正文 */
     .book-body .body-inner .navigation {
-        max-width: calc(50% - 3px);
-        width: calc(50% - 3px);
+        display: none;
     }
 
     .book.with-summary .book-body .book-header {
@@ -67,7 +108,7 @@
 
 .back-to-top {
     bottom: 380px;
-    right: calc((100% - 300px - min(100% - 300px, {{ site.page_width | default: '800px' }})) / 2 - 130px);
+    right: calc((100% - var(--summary-width, 300px) - min(100% - var(--summary-width, 300px), {{ site.page_width | default: '800px' }})) / 2 - 130px);
 }
 
 /* scrollbar */

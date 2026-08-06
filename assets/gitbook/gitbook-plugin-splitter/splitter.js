@@ -94,6 +94,7 @@ require(['gitbook', 'jQuery'], function (gitbook, $) {
 			event.preventDefault();
 			$summary.outerWidth(event.pageX + grabPointWidth);
 			$bookBody.offset({ left: event.pageX + grabPointWidth });
+			updateSummaryWidthVar();
 		});
 
 		function getSplitState() {
@@ -122,6 +123,15 @@ require(['gitbook', 'jQuery'], function (gitbook, $) {
 			//   but it cause layout broken..
 			$summary.css({ position: 'absolute' });
 			$bookBody.css({ position: 'absolute' });
+			updateSummaryWidthVar();
+		}
+
+		// 同步侧边栏实际宽度到 CSS 变量 --summary-width，
+		// 供 custom.css 里 navigation 箭头、book-header、back-to-top 等定位使用
+		// （这些位置默认按 300px 写死，侧边栏可拖拽变宽后必须跟随实际宽度）
+		function updateSummaryWidthVar() {
+			var w = $summary.outerWidth() || 300;
+			document.documentElement.style.setProperty('--summary-width', w + 'px');
 		}
 	});
 });
