@@ -48,6 +48,10 @@ Ubuntu Server 官方文档的安装指引：[https://ubuntu.com/server/docs/inst
 
 在 PVE 中找到 Ubuntu 的虚拟机，并进入 Console 界面，多按动几次回车键，如果看到类似的提示，则输入你安装时设置的用户名和密码。如果登录成功则说明系统正常运行了
 
-![](https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2409.png)
+<figure class="image-preview">
+  <a href="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2409.png" class="preview-link">
+    <img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2409.png" alt="" width="600px">
+  </a>
+</figure>
 
 <hr />

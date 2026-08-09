@@ -32,19 +32,35 @@ TrueNAS SCALE 的下载页面： [https://www.truenas.com/download-truenas-commu
 
 通用信息配置中勾选右下角的 Advanced，并把这个虚拟机设置为开机自启动，然后设置启动顺序为 1，等待时间 60(秒)，需要注意的是这里的等待时间指的是这台虚拟机开机后等待下一台虚拟机开机的时间，而不是他与上一台虚拟机开机的等待时间。**设置合理的启动顺序和等待时间非常重要**，否则会影响上层服务的存储池挂载
 
-<img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2400.png" alt="" width="600px"/>
+<figure class="image-preview">
+  <a href="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2400.png" class="preview-link">
+    <img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2400.png" alt="" width="600px">
+  </a>
+</figure>
 
 操作系统配置页面选择你上传的 TrueNAS IOS 镜像，并设置操作系统类型为 Other
 
-<img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2401.png" alt="" width="600px"/>
+<figure class="image-preview">
+  <a href="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2401.png" class="preview-link">
+    <img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2401.png" alt="" width="600px">
+  </a>
+</figure>
 
 系统配置页面我的配置如下：
 
-<img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2402.png" alt="" width="600px"/>
+<figure class="image-preview">
+  <a href="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2402.png" class="preview-link">
+    <img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2402.png" alt="" width="600px">
+  </a>
+</figure>
 
 系统磁盘空间我分配了 32G，其他配置项没有需要修改的地方
 
-<img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2403.png" alt="" width="600px"/>
+<figure class="image-preview">
+  <a href="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2403.png" class="preview-link">
+    <img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2403.png" alt="" width="600px">
+  </a>
+</figure>
 
 CPU 分配了 2 核，另外 CPU 类型选择了 host，在单机情况下这样设置可以获得最小性能损耗
 
@@ -52,17 +68,29 @@ CPU 分配了 2 核，另外 CPU 类型选择了 host，在单机情况下这样
 > _查看 CPU 多核类别的方法是使用`lscpu -e`命令，可以看到 E 核的 MAXMHZ 会低于 P 核_  
 > _（这里我并没有这么配置，所以我不太清楚具体配置）_
 
-<img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2405.png" alt="" width="600px"/>
+<figure class="image-preview">
+  <a href="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2405.png" class="preview-link">
+    <img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2405.png" alt="" width="600px">
+  </a>
+</figure>
 
 内存方面由于 TrueNAS 推荐使用 16G 以上内存空间，但是我总共只有 16G 内存，所以分配了 8G，可以正常使用
 
-<img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2404.png" alt="" width="600px"/>
+<figure class="image-preview">
+  <a href="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2404.png" class="preview-link">
+    <img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2404.png" alt="" width="600px">
+  </a>
+</figure>
 
 网络方面我暂时修改默认配置，以后应该可以将网络类型换成 VirtlIO 以提升性能
 
 进入到确认页面后点击创建就可以了
 
-<img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2406.png" alt="" width="600px"/>
+<figure class="image-preview">
+  <a href="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2406.png" class="preview-link">
+    <img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2406.png" alt="" width="600px">
+  </a>
+</figure>
 
 虚拟机创建成功后，打开他的 console 应该就可以看到安装提示了。
 
@@ -78,7 +106,11 @@ CPU 分配了 2 核，另外 CPU 类型选择了 host，在单机情况下这样
 
 TrueNAS 安装成功后在局域网中使用浏览器打开提示中的地址应该就可以看到 TrueNAS 的 Web 页面了
 
-![](https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2407.png)
+<figure class="image-preview">
+  <a href="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2407.png" class="preview-link">
+    <img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2407.png" alt="" width="600px">
+  </a>
+</figure>
 
 默认用户名是 truenas_admin，密码是在安装时设置
 

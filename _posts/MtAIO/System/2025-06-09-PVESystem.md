@@ -39,7 +39,11 @@ Etcher 下载地址：[https://pve.proxmox.com/pve-docs/pve-admin-guide.html#ins
 
 PVE 安装完成后，首先在你的物理机屏幕上会显示出服务的 IP 地址（大概类似https://192.168.X.XXX:8006），注意是 https 协议，在局域网下打开这个地址，你就可以看到 PVE 的 WEB 控制台了
 
-![](https://raw.githubusercontent.com/ALRCMt/MtAIO-Build/main/images/2408.png)
+<figure class="image-preview">
+  <a href="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2408.png" class="preview-link">
+    <img src="https://github.com/ALRCMt/MtAIO-Build/raw/main/images/2408.png" alt="" width="600px">
+  </a>
+</figure>
 
 默认用户是 root，密码是你安装时设置的，语言设置为中文
 

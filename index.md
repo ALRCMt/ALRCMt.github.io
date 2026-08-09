@@ -125,6 +125,7 @@ expanded: true
 **深色模式默认：** `_includes/metadata.json.tpl` 中 fontsettings 插件默认 `theme: "night"`，首次访问即深色；用户手动切换后仍存 localStorage 覆盖   
 **语法高亮主题：** `_config.yml` 设置 `syntax_highlighter_style: vscode_dark`。深色模式代码配色复刻 VS Code Dark+（注释绿/字符串橙/数字浅绿/关键字蓝/函数黄/类型青），浅色模式（White/Sepia）自动回落原 magritte 浅色配色，注释一律粗体非斜体    
 **本地化 `mermaid.min.js`：** 放在 `/assets/mermaid/`，`_includes/mermaid.html` 中引用本地路径加载，不依赖 CDN   
+**站内图片 CDN 加速：** `assets/gitbook/image-cdn.js`（`_includes/head.html` 引用）。`/images/posts/` 和 MtAIO-Build 仓库 raw 图片（两种链接形式）自动走 jsDelivr CDN，失败自动降级回原始地址，`USE_CDN` 开关可关   
 **文章导航箭头 + 侧边栏拖拽分隔条：** `assets/gitbook/custom.css`。宽屏时文章两侧固定导航箭头（窄屏自动隐藏），侧边栏可拖拽调宽，分隔条始终钉在视口不随内容滚动
 
 **Gemfile 改变的插件：**
