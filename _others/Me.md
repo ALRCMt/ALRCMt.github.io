@@ -255,7 +255,11 @@ const server = new ServerStatus();
 
 
 > <i>感谢开源镜像站，直连境外源多么折磨人都知道</i>   
-<img src="https://raw.githubusercontent.com/ALRCMt/MtAIO-Build/cb99109050678a8dc9f7933bb70bc5681e4f1084/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-16%20161707.png" width="260px"> 
+<figure class="image-preview">
+  <a href="https://raw.githubusercontent.com/ALRCMt/MtAIO-Build/cb99109050678a8dc9f7933bb70bc5681e4f1084/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-16%20161707.png" class="preview-link">
+    <img src="https://raw.githubusercontent.com/ALRCMt/MtAIO-Build/cb99109050678a8dc9f7933bb70bc5681e4f1084/photo/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-08-16%20161707.png" alt="" width="260px">
+  </a>
+</figure>
 
 
 不曾熟练掌握任何计算机语言，基于 **AI 提示词编程**（   
